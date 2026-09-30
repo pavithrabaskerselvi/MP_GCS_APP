@@ -1,0 +1,9 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  7zip -> E:\MP_GCS\CDAMissionPlanner183\ExtLibs\7zip\bin\Debug\netstandard2.0\7zip.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.33

@@ -1,0 +1,112 @@
+  Determining projects to restore...
+C:\Program Files\dotnet\sdk\9.0.318\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net7.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MockDroneID\MockDroneID.csproj]
+C:\Program Files\dotnet\sdk\9.0.318\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'netcoreapp3.1' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj]
+C:\Program Files\dotnet\sdk\9.0.318\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'netcoreapp3.1' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [E:\MP_GCS\CDAMissionPlanner183\ExtLibs\px4uploader\px4uploader.csproj::TargetFramework=netcoreapp3.1]
+C:\Program Files\dotnet\sdk\9.0.318\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'netcoreapp3.1' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Ntrip\Ntrip.csproj::TargetFramework=netcoreapp3.1]
+C:\Program Files\dotnet\sdk\9.0.318\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.EolTargetFrameworks.targets(32,5): warning NETSDK1138: The target framework 'net6.0' is out of support and will not receive security updates in the future. Please refer to https://aka.ms/dotnet-core-support for more information about the support policy. [E:\MP_GCS\CDAMissionPlanner183\ExtLibs\NMEA2000\NMEA2000.csproj::TargetFramework=net6.0]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\7zip\7zip.csproj (in 611 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\DriverCleanup\DriverCleanup.csproj (in 614 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\DroneCAN\DroneCAN.csproj (in 620 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SharpAdbClient\SharpAdbClient.csproj (in 637 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\DirectShowLib\DirectShowLib.csproj (in 31 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Core\Core.csproj (in 30 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\BSE.Windows.Forms\BSE.Windows.Forms.csproj (in 724 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ProjNet\ProjNET.csproj (in 61 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\OSDConfigurator\OSDConfigurator.csproj (in 87 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Comms\MissionPlanner.Comms.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Controls\MissionPlanner.Controls.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Controls\MissionPlanner.Controls.csproj : warning NU1903: Package 'SkiaSharp' 2.80.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ParameterMetaDataGenerator\ParameterMetaDataGenerator.csproj (in 336 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Flasher\Flasher.csproj (in 1.13 sec).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ExtGuided\ExtGuided.csproj (in 1.13 sec).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Comms\MissionPlanner.Comms.csproj (in 603 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Onvif\Onvif.csproj (in 408 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Controls\MissionPlanner.Controls.csproj (in 675 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\px4uploader\px4uploader.csproj (in 718 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\netDxf\netDxf.csproj (in 266 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MavlinkMessagePlugin\MavlinkMessagePlugin.csproj (in 124 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\LibVLC.NET\LibVLC.NET.csproj (in 54 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Ntrip\Ntrip.csproj (in 388 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Maps\MissionPlanner.Maps.csproj (in 174 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\LEDBulb\Bulb\Bulb.csproj (in 35 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ManagedNativeWifi.Simple\ManagedNativeWifi.Simple.csproj (in 211 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\KMLib\KMLib.csproj (in 33 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\System.Drawing.android\System.Drawing.android.csproj (in 52 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\LibTessDotNet\LibTessDotNet.csproj (in 188 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Strings\MissionPlanner.Strings.csproj (in 53 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SvgNet\SvgNet.csproj : warning NU1903: Package 'SkiaSharp' 2.80.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SvgNet\SvgNet.csproj (in 113 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SharpKml\SharpKml.csproj : warning NU1903: Package 'DotNetZip' 1.16.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-xhg6-9j5j-w4vf [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\tlogThumbnailHandler\tlogThumbnailHandler.csproj (in 134 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SharpKml\SharpKml.csproj (in 62 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\solo\solo.csproj : warning NU1903: Package 'SSH.NET' 2020.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\solo\solo.csproj : warning NU1903: Package 'SSH.NET' 2020.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284 [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\NMEA2000\NMEA2000.csproj (in 648 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\md5sum\md5sum.csproj (in 44 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\SimpleGrid\MissionPlanner.SimpleGrid.csproj (in 133 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\solo\solo.csproj (in 200 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mavlink\MAVLink.csproj (in 31 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Installer\Installer.csproj (in 52 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ICSharpCode.SharpZipLib\ICSharpCode.SharpZipLib.csproj (in 66 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\HIL\MissionPlanner.HIL.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\TestPlugin\TestPlugin.csproj (in 407 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Interfaces\Interfaces.csproj (in 154 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj (in 66 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\HIL\MissionPlanner.HIL.csproj (in 92 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\mono\mcs\class\System.Windows.Forms\System.Windows.Forms-net_4_x.csproj (in 2.16 sec).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\mono\mcs\class\System.Runtime.Serialization.Formatters.Soap\System.Runtime.Serialization.Formatters.Soap-net_4_x.csproj (in 289 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\mono\mcs\class\Accessibility\Accessibility-net_4_x.csproj (in 285 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GMap.NET.Core\GMap.NET.Core.csproj (in 36 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GDAL\GDAL.NET.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ArduPilot\MissionPlanner.ArduPilot.csproj : warning NU1902: Package 'SharpCompress' 0.29.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6c8g-7p36-r338 [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GDAL\GDAL.NET.csproj (in 70 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Arduino\Arduino.csproj (in 87 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GMap.NET.Drawing\GMap.NET.Drawing.csproj (in 215 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ArduPilot\MissionPlanner.ArduPilot.csproj (in 122 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\GeoUtility\GeoUtility.csproj (in 227 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\AviFile\AviFile.csproj (in 218 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Antenna\MissionPlanner.Antenna.csproj (in 92 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\alglibnet\alglibnet.csproj (in 82 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\BaseClasses\BaseClasses.csproj (in 314 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MockDroneID\MockDroneID.csproj (in 62 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MissionPlanner.Drawing.Common\MissionPlanner.Drawing.Common.csproj (in 56 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj : warning NU1903: Package 'SkiaSharp' 2.80.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\AltitudeAngelWings\AltitudeAngelWings.csproj (in 274 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MetaDataExtractorCSharp240d\MetaDataExtractor.csproj (in 88 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MissionPlanner.Drawing\MissionPlanner.Drawing.csproj (in 116 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\wix\wix.csproj (in 54 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MissionPlanner.Stats\MissionPlanner.Stats.csproj (in 215 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\MissionPlanner.Gridv2\MissionPlanner.Gridv2.csproj (in 189 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\AltitudeAngelWings.Plugin\AltitudeAngelWings.Plugin.csproj (in 296 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'GDAL.Native 2.3.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'GeoidHeightsDotNet 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\ZedGraph\ZedGraph.csproj (in 47 ms).
+E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.csproj : warning NU1903: Package 'DotNetZip' 1.16.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-xhg6-9j5j-w4vf [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.csproj : warning NU1903: Package 'SSH.NET' 2020.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-mggc-4xg6-vcxf [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.csproj : warning NU1903: Package 'SSH.NET' 2020.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-q939-rpr3-3284 [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\Plugins\OpenDroneID2\OpenDroneID_Plugin.csproj (in 143 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\Plugins\TerrainMakerPlugin\TerrainMakerPlugin.csproj (in 193 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Zeroconf\Zeroconf\Zeroconf.csproj (in 134 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Xamarin.Forms.Platform.WinForms\Xamarin.Forms.Platform.WinForms.csproj (in 35 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\Plugins\Shortcuts\Shortcuts.csproj (in 229 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\WebCamService\WebCamService.csproj (in 30 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\Plugins\FaceMap\FaceMap.csproj (in 158 ms).
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'OpenTK 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'OpenTK.GLControl 3.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'SkiaSharp.Views 2.80.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'Unofficial.ObjectListView 2.6.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj : warning NU1701: Package 'zlib.net 1.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1903: Package 'DotNetZip' 1.16.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-xhg6-9j5j-w4vf [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1902: Package 'log4net' 2.0.13 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-4f7c-pmjv-c25w [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1902: Package 'SharpCompress' 0.29.0 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-6c8g-7p36-r338 [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1903: Package 'SixLabors.ImageSharp' 2.1.9 has a known high severity vulnerability, https://github.com/advisories/GHSA-2cmq-823j-5qj8 [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1902: Package 'SixLabors.ImageSharp' 2.1.9 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-rxmq-m78w-7wmc [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj : warning NU1903: Package 'SkiaSharp' 2.80.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-j7hp-h8jx-5ppr [E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.sln]
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Mock\Mock.csproj (in 729 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\TrackerHome\TrackerHomeGPS.csproj (in 125 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\WebAPIs\MissionPlanner.WebAPIs.csproj (in 176 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Transitions\Transitions.csproj (in 110 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\Utilities\MissionPlanner.Utilities.csproj (in 189 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\MissionPlanner.csproj (in 396 ms).
+  Restored E:\MP_GCS\CDAMissionPlanner183\ExtLibs\UAVCANFlasher\DroneCANFlasher.csproj (in 320 ms).
