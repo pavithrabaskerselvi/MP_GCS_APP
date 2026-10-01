@@ -70,7 +70,7 @@ namespace MissionPlanner
         public static string[] args = new string[] { };
         public static Bitmap SplashBG = null;
 
-        public static string[] names = new string[] {"VVVVZ"};
+        public static string[] names = new string[] { "VVVVZ" };
         public static bool MONO = false;
 
         static Program()
@@ -141,8 +141,8 @@ namespace MissionPlanner
 
 
             Console.WriteLine("PlacesRecentDocuments Dir " + Environment.GetFolderPath(Environment.SpecialFolder.Recent));
-            Console.WriteLine("PlacesDesktop Dir " +  Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
-            Console.WriteLine("PlacesPersonal Dir " +  Environment.GetFolderPath(Environment.SpecialFolder.Personal));
+            Console.WriteLine("PlacesDesktop Dir " + Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory));
+            Console.WriteLine("PlacesPersonal Dir " + Environment.GetFolderPath(Environment.SpecialFolder.Personal));
             Console.WriteLine("PlacesMyComputer Dir " + Environment.GetFolderPath(Environment.SpecialFolder.MyComputer));
 
             var t = Type.GetType("Mono.Runtime");
@@ -264,6 +264,14 @@ namespace MissionPlanner
                 log.Error(ex);
             }
 
+            // ===== CDA LOGIN (Firebase) - runs before Splash =====
+            using (var login = new LoginForm())
+            {
+                if (login.ShowDialog() != DialogResult.OK)
+                    return;
+            }
+            // =====================================================
+
             Splash = new MissionPlanner.Splash();
             if (SplashBG != null)
             {
@@ -273,7 +281,7 @@ namespace MissionPlanner
 
             Console.WriteLine("IconFile");
             if (IconFile != null)
-                Splash.Icon = Icon.FromHandle(((Bitmap) IconFile).GetHicon());
+                Splash.Icon = Icon.FromHandle(((Bitmap)IconFile).GetHicon());
 
             string strVersion = File.Exists("version.txt")
                 ? File.ReadAllText("version.txt")
@@ -293,8 +301,8 @@ namespace MissionPlanner
 
             CustomMessageBox.ShowEvent += (text, caption, buttons, icon, yestext, notext) =>
             {
-                return (CustomMessageBox.DialogResult) (int) MsgBox.CustomMessageBox.Show(text, caption,
-                    (MessageBoxButtons) (int) buttons, (MessageBoxIcon) (int) icon, yestext, notext);
+                return (CustomMessageBox.DialogResult)(int)MsgBox.CustomMessageBox.Show(text, caption,
+                    (MessageBoxButtons)(int)buttons, (MessageBoxIcon)(int)icon, yestext, notext);
             };
 
             // setup theme provider
@@ -344,10 +352,10 @@ namespace MissionPlanner
             GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Slopezone.Instance);
             GMap.NET.MapProviders.GMapProviders.List.Add(Maps.Japan_Sea.Instance);
 
-            if(Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Desktop || Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Unknown)
+            if (Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Desktop || Xamarin.Essentials.DeviceInfo.Idiom == Xamarin.Essentials.DeviceIdiom.Unknown)
                 ZedGraph.PaneBase.Default.IsFontsScaled = false;
 
-            if(Xamarin.Essentials.DeviceInfo.Platform != Xamarin.Essentials.DevicePlatform.Unknown)
+            if (Xamarin.Essentials.DeviceInfo.Platform != Xamarin.Essentials.DevicePlatform.Unknown)
                 log.Info(typeof(Xamarin.Essentials.DeviceInfo).ToJSON());
 
             Console.WriteLine("Setup GoogleMapProvider API");
@@ -394,7 +402,7 @@ namespace MissionPlanner
             // generic status report screen
             MAVLinkInterface.CreateIProgressReporterDialogue += title =>
             {
-                var ret = new ProgressReporterDialogue() {StartPosition = FormStartPosition.CenterScreen, Text = title};
+                var ret = new ProgressReporterDialogue() { StartPosition = FormStartPosition.CenterScreen, Text = title };
                 ThemeManager.ApplyThemeTo(ret);
                 return ret;
             };
@@ -680,7 +688,7 @@ namespace MissionPlanner
 
             }
 
-            handleException((Exception) e.ExceptionObject);
+            handleException((Exception)e.ExceptionObject);
         }
 
         static string GetStackTrace(Exception e)
@@ -756,14 +764,14 @@ namespace MissionPlanner
             }
 
             if (ex.GetType() == typeof(ObjectDisposedException) || ex.GetType() == typeof(InvalidOperationException))
-                // something is trying to update while the form, is closing.
+            // something is trying to update while the form, is closing.
             {
                 log.Error(ex);
                 return; // ignore
             }
 
             if (ex.GetType() == typeof(FileNotFoundException) || ex.GetType() == typeof(BadImageFormatException))
-                // i get alot of error from people who click the exe from inside a zip file.
+            // i get alot of error from people who click the exe from inside a zip file.
             {
                 CustomMessageBox.Show(
                     "You are missing some DLL's. Please extract the zip file somewhere. OR Use the update feature from the menu " +
@@ -784,7 +792,7 @@ namespace MissionPlanner
             var dr =
                 CustomMessageBox.Show("An error has occurred\n" + ex.ToString() + "\n\nReport this Error???",
                     "Send Error", MessageBoxButtons.YesNo);
-            if ((int) DialogResult.Yes == dr)
+            if ((int)DialogResult.Yes == dr)
             {
                 try
                 {
