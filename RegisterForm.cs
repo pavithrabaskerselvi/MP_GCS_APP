@@ -4,93 +4,51 @@ using System.Windows.Forms;
 
 namespace MissionPlanner
 {
-    public class RegisterForm : Form
+    public class RegisterForm : CdaThemedForm
     {
-        TextBox txtEmail, txtPass, txtConfirm;
-        Button btnRegister;
+        CdaInputBox txtEmail, txtPass, txtConfirm;
+        CdaRoundButton btnRegister;
         Label lblMsg;
 
-        public string Email { get { return txtEmail.Text.Trim(); } }
+        public string Email { get { return txtEmail.Value.Trim(); } }
 
-        public RegisterForm()
+        public RegisterForm() : base(600, false)
         {
-            Text = "CHENNAIDRONEACADEMY - Register";
-            ClientSize = new Size(380, 470);
-            FormBorderStyle = FormBorderStyle.FixedDialog;
-            MaximizeBox = false;
-            MinimizeBox = false;
-            StartPosition = FormStartPosition.CenterParent;
-            BackColor = Color.FromArgb(14, 26, 54);
-            try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+            AddHeader();
+            AddTabs(false, BackToLogin);
 
-            Controls.Add(new Label
-            {
-                Text = "Create Account",
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 15, FontStyle.Bold),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Bounds = new Rectangle(0, 30, 380, 40)
-            });
+            txtEmail = AddField("Email Address", "you@example.com", false, 196);
+            txtPass = AddField("Password (min 6 characters)", "Create a password", true, 276);
+            txtConfirm = AddField("Confirm Password", "Re-enter your password", true, 356);
 
-            Controls.Add(MakeLabel("Email", 90));
-            txtEmail = new TextBox { Bounds = new Rectangle(40, 112, 300, 28), Font = new Font("Segoe UI", 11) };
-            Controls.Add(txtEmail);
+            lblMsg = MakeLabel(Card, "", 30, 430, 340, 36, 9.5f, FontStyle.Regular,
+                CdaTheme.Error, ContentAlignment.MiddleCenter);
 
-            Controls.Add(MakeLabel("Password (min 6 characters)", 155));
-            txtPass = new TextBox { Bounds = new Rectangle(40, 177, 300, 28), Font = new Font("Segoe UI", 11), UseSystemPasswordChar = true };
-            Controls.Add(txtPass);
-
-            Controls.Add(MakeLabel("Confirm password", 220));
-            txtConfirm = new TextBox { Bounds = new Rectangle(40, 242, 300, 28), Font = new Font("Segoe UI", 11), UseSystemPasswordChar = true };
-            Controls.Add(txtConfirm);
-
-            lblMsg = new Label
-            {
-                ForeColor = Color.Salmon,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Bounds = new Rectangle(20, 280, 340, 40)
-            };
-            Controls.Add(lblMsg);
-
-            btnRegister = new Button
-            {
-                Text = "REGISTER",
-                Bounds = new Rectangle(40, 335, 300, 42),
-                BackColor = Color.FromArgb(0, 90, 255),
-                ForeColor = Color.White,
-                FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 11, FontStyle.Bold)
-            };
-            btnRegister.FlatAppearance.BorderSize = 0;
+            btnRegister = new CdaRoundButton { Text = "Register", Bounds = new Rectangle(30, 474, 340, 46) };
             btnRegister.Click += DoRegister;
-            Controls.Add(btnRegister);
+            Card.Controls.Add(btnRegister);
             AcceptButton = btnRegister;
 
-            var back = new LinkLabel
-            {
-                Text = "Back to login",
-                LinkColor = Color.FromArgb(120, 170, 255),
-                TextAlign = ContentAlignment.MiddleCenter,
-                Bounds = new Rectangle(40, 395, 300, 24)
-            };
-            back.LinkClicked += (s, e) => { DialogResult = DialogResult.Cancel; Close(); };
-            Controls.Add(back);
+            AddFooterLink("Already have an account? Login", 25, 5, 540, BackToLogin);
+
+            Shown += (s, e) => { Activate(); txtEmail.Inner.Focus(); };
         }
 
-        Label MakeLabel(string text, int y)
+        void BackToLogin()
         {
-            return new Label { Text = text, ForeColor = Color.White, Bounds = new Rectangle(40, y, 300, 20) };
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         async void DoRegister(object sender, EventArgs e)
         {
             lblMsg.Text = "";
-            if (Email == "" || txtPass.Text == "")
+            if (Email == "" || txtPass.Value == "")
             {
                 lblMsg.Text = "Enter email and password";
                 return;
             }
-            if (txtPass.Text != txtConfirm.Text)
+            if (txtPass.Value != txtConfirm.Value)
             {
                 lblMsg.Text = "Passwords do not match";
                 return;
@@ -98,13 +56,12 @@ namespace MissionPlanner
 
             btnRegister.Enabled = false;
             btnRegister.Text = "Please wait...";
-            var err = await AuthService.SignUp(Email, txtPass.Text);
+            var err = await AuthService.SignUp(Email, txtPass.Value);
             btnRegister.Enabled = true;
-            btnRegister.Text = "REGISTER";
+            btnRegister.Text = "Register";
 
             if (err == null)
             {
-                // force a normal login after registering
                 AuthService.UserEmail = null;
                 AuthService.IdToken = null;
                 DialogResult = DialogResult.OK;

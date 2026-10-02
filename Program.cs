@@ -264,15 +264,15 @@ namespace MissionPlanner
                 log.Error(ex);
             }
 
-            // ===== CDA LOGIN (Firebase) - runs before Splash =====
-            using (var login = new LoginForm())
-            {
-                if (login.ShowDialog() != DialogResult.OK)
-                    return;
-            }
-            // =====================================================
+            // ===== CDA: blank full-screen backdrop (hides desktop/code behind splash, login, home) =====
+            var backdrop = new BackdropForm();
+            backdrop.Show();
+            backdrop.Refresh();
+            Application.DoEvents();
 
             Splash = new MissionPlanner.Splash();
+            // when splash is closed by the main window, close the backdrop too
+            Splash.FormClosed += (s, ev) => { try { backdrop.Close(); } catch { } };
             if (SplashBG != null)
             {
                 Splash.BackgroundImage = SplashBG;
@@ -288,7 +288,7 @@ namespace MissionPlanner
                 : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
             Console.WriteLine("Splash.Show()");
-            Splash.Show();
+            Splash.Show(backdrop);
 
             Console.WriteLine("Debugger.IsAttached " + Debugger.IsAttached);
             if (Debugger.IsAttached)
@@ -298,6 +298,57 @@ namespace MissionPlanner
             Application.DoEvents();
             Console.WriteLine("Application.DoEvents");
             Application.DoEvents();
+
+            // ===== CDA: Backdrop -> Splash -> Login -> Home -> Main =====
+            // 1) splash fully visible for 3 seconds
+            Splash.Refresh();
+            var splashUntil = DateTime.Now.AddSeconds(3);
+            while (DateTime.Now < splashUntil)
+            {
+                Application.DoEvents();
+                System.Threading.Thread.Sleep(30);
+            }
+
+            // 2) hide splash, then login -> home on blank full screen
+            Splash.Hide();
+
+            bool enterApp = false;
+            while (!enterApp)
+            {
+                using (var login = new LoginForm())
+                {
+                    if (login.ShowDialog() != DialogResult.OK)
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+
+                using (var home = new HomeForm())
+                {
+                    var homeResult = home.ShowDialog();
+                    if (homeResult == DialogResult.OK)
+                    {
+                        enterApp = true;
+                    }
+                    else if (homeResult == DialogResult.Retry)
+                    {
+                        // logout -> back to login
+                        AuthService.UserEmail = null;
+                        AuthService.IdToken = null;
+                    }
+                    else
+                    {
+                        Environment.Exit(0);
+                    }
+                }
+            }
+
+            // 3) show splash again as loading screen until main window opens
+            Splash.Show();
+            Splash.Activate();
+            Splash.Refresh();
+            Application.DoEvents();
+            // =========================================
 
             CustomMessageBox.ShowEvent += (text, caption, buttons, icon, yestext, notext) =>
             {
