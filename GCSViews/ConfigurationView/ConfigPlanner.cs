@@ -28,6 +28,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             startup = true;
 
             InitializeComponent();
+            CdaPageTheme.Apply(this);
             CMB_Layout.Items.Add(DisplayNames.Basic);
             CMB_Layout.Items.Add(DisplayNames.Advanced);
             CMB_Layout.Items.Add(DisplayNames.Custom);
@@ -55,6 +56,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         public void Activate()
         {
             startup = true; // flag to ignore changes while we programatically populate controls
+            CdaPageTheme.Apply(this);
             if (MainV2.DisplayConfiguration.displayName == DisplayNames.Advanced)
             {
                 CMB_Layout.SelectedIndex = 1;
@@ -406,6 +408,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 CHK_speecharmdisarm.Visible = false;
                 CHK_speechlowspeed.Visible = false;
             }
+
+            RefreshCdaSpeech();
         }
 
         private void CMB_severity_SelectedIndexChanged(object sender, EventArgs e)
@@ -800,6 +804,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             ThemeManager.LoadTheme(CMB_theme.Text);
             ThemeManager.ApplyThemeTo(MainV2.instance);
+            CdaPageTheme.Apply(this); // keep the lavender look after a theme change
             CustomMessageBox.Show("You may need to select another tab or restart to see the full effect.");
         }
 

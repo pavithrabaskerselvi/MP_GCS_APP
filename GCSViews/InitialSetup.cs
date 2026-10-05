@@ -150,6 +150,7 @@ namespace MissionPlanner.GCSViews
 
         public void Activate()
         {
+            LavenderSkin.Attach(this); // lavender theme
         }
 
         private void HardwareConfig_Load(object sender, EventArgs e)
@@ -392,6 +393,8 @@ namespace MissionPlanner.GCSViews
             }
 
             ThemeManager.ApplyThemeTo(this);
+
+            LavenderSkin.Attach(this); // lavender theme (after ThemeManager)
         }
 
         private void HardwareConfig_FormClosing(object sender, FormClosingEventArgs e)

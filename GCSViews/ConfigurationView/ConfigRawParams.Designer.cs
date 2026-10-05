@@ -36,22 +36,22 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.BUT_compare = new MissionPlanner.Controls.MyButton();
-            this.BUT_rerequestparams = new MissionPlanner.Controls.MyButton();
-            this.BUT_writePIDS = new MissionPlanner.Controls.MyButton();
-            this.BUT_save = new MissionPlanner.Controls.MyButton();
-            this.BUT_load = new MissionPlanner.Controls.MyButton();
+            this.BUT_compare = new MissionPlanner.GCSViews.CdaActionButton();
+            this.BUT_rerequestparams = new MissionPlanner.GCSViews.CdaActionButton();
+            this.BUT_writePIDS = new MissionPlanner.GCSViews.CdaActionButton();
+            this.BUT_save = new MissionPlanner.GCSViews.CdaActionButton();
+            this.BUT_load = new MissionPlanner.GCSViews.CdaActionButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.BUT_paramfileload = new MissionPlanner.Controls.MyButton();
+            this.BUT_paramfileload = new MissionPlanner.GCSViews.CdaActionButton();
             this.CMB_paramfiles = new System.Windows.Forms.ComboBox();
-            this.BUT_reset_params = new MissionPlanner.Controls.MyButton();
+            this.BUT_reset_params = new MissionPlanner.GCSViews.CdaActionButton();
             this.txt_search = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.BUT_commitToFlash = new MissionPlanner.Controls.MyButton();
-            this.chk_modified = new System.Windows.Forms.CheckBox();
-            this.BUT_refreshTable = new MissionPlanner.Controls.MyButton();
-            this.chk_none_default = new System.Windows.Forms.CheckBox();
+            this.BUT_commitToFlash = new MissionPlanner.GCSViews.CdaActionButton();
+            this.chk_modified = new MissionPlanner.GCSViews.CdaCheckBox();
+            this.BUT_refreshTable = new MissionPlanner.GCSViews.CdaActionButton();
+            this.chk_none_default = new MissionPlanner.GCSViews.CdaCheckBox();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.Params = new MissionPlanner.Controls.MyDataGridView();
@@ -62,8 +62,8 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.Options = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fav = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.but_collapse = new MissionPlanner.Controls.MyButton();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.but_collapse = new MissionPlanner.GCSViews.CdaActionButton();
+            this.tableLayoutPanel1 = new MissionPlanner.GCSViews.CdaRowTable();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -76,7 +76,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_compare, "BUT_compare");
             this.BUT_compare.Name = "BUT_compare";
-            this.BUT_compare.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_compare.UseVisualStyleBackColor = true;
             this.BUT_compare.Click += new System.EventHandler(this.BUT_compare_Click);
             // 
@@ -84,7 +83,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_rerequestparams, "BUT_rerequestparams");
             this.BUT_rerequestparams.Name = "BUT_rerequestparams";
-            this.BUT_rerequestparams.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_rerequestparams.UseVisualStyleBackColor = true;
             this.BUT_rerequestparams.Click += new System.EventHandler(this.BUT_rerequestparams_Click);
             // 
@@ -92,7 +90,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_writePIDS, "BUT_writePIDS");
             this.BUT_writePIDS.Name = "BUT_writePIDS";
-            this.BUT_writePIDS.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_writePIDS.UseVisualStyleBackColor = true;
             this.BUT_writePIDS.Click += new System.EventHandler(this.BUT_writePIDS_Click);
             // 
@@ -100,7 +97,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_save, "BUT_save");
             this.BUT_save.Name = "BUT_save";
-            this.BUT_save.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_save.UseVisualStyleBackColor = true;
             this.BUT_save.Click += new System.EventHandler(this.BUT_save_Click);
             // 
@@ -108,7 +104,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_load, "BUT_load");
             this.BUT_load.Name = "BUT_load";
-            this.BUT_load.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_load.UseVisualStyleBackColor = true;
             this.BUT_load.Click += new System.EventHandler(this.BUT_load_Click);
             // 
@@ -127,7 +122,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_paramfileload, "BUT_paramfileload");
             this.BUT_paramfileload.Name = "BUT_paramfileload";
-            this.BUT_paramfileload.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_paramfileload.UseVisualStyleBackColor = true;
             this.BUT_paramfileload.Click += new System.EventHandler(this.BUT_paramfileload_Click);
             // 
@@ -142,7 +136,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_reset_params, "BUT_reset_params");
             this.BUT_reset_params.Name = "BUT_reset_params";
-            this.BUT_reset_params.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_reset_params.UseVisualStyleBackColor = true;
             this.BUT_reset_params.Click += new System.EventHandler(this.BUT_reset_params_Click);
             // 
@@ -161,13 +154,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_commitToFlash, "BUT_commitToFlash");
             this.BUT_commitToFlash.Name = "BUT_commitToFlash";
-            this.BUT_commitToFlash.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_commitToFlash.UseVisualStyleBackColor = true;
             this.BUT_commitToFlash.Click += new System.EventHandler(this.BUT_commitToFlash_Click);
             // 
             // chk_modified
             // 
             resources.ApplyResources(this.chk_modified, "chk_modified");
+            this.chk_modified.AutoSize = false;
+            this.chk_modified.Size = new System.Drawing.Size(150, 24);
             this.chk_modified.Name = "chk_modified";
             this.chk_modified.UseVisualStyleBackColor = true;
             this.chk_modified.CheckedChanged += new System.EventHandler(this.chk_filter_CheckedChanged);
@@ -176,13 +170,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.BUT_refreshTable, "BUT_refreshTable");
             this.BUT_refreshTable.Name = "BUT_refreshTable";
-            this.BUT_refreshTable.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.BUT_refreshTable.UseVisualStyleBackColor = true;
             this.BUT_refreshTable.Click += new System.EventHandler(this.BUT_refreshTable_Click);
             // 
             // chk_none_default
             // 
             resources.ApplyResources(this.chk_none_default, "chk_none_default");
+            this.chk_none_default.AutoSize = false;
+            this.chk_none_default.Size = new System.Drawing.Size(150, 24);
             this.chk_none_default.Name = "chk_none_default";
             this.chk_none_default.UseVisualStyleBackColor = true;
             this.chk_none_default.CheckedChanged += new System.EventHandler(this.chk_filter_CheckedChanged);
@@ -313,7 +308,6 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             resources.ApplyResources(this.but_collapse, "but_collapse");
             this.but_collapse.Name = "but_collapse";
-            this.but_collapse.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
             this.but_collapse.UseVisualStyleBackColor = true;
             this.but_collapse.Click += new System.EventHandler(this.but_collapse_Click);
             // 
@@ -356,27 +350,27 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
         #endregion
 
-        private Controls.MyButton BUT_compare;
-        private Controls.MyButton BUT_rerequestparams;
-        private Controls.MyButton BUT_writePIDS;
-        private Controls.MyButton BUT_save;
-        private Controls.MyButton BUT_load;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_compare;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_rerequestparams;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_writePIDS;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_save;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_load;
         private Controls.MyDataGridView Params;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
-        private Controls.MyButton BUT_paramfileload;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_paramfileload;
         private System.Windows.Forms.ComboBox CMB_paramfiles;
-        private Controls.MyButton BUT_reset_params;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_reset_params;
         private System.Windows.Forms.TextBox txt_search;
         private System.Windows.Forms.Label label2;
-        private MyButton BUT_commitToFlash;
-        private System.Windows.Forms.CheckBox chk_modified;
-        private MyButton BUT_refreshTable;
-        private System.Windows.Forms.CheckBox chk_none_default;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_commitToFlash;
+        private MissionPlanner.GCSViews.CdaCheckBox chk_modified;
+        private MissionPlanner.GCSViews.CdaActionButton BUT_refreshTable;
+        private MissionPlanner.GCSViews.CdaCheckBox chk_none_default;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MissionPlanner.GCSViews.CdaRowTable tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeView1;
-        private MyButton but_collapse;
+        private MissionPlanner.GCSViews.CdaActionButton but_collapse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Command;
         private System.Windows.Forms.DataGridViewTextBoxColumn Value;
         private System.Windows.Forms.DataGridViewTextBoxColumn Default_value;

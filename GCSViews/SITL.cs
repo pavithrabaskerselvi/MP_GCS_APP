@@ -146,7 +146,7 @@ namespace MissionPlanner.GCSViews
 
             myGMAP1.Invalidate();
 
-            Utilities.ThemeManager.ApplyThemeTo(this);
+            ApplyCdaTheme();
 
             MissionPlanner.Utilities.Tracking.AddPage(this.GetType().ToString(), this.Text);
         }

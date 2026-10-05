@@ -45,10 +45,13 @@ namespace MissionPlanner.GCSViews.ConfigurationView
         public ConfigRawParams()
         {
             InitializeComponent();
+            ApplyCdaTheme();
         }
 
         public void Activate()
         {
+            ApplyCdaTheme();
+
             if ((rowlist.Count == 0) || (!Settings.Instance.GetBoolean("SlowMachine", false))) startup = true;
             //If we connected to another vehicle the do a full refresh
             if (rowlist.Count != MainV2.comPort.MAV.param.Count()) startup = true;
@@ -346,7 +349,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                         {
                             if (row.Cells[Command.Index].Value.ToString() == value)
                             {
-                                row.Cells[Value.Index].Style.BackColor = ThemeManager.ControlBGColor;
+                                row.Cells[Value.Index].Style.BackColor = Color.Empty;
                                 _changes.Remove(value);
                                 break;
                             }
@@ -515,7 +518,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     }
                 }
 
-                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.Green;
+                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = CdaEditedColor;
                 log.InfoFormat("Queue change {0} = {1} ({2})", Params[Command.Index, e.RowIndex].Value, Params[e.ColumnIndex, e.RowIndex].Value, newvalue);
                 _changes[Params[Command.Index, e.RowIndex].Value] = newvalue;
 
@@ -525,7 +528,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             }
             catch (Exception)
             {
-                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.Red;
+                Params[e.ColumnIndex, e.RowIndex].Style.BackColor = CdaInvalidColor;
             }
 
 
@@ -1200,6 +1203,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 };
 
                 ThemeManager.ApplyThemeTo(optionsControl);
+                CdaStyleInline(optionsControl);
                 optionsControl.Bounds = Params.GetCellDisplayRectangle(Options.Index, e.RowIndex, false);
                 Params.Controls.Add(optionsControl);
             }
@@ -1238,6 +1242,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 };
 
                 ThemeManager.ApplyThemeTo(cmb);
+                CdaStyleInline(cmb);
 
                 // Create a blank panel to hold the combo box
                 // (this blanks out the cell so that the text doesn't peak through)
@@ -1306,6 +1311,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     };
 
                     ThemeManager.ApplyThemeTo(num);
+                    CdaStyleInline(num);
 
                     optionsControl = new Panel();
                     ((Panel)optionsControl).BackColor = Params.Rows[e.RowIndex].InheritedStyle.BackColor;

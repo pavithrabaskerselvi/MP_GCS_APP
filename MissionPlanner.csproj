@@ -1177,6 +1177,9 @@
 
   </ItemGroup>
   <ItemGroup>
+    <None Remove="splashbg.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="SikRadio\ISikRadioForm.cs" />
     <Compile Include="SikRadio\RFD900.cs" />
     <Compile Include="SikRadio\RFDLib\Array.cs" />
@@ -1189,5 +1192,8 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="plugins\example23-switch.resx" />
+    <EmbeddedResource Include="splashbg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

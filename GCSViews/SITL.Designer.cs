@@ -1,18 +1,17 @@
-﻿using MissionPlanner.Controls;
+﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
+using MissionPlanner.Controls;
 
 namespace MissionPlanner.GCSViews
 {
+    // Chennai Drone Academy themed SITL page.
+    // Control names and event handlers are unchanged, so SITL.cs works as-is
+    // (Activate() calls ApplyCdaTheme() instead of ThemeManager.ApplyThemeTo).
     partial class SITL
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,62 +21,37 @@ namespace MissionPlanner.GCSViews
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Themed layout
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SITL));
-            this.myGMAP1 = new MissionPlanner.Controls.myGMAP();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBoxheli = new MissionPlanner.Controls.PictureBoxMouseOver();
-            this.pictureBoxquad = new MissionPlanner.Controls.PictureBoxMouseOver();
-            this.pictureBoxrover = new MissionPlanner.Controls.PictureBoxMouseOver();
-            this.pictureBoxplane = new MissionPlanner.Controls.PictureBoxMouseOver();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.NUM_heading = new System.Windows.Forms.NumericUpDown();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.but_swarmrover = new MissionPlanner.Controls.MyButton();
-            this.but_swarmplane = new MissionPlanner.Controls.MyButton();
-            this.but_swarmseq = new MissionPlanner.Controls.MyButton();
-            this.but_swarmlink = new MissionPlanner.Controls.MyButton();
-            this.chk_wipe = new System.Windows.Forms.CheckBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_cmdline = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cmb_model = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.num_simspeed = new System.Windows.Forms.NumericUpDown();
-            this.cmb_version = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxheli)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxquad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxrover)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxplane)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NUM_heading)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.num_simspeed)).BeginInit();
             this.SuspendLayout();
-            // 
-            // myGMAP1
-            // 
+
+            // ---------- controls used by SITL.cs (names must not change) ----------
+            this.myGMAP1 = new MissionPlanner.Controls.myGMAP();
+            this.pictureBoxplane = new CdaTile();
+            this.pictureBoxrover = new CdaTile();
+            this.pictureBoxquad = new CdaTile();
+            this.pictureBoxheli = new CdaTile();
+            this.NUM_heading = new System.Windows.Forms.NumericUpDown();
+            this.cmb_version = new System.Windows.Forms.ComboBox();
+            this.num_simspeed = new System.Windows.Forms.NumericUpDown();
+            this.cmb_model = new System.Windows.Forms.ComboBox();
+            this.txt_cmdline = new System.Windows.Forms.TextBox();
+            this.chk_wipe = new System.Windows.Forms.CheckBox();
+            this.but_swarmseq = new CdaPillButton();
+            this.but_swarmlink = new CdaPillButton();
+            this.but_swarmplane = new CdaPillButton();
+            this.but_swarmrover = new CdaPillButton();
+
+            ((System.ComponentModel.ISupportInitialize)(this.NUM_heading)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.num_simspeed)).BeginInit();
+
+            // ---------- map ----------
             this.myGMAP1.Bearing = 0F;
             this.myGMAP1.CanDragMap = true;
-            resources.ApplyResources(this.myGMAP1, "myGMAP1");
-            this.myGMAP1.EmptyTileColor = System.Drawing.Color.Navy;
+            this.myGMAP1.Dock = DockStyle.Fill;
+            this.myGMAP1.EmptyTileColor = Color.FromArgb(224, 220, 244);
             this.myGMAP1.GrayScaleMode = false;
             this.myGMAP1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.myGMAP1.HoldInvalidation = false;
@@ -92,322 +66,321 @@ namespace MissionPlanner.GCSViews
             this.myGMAP1.RetryLoadTile = 0;
             this.myGMAP1.RoutesEnabled = true;
             this.myGMAP1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
-            this.myGMAP1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.myGMAP1.SelectedAreaFillColor = Color.FromArgb(33, 65, 105, 225);
             this.myGMAP1.ShowTileGridLines = false;
             this.myGMAP1.Zoom = 0D;
             this.myGMAP1.OnMarkerEnter += new GMap.NET.WindowsForms.MarkerEnter(this.myGMAP1_OnMarkerEnter);
             this.myGMAP1.OnMarkerLeave += new GMap.NET.WindowsForms.MarkerLeave(this.myGMAP1_OnMarkerLeave);
-            this.myGMAP1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.myGMAP1_MouseDown);
-            this.myGMAP1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.myGMAP1_MouseMove);
-            this.myGMAP1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.myGMAP1_MouseUp);
-            // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.pictureBoxheli);
-            this.panel1.Controls.Add(this.pictureBoxquad);
-            this.panel1.Controls.Add(this.pictureBoxrover);
-            this.panel1.Controls.Add(this.pictureBoxplane);
-            this.panel1.Name = "panel1";
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            // 
-            // label5
-            // 
-            resources.ApplyResources(this.label5, "label5");
-            this.label5.Name = "label5";
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.Name = "label4";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
-            // pictureBoxheli
-            // 
-            resources.ApplyResources(this.pictureBoxheli, "pictureBoxheli");
-            this.pictureBoxheli.ImageNormal = ((System.Drawing.Image)(resources.GetObject("pictureBoxheli.ImageNormal")));
-            this.pictureBoxheli.ImageOver = ((System.Drawing.Image)(resources.GetObject("pictureBoxheli.ImageOver")));
-            this.pictureBoxheli.Name = "pictureBoxheli";
-            this.pictureBoxheli.selected = false;
-            this.pictureBoxheli.TabStop = false;
-            this.pictureBoxheli.Tag = "heli";
-            this.pictureBoxheli.Click += new System.EventHandler(this.pictureBoxheli_Click);
-            // 
-            // pictureBoxquad
-            // 
-            resources.ApplyResources(this.pictureBoxquad, "pictureBoxquad");
-            this.pictureBoxquad.ImageNormal = ((System.Drawing.Image)(resources.GetObject("pictureBoxquad.ImageNormal")));
-            this.pictureBoxquad.ImageOver = ((System.Drawing.Image)(resources.GetObject("pictureBoxquad.ImageOver")));
-            this.pictureBoxquad.Name = "pictureBoxquad";
-            this.pictureBoxquad.selected = false;
-            this.pictureBoxquad.TabStop = false;
-            this.pictureBoxquad.Tag = "copter";
-            this.pictureBoxquad.Click += new System.EventHandler(this.pictureBoxquad_Click);
-            // 
-            // pictureBoxrover
-            // 
-            resources.ApplyResources(this.pictureBoxrover, "pictureBoxrover");
-            this.pictureBoxrover.ImageNormal = ((System.Drawing.Image)(resources.GetObject("pictureBoxrover.ImageNormal")));
-            this.pictureBoxrover.ImageOver = ((System.Drawing.Image)(resources.GetObject("pictureBoxrover.ImageOver")));
-            this.pictureBoxrover.Name = "pictureBoxrover";
-            this.pictureBoxrover.selected = false;
-            this.pictureBoxrover.TabStop = false;
-            this.pictureBoxrover.Tag = "rover";
-            this.pictureBoxrover.Click += new System.EventHandler(this.pictureBoxrover_Click);
-            // 
-            // pictureBoxplane
-            // 
-            resources.ApplyResources(this.pictureBoxplane, "pictureBoxplane");
-            this.pictureBoxplane.ImageNormal = ((System.Drawing.Image)(resources.GetObject("pictureBoxplane.ImageNormal")));
-            this.pictureBoxplane.ImageOver = ((System.Drawing.Image)(resources.GetObject("pictureBoxplane.ImageOver")));
-            this.pictureBoxplane.Name = "pictureBoxplane";
-            this.pictureBoxplane.selected = false;
-            this.pictureBoxplane.TabStop = false;
-            this.pictureBoxplane.Tag = "plane";
-            this.pictureBoxplane.Click += new System.EventHandler(this.pictureBoxplane_Click);
-            // 
-            // groupBox1
-            // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.myGMAP1);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Controls.Add(this.panel1);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
-            // 
-            // groupBox3
-            // 
-            resources.ApplyResources(this.groupBox3, "groupBox3");
-            this.groupBox3.Controls.Add(this.cmb_version);
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.NUM_heading);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.TabStop = false;
-            // 
-            // label1
-            // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.Name = "label1";
-            // 
-            // NUM_heading
-            // 
-            resources.ApplyResources(this.NUM_heading, "NUM_heading");
-            this.NUM_heading.Maximum = new decimal(new int[] {
-            360,
-            0,
-            0,
-            0});
+            this.myGMAP1.MouseDown += new MouseEventHandler(this.myGMAP1_MouseDown);
+            this.myGMAP1.MouseMove += new MouseEventHandler(this.myGMAP1_MouseMove);
+            this.myGMAP1.MouseUp += new MouseEventHandler(this.myGMAP1_MouseUp);
+            this.myGMAP1.MouseMove += (s, e) => { if (mousedown) UpdateLocationChip(); };
+            this.myGMAP1.MouseUp += (s, e) => UpdateLocationChip();
+
+            // ---------- overlays on the map ----------
+            this.cdaChip = new CdaLocationChip { Location = new Point(14, 12) };
+            this.cdaToggle = new CdaSegmented { Size = new Size(124, 28) };
+            this.cdaToggle.SelectionChanged += (s, e) =>
+            {
+                myGMAP1.MapProvider = cdaToggle.RightSelected
+                    ? (GMap.NET.MapProviders.GMapProvider)GMap.NET.MapProviders.GoogleSatelliteMapProvider.Instance
+                    : GMap.NET.MapProviders.GoogleMapProvider.Instance;
+            };
+            this.cdaZoomIn = new CdaRoundButton { Glyph = "+" };
+            this.cdaZoomOut = new CdaRoundButton { Glyph = "\u2212" };
+            this.cdaLocate = new CdaRoundButton { Glyph = "\u25CE" };
+            this.cdaZoomIn.Click += (s, e) => { if (myGMAP1.Zoom < myGMAP1.MaxZoom) myGMAP1.Zoom += 1; };
+            this.cdaZoomOut.Click += (s, e) => { if (myGMAP1.Zoom > myGMAP1.MinZoom) myGMAP1.Zoom -= 1; };
+            this.cdaLocate.Click += (s, e) => { myGMAP1.Position = homemarker.Position; };
+            this.myGMAP1.Controls.AddRange(new Control[] { cdaChip, cdaToggle, cdaZoomIn, cdaZoomOut, cdaLocate });
+            this.myGMAP1.Resize += (s, e) =>
+            {
+                cdaToggle.Location = new Point(myGMAP1.Width - cdaToggle.Width - 14, 12);
+                int x = myGMAP1.Width - 32 - 14;
+                cdaLocate.Location = new Point(x, myGMAP1.Height - 32 - 14);
+                cdaZoomOut.Location = new Point(x, cdaLocate.Top - 40);
+                cdaZoomIn.Location = new Point(x, cdaZoomOut.Top - 40);
+            };
+
+            var mapCard = new CdaCard { Dock = DockStyle.Fill, Padding = new Padding(5), Radius = 14 };
+            mapCard.Controls.Add(this.myGMAP1);
+
+            // ---------- breadcrumb ----------
+            var crumb = new CdaBreadcrumb { Dock = DockStyle.Fill };
+
+            // ---------- Options card ----------
+            StyleNumeric(this.NUM_heading, 0, 360, 0);
             this.NUM_heading.Name = "NUM_heading";
-            // 
-            // groupBox4
-            // 
-            resources.ApplyResources(this.groupBox4, "groupBox4");
-            this.groupBox4.Controls.Add(this.but_swarmrover);
-            this.groupBox4.Controls.Add(this.but_swarmplane);
-            this.groupBox4.Controls.Add(this.but_swarmseq);
-            this.groupBox4.Controls.Add(this.but_swarmlink);
-            this.groupBox4.Controls.Add(this.chk_wipe);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.txt_cmdline);
-            this.groupBox4.Controls.Add(this.label7);
-            this.groupBox4.Controls.Add(this.cmb_model);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.num_simspeed);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.TabStop = false;
-            // 
-            // but_swarmrover
-            // 
-            resources.ApplyResources(this.but_swarmrover, "but_swarmrover");
-            this.but_swarmrover.Name = "but_swarmrover";
-            this.but_swarmrover.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.but_swarmrover.UseVisualStyleBackColor = true;
-            this.but_swarmrover.Click += new System.EventHandler(this.but_swarmrover_Click);
-            // 
-            // but_swarmplane
-            // 
-            resources.ApplyResources(this.but_swarmplane, "but_swarmplane");
-            this.but_swarmplane.Name = "but_swarmplane";
-            this.but_swarmplane.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.but_swarmplane.UseVisualStyleBackColor = true;
-            this.but_swarmplane.Click += new System.EventHandler(this.but_swarmplane_Click);
-            // 
-            // but_swarmseq
-            // 
-            resources.ApplyResources(this.but_swarmseq, "but_swarmseq");
-            this.but_swarmseq.Name = "but_swarmseq";
-            this.but_swarmseq.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.but_swarmseq.UseVisualStyleBackColor = true;
-            this.but_swarmseq.Click += new System.EventHandler(this.but_swarmseq_Click);
-            // 
-            // but_swarmlink
-            // 
-            resources.ApplyResources(this.but_swarmlink, "but_swarmlink");
-            this.but_swarmlink.Name = "but_swarmlink";
-            this.but_swarmlink.TextColorNotEnabled = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(87)))), ((int)(((byte)(4)))));
-            this.but_swarmlink.UseVisualStyleBackColor = true;
-            this.but_swarmlink.Click += new System.EventHandler(this.but_swarmlink_Click);
-            // 
-            // chk_wipe
-            // 
-            resources.ApplyResources(this.chk_wipe, "chk_wipe");
-            this.chk_wipe.Name = "chk_wipe";
-            this.chk_wipe.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
-            // 
-            // txt_cmdline
-            // 
-            resources.ApplyResources(this.txt_cmdline, "txt_cmdline");
-            this.txt_cmdline.Name = "txt_cmdline";
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
-            // 
-            // cmb_model
-            // 
-            this.cmb_model.FormattingEnabled = true;
-            this.cmb_model.Items.AddRange(new object[] {
-            resources.GetString("cmb_model.Items"),
-            resources.GetString("cmb_model.Items1"),
-            resources.GetString("cmb_model.Items2"),
-            resources.GetString("cmb_model.Items3"),
-            resources.GetString("cmb_model.Items4"),
-            resources.GetString("cmb_model.Items5"),
-            resources.GetString("cmb_model.Items6"),
-            resources.GetString("cmb_model.Items7"),
-            resources.GetString("cmb_model.Items8"),
-            resources.GetString("cmb_model.Items9"),
-            resources.GetString("cmb_model.Items10"),
-            resources.GetString("cmb_model.Items11"),
-            resources.GetString("cmb_model.Items12"),
-            resources.GetString("cmb_model.Items13"),
-            resources.GetString("cmb_model.Items14"),
-            resources.GetString("cmb_model.Items15"),
-            resources.GetString("cmb_model.Items16"),
-            resources.GetString("cmb_model.Items17"),
-            resources.GetString("cmb_model.Items18"),
-            resources.GetString("cmb_model.Items19"),
-            resources.GetString("cmb_model.Items20"),
-            resources.GetString("cmb_model.Items21"),
-            resources.GetString("cmb_model.Items22"),
-            resources.GetString("cmb_model.Items23"),
-            resources.GetString("cmb_model.Items24"),
-            resources.GetString("cmb_model.Items25"),
-            resources.GetString("cmb_model.Items26"),
-            resources.GetString("cmb_model.Items27"),
-            resources.GetString("cmb_model.Items28"),
-            resources.GetString("cmb_model.Items29"),
-            resources.GetString("cmb_model.Items30"),
-            resources.GetString("cmb_model.Items31"),
-            resources.GetString("cmb_model.Items32"),
-            resources.GetString("cmb_model.Items33")});
-            resources.ApplyResources(this.cmb_model, "cmb_model");
-            this.cmb_model.Name = "cmb_model";
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.Name = "label2";
-            // 
-            // num_simspeed
-            // 
-            resources.ApplyResources(this.num_simspeed, "num_simspeed");
-            this.num_simspeed.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            StyleNumeric(this.num_simspeed, 1, 100, 1);
             this.num_simspeed.Name = "num_simspeed";
-            this.num_simspeed.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // cmb_version
-            // 
-            this.cmb_version.FormattingEnabled = true;
-            resources.ApplyResources(this.cmb_version, "cmb_version");
+            StyleCombo(this.cmb_version);
             this.cmb_version.Name = "cmb_version";
-            // 
-            // SITL
-            // 
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.cmb_version.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            var optionsCard = new CdaCard { Dock = DockStyle.Fill, Padding = new Padding(16, 10, 16, 10) };
+            var opt = new CdaTable { Dock = DockStyle.Fill, ColumnCount = 3, RowCount = 3 };
+            opt.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 54));
+            opt.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 84));
+            opt.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            opt.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
+            opt.RowStyles.Add(new RowStyle(SizeType.Absolute, 34));
+            opt.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            var optTitle = SectionTitle("\u2699  Options");
+            opt.Controls.Add(optTitle, 0, 0);
+            opt.SetColumnSpan(optTitle, 3);
+            opt.Controls.Add(FieldLabel("Heading"), 0, 1);
+            opt.Controls.Add(new CdaField(this.NUM_heading) { Dock = DockStyle.Fill }, 1, 1);
+            opt.Controls.Add(Pad(new CdaField(this.cmb_version), 10, 0, 0, 0), 2, 1);
+            optionsCard.Controls.Add(opt);
+
+            // ---------- Advanced card ----------
+            StyleCombo(this.cmb_model);
+            this.cmb_model.Name = "cmb_model";
+            this.cmb_model.Items.AddRange(new object[]
+            {
+                "+", "X", "quad", "hexa", "octa", "octa-quad", "deca", "dodeca-hexa", "tri", "y6",
+                "heli", "heli-dual", "heli-compound", "singlecopter", "coaxcopter",
+                "plane", "plane-elevon", "plane-vtail", "plane-tailsitter", "quadplane", "firefly",
+                "rover", "rover-skid", "sailboat", "balloon", "tracker",
+                "jsbsim", "flightaxis", "gazebo", "last_letter", "crrcsim", "xplane", "airsim", "calibration"
+            });
+            this.cmb_model.Text = "";
+
+            this.txt_cmdline.Name = "txt_cmdline";
+            this.txt_cmdline.BorderStyle = BorderStyle.None;
+            this.txt_cmdline.Font = CdaTheme.Ui(8.5f);
+            CdaTheme.Guard(this.txt_cmdline, CdaTheme.Field, CdaTheme.Text);
+            CdaTheme.SetCue(this.txt_cmdline, "(Optional)");
+
+            this.chk_wipe.Name = "chk_wipe";
+            this.chk_wipe.Text = "Wipe";
+            this.chk_wipe.AutoSize = true;
+            this.chk_wipe.Font = CdaTheme.Ui(8f, FontStyle.Bold);
+            this.chk_wipe.UseVisualStyleBackColor = false;
+            CdaTheme.Guard(this.chk_wipe, Color.Transparent, CdaTheme.Text);
+
+            ConfigureSwarm(this.but_swarmseq, "but_swarmseq", "Copter Swarm", "Single link", CdaIcons.Kind.Quad, true);
+            ConfigureSwarm(this.but_swarmlink, "but_swarmlink", "Copter Swarm", "Multi link", CdaIcons.Kind.Quad, false);
+            ConfigureSwarm(this.but_swarmplane, "but_swarmplane", "Plane Swarm", "Multi link", CdaIcons.Kind.Plane, false);
+            ConfigureSwarm(this.but_swarmrover, "but_swarmrover", "Rover Swarm", "Multi link", CdaIcons.Kind.Car, false);
+            this.but_swarmrover.Click += new EventHandler(this.but_swarmrover_Click);
+            this.but_swarmplane.Click += new EventHandler(this.but_swarmplane_Click);
+            this.but_swarmseq.Click += new EventHandler(this.but_swarmseq_Click);
+            this.but_swarmlink.Click += new EventHandler(this.but_swarmlink_Click);
+
+            var advCard = new CdaCard { Dock = DockStyle.Fill, Padding = new Padding(16, 8, 16, 8) };
+            var adv = new CdaTable { Dock = DockStyle.Fill, ColumnCount = 4, RowCount = 4 };
+            adv.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 18));
+            adv.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 24));
+            adv.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 42));
+            adv.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16));
+            adv.RowStyles.Add(new RowStyle(SizeType.Absolute, 26));
+            adv.RowStyles.Add(new RowStyle(SizeType.Absolute, 16));
+            adv.RowStyles.Add(new RowStyle(SizeType.Absolute, 34));
+            adv.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+
+            var advTitle = SectionTitle("\u2261  Advanced users only");
+            adv.Controls.Add(advTitle, 0, 0);
+            adv.SetColumnSpan(advTitle, 4);
+            adv.Controls.Add(FieldLabel("Sim Speed"), 0, 1);
+            adv.Controls.Add(FieldLabel("Model"), 1, 1);
+            adv.Controls.Add(FieldLabel("Extra command line"), 2, 1);
+            adv.Controls.Add(Pad(new CdaField(this.num_simspeed), 0, 0, 10, 0), 0, 2);
+            adv.Controls.Add(Pad(new CdaField(this.cmb_model), 0, 0, 10, 0), 1, 2);
+            adv.Controls.Add(Pad(new CdaField(this.txt_cmdline), 0, 0, 10, 0), 2, 2);
+            var wipeHost = new CdaSurface { Dock = DockStyle.Fill };
+            this.chk_wipe.Location = new Point(0, 8);
+            wipeHost.Controls.Add(this.chk_wipe);
+            adv.Controls.Add(wipeHost, 3, 2);
+
+            var swarm = new CdaTable { Dock = DockStyle.Fill, ColumnCount = 4, RowCount = 1 };
+            for (int i = 0; i < 4; i++) swarm.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25));
+            swarm.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            swarm.Controls.Add(Pad(this.but_swarmseq, 0, 6, 8, 0), 0, 0);
+            swarm.Controls.Add(Pad(this.but_swarmlink, 0, 6, 8, 0), 1, 0);
+            swarm.Controls.Add(Pad(this.but_swarmplane, 0, 6, 8, 0), 2, 0);
+            swarm.Controls.Add(Pad(this.but_swarmrover, 0, 6, 0, 0), 3, 0);
+            adv.Controls.Add(swarm, 0, 3);
+            adv.SetColumnSpan(swarm, 4);
+            advCard.Controls.Add(adv);
+
+            var optionsRow = new CdaTable { Dock = DockStyle.Fill, ColumnCount = 2, RowCount = 1 };
+            optionsRow.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 340));
+            optionsRow.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            optionsRow.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            optionsRow.Controls.Add(Pad(optionsCard, 0, 0, 8, 0), 0, 0);
+            optionsRow.Controls.Add(advCard, 1, 0);
+
+            // ---------- firmware tiles ----------
+            ConfigureTile(this.pictureBoxplane, "pictureBoxplane", "plane", "Plane", CdaIcons.Kind.Plane);
+            ConfigureTile(this.pictureBoxrover, "pictureBoxrover", "rover", "Rover", CdaIcons.Kind.Car);
+            ConfigureTile(this.pictureBoxquad, "pictureBoxquad", "copter", "Multirotor", CdaIcons.Kind.Quad);
+            ConfigureTile(this.pictureBoxheli, "pictureBoxheli", "heli", "Helicopter", CdaIcons.Kind.Heli);
+            this.pictureBoxplane.Click += new EventHandler(this.pictureBoxplane_Click);
+            this.pictureBoxrover.Click += new EventHandler(this.pictureBoxrover_Click);
+            this.pictureBoxquad.Click += new EventHandler(this.pictureBoxquad_Click);
+            this.pictureBoxheli.Click += new EventHandler(this.pictureBoxheli_Click);
+
+            var fwCard = new CdaCard
+            {
+                Dock = DockStyle.Fill,
+                Gradient = true,
+                Top = Color.FromArgb(250, 248, 255),
+                Bottom = Color.FromArgb(226, 220, 250),
+                Padding = new Padding(16, 8, 16, 12)
+            };
+            var fw = new CdaTable { Dock = DockStyle.Fill, ColumnCount = 6, RowCount = 2 };
+            fw.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            for (int i = 0; i < 4; i++) fw.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150));
+            fw.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            fw.RowStyles.Add(new RowStyle(SizeType.Absolute, 26));
+            fw.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            var fwTitle = SectionTitle("\u2708  Please select a firmware to run");
+            fw.Controls.Add(fwTitle, 0, 0);
+            fw.SetColumnSpan(fwTitle, 6);
+            fw.Controls.Add(Pad(this.pictureBoxplane, 4, 0, 4, 0), 1, 1);
+            fw.Controls.Add(Pad(this.pictureBoxrover, 4, 0, 4, 0), 2, 1);
+            fw.Controls.Add(Pad(this.pictureBoxquad, 4, 0, 4, 0), 3, 1);
+            fw.Controls.Add(Pad(this.pictureBoxheli, 4, 0, 4, 0), 4, 1);
+            fwCard.Controls.Add(fw);
+
+            // ---------- page ----------
+            var page = new CdaTable
+            {
+                Opaque = true,
+                Dock = DockStyle.Fill,
+                ColumnCount = 1,
+                RowCount = 4,
+                Padding = new Padding(14, 8, 14, 10)
+            };
+            page.RowStyles.Add(new RowStyle(SizeType.Absolute, 30));
+            page.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            page.RowStyles.Add(new RowStyle(SizeType.Absolute, 172));
+            page.RowStyles.Add(new RowStyle(SizeType.Absolute, 140));
+            page.Controls.Add(crumb, 0, 0);
+            page.Controls.Add(Pad(mapCard, 0, 8, 0, 8), 0, 1);
+            page.Controls.Add(Pad(optionsRow, 0, 0, 0, 8), 0, 2);
+            page.Controls.Add(fwCard, 0, 3);
+
+            this.Controls.Add(page);
             this.Name = "SITL";
-            resources.ApplyResources(this, "$this");
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxheli)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxquad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxrover)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxplane)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.Size = new Size(1000, 700);
+
             ((System.ComponentModel.ISupportInitialize)(this.NUM_heading)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.num_simspeed)).EndInit();
             this.ResumeLayout(false);
-
         }
 
         #endregion
 
+        // ======================================================================
+        // Hand-written helpers
+        // ======================================================================
+
+        private CdaLocationChip cdaChip;
+        private CdaSegmented cdaToggle;
+        private CdaRoundButton cdaZoomIn, cdaZoomOut, cdaLocate;
+
+        private void UpdateLocationChip()
+        {
+            if (cdaChip == null || homemarker == null) return;
+            cdaChip.SetLocation(homemarker.Position.Lat, homemarker.Position.Lng);
+        }
+
+        /// <summary>Called from Activate() in place of ThemeManager.ApplyThemeTo(this).</summary>
+        private void ApplyCdaTheme()
+        {
+            foreach (var n in new[] { NUM_heading, num_simspeed })
+                CdaTheme.GuardDeep(n, CdaTheme.Field, CdaTheme.Text);
+            foreach (var c in new[] { cmb_version, cmb_model })
+            {
+                c.FlatStyle = FlatStyle.Flat;
+                CdaTheme.Guard(c, CdaTheme.Field, CdaTheme.Text);
+            }
+            UpdateLocationChip();
+
+            // re-assert the map view once layout has settled
+            if (IsHandleCreated)
+                BeginInvoke(new Action(() =>
+                {
+                    try
+                    {
+                        myGMAP1.Position = homemarker.Position;
+                        myGMAP1.Zoom = 16;
+                        myGMAP1.Invalidate();
+                    }
+                    catch { }
+                }));
+        }
+
+        private static Control Pad(Control c, int left, int top, int right, int bottom)
+        {
+            var host = new CdaSurface { Dock = DockStyle.Fill, Padding = new Padding(left, top, right, bottom) };
+            c.Dock = DockStyle.Fill;
+            host.Controls.Add(c);
+            return host;
+        }
+
+        private static Control SectionTitle(string text)
+        {
+            return new CdaLabel { Text = text, Dock = DockStyle.Fill, Font = CdaTheme.Ui(9f, FontStyle.Bold), TextColor = CdaTheme.Text };
+        }
+
+        private static Control FieldLabel(string text)
+        {
+            return new CdaLabel { Text = text, Dock = DockStyle.Fill, Font = CdaTheme.Ui(7.5f, FontStyle.Bold), TextColor = CdaTheme.TextMuted };
+        }
+
+        private static void StyleNumeric(NumericUpDown n, int min, int max, int value)
+        {
+            n.Minimum = min;
+            n.Maximum = max;
+            n.Value = value;
+            n.Font = CdaTheme.Ui(8.5f);
+            n.BorderStyle = BorderStyle.None;
+            CdaTheme.GuardDeep(n, CdaTheme.Field, CdaTheme.Text);
+        }
+
+        private static void StyleCombo(ComboBox c)
+        {
+            c.FormattingEnabled = true;
+            c.FlatStyle = FlatStyle.Flat;
+            c.Font = CdaTheme.Ui(8.5f);
+            CdaTheme.Guard(c, CdaTheme.Field, CdaTheme.Text);
+        }
+
+        private static void ConfigureSwarm(CdaPillButton b, string name, string l1, string l2, CdaIcons.Kind icon, bool selected)
+        {
+            b.Name = name;
+            b.Line1 = l1;
+            b.Line2 = l2;
+            b.Glyph = CdaIcons.Make(icon, 64, selected ? Color.White : CdaTheme.Primary);
+            b.Selected = selected;
+            b.Text = "";
+        }
+
+        private static void ConfigureTile(CdaTile t, string name, string tag, string caption, CdaIcons.Kind icon)
+        {
+            t.Name = name;
+            t.Tag = tag;
+            t.Caption = caption;
+            t.Picture = CdaIcons.Make(icon, 96, CdaTheme.Primary);
+        }
+
         private myGMAP myGMAP1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private PictureBoxMouseOver pictureBoxheli;
-        private PictureBoxMouseOver pictureBoxquad;
-        private PictureBoxMouseOver pictureBoxrover;
-        private PictureBoxMouseOver pictureBoxplane;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label1;
+        private CdaTile pictureBoxheli;
+        private CdaTile pictureBoxquad;
+        private CdaTile pictureBoxrover;
+        private CdaTile pictureBoxplane;
         private System.Windows.Forms.NumericUpDown NUM_heading;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cmb_model;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_version;
         private System.Windows.Forms.NumericUpDown num_simspeed;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cmb_model;
         private System.Windows.Forms.TextBox txt_cmdline;
         private System.Windows.Forms.CheckBox chk_wipe;
-        private MyButton but_swarmseq;
-        private MyButton but_swarmlink;
-        private MyButton but_swarmrover;
-        private MyButton but_swarmplane;
-        private System.Windows.Forms.ComboBox cmb_version;
+        private CdaPillButton but_swarmseq;
+        private CdaPillButton but_swarmlink;
+        private CdaPillButton but_swarmrover;
+        private CdaPillButton but_swarmplane;
     }
 }

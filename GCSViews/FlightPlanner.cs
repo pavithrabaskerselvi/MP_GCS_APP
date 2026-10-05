@@ -66,6 +66,17 @@ namespace MissionPlanner.GCSViews
         }
 
 
+        /// <summary>Dark-lavender theme + animated drone background for the Plan page.</summary>
+        private void StyleLavender()
+        {
+            LavenderSkin.Attach(this,
+                new Control[] { panelAction, panelWaypoints },                 // animated background hosts
+                new Control[] { lbl_distance, lbl_prevdist, lbl_homedist });   // chips on top of the map
+            LavenderSkin.StyleMenu(contextMenuStrip1);
+            LavenderSkin.StyleMenu(contextMenuStripPoly);
+            LavenderSkin.StyleMenu(contextMenuStripZoom);
+        }
+
         private void but_mincommands_Click(object sender, System.EventArgs e)
         {
             if (panelWaypoints.Height <= 30)
@@ -297,6 +308,8 @@ namespace MissionPlanner.GCSViews
         public void Activate()
         {
             timer1.Start();
+
+            StyleLavender(); // re-apply lavender every time the tab is opened
 
             // hide altmode if old copter version
             if (MainV2.comPort.BaseStream != null && MainV2.comPort.BaseStream.IsOpen && MainV2.comPort.MAV.cs.firmware == Firmwares.ArduCopter2 &&
@@ -2367,8 +2380,8 @@ namespace MissionPlanner.GCSViews
                 var temp = ((ComboBox) e.Control);
                 ((ComboBox) e.Control).SelectionChangeCommitted -= Commands_SelectionChangeCommitted;
                 ((ComboBox) e.Control).SelectionChangeCommitted += Commands_SelectionChangeCommitted;
-                ((ComboBox) e.Control).ForeColor = Color.White;
-                ((ComboBox) e.Control).BackColor = Color.FromArgb(0x43, 0x44, 0x45);
+                ((ComboBox) e.Control).ForeColor = LavenderSkin.InputText;
+                ((ComboBox) e.Control).BackColor = LavenderSkin.InputBg;
                 Debug.WriteLine("Setting event handle");
             }
         }
@@ -3502,6 +3515,8 @@ namespace MissionPlanner.GCSViews
             }
 
             Visible = true;
+
+            StyleLavender(); // lavender theme
 
             timer1.Start();
         }

@@ -1,4 +1,11 @@
-﻿namespace MissionPlanner.GCSViews.ConfigurationView
+﻿using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+using MissionPlanner.Controls;
+using MissionPlanner.GCSViews;
+
+namespace MissionPlanner.GCSViews.ConfigurationView
 {
     partial class ConfigPlanner
     {
@@ -34,15 +41,15 @@
             this.label26 = new System.Windows.Forms.Label();
             this.CMB_videoresolutions = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.CHK_GDIPlus = new System.Windows.Forms.CheckBox();
+            this.CHK_GDIPlus = new CdaCheckBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.CHK_loadwponconnect = new System.Windows.Forms.CheckBox();
+            this.CHK_loadwponconnect = new CdaCheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.NUM_tracklength = new System.Windows.Forms.NumericUpDown();
-            this.CHK_speechaltwarning = new System.Windows.Forms.CheckBox();
+            this.CHK_speechaltwarning = new CdaCheckBox();
             this.label108 = new System.Windows.Forms.Label();
-            this.CHK_resetapmonconnect = new System.Windows.Forms.CheckBox();
-            this.CHK_mavdebug = new System.Windows.Forms.CheckBox();
+            this.CHK_resetapmonconnect = new CdaCheckBox();
+            this.CHK_mavdebug = new CdaCheckBox();
             this.label107 = new System.Windows.Forms.Label();
             this.CMB_raterc = new System.Windows.Forms.ComboBox();
             this.label104 = new System.Windows.Forms.Label();
@@ -59,23 +66,23 @@
             this.CMB_distunits = new System.Windows.Forms.ComboBox();
             this.label96 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
-            this.CHK_speechbattery = new System.Windows.Forms.CheckBox();
-            this.CHK_speechcustom = new System.Windows.Forms.CheckBox();
-            this.CHK_speechmode = new System.Windows.Forms.CheckBox();
-            this.CHK_speechwaypoint = new System.Windows.Forms.CheckBox();
+            this.CHK_speechbattery = new CdaCheckBox();
+            this.CHK_speechcustom = new CdaCheckBox();
+            this.CHK_speechmode = new CdaCheckBox();
+            this.CHK_speechwaypoint = new CdaCheckBox();
             this.label94 = new System.Windows.Forms.Label();
             this.CMB_osdcolor = new System.Windows.Forms.ComboBox();
             this.CMB_severity = new System.Windows.Forms.ComboBox();
             this.CMB_language = new System.Windows.Forms.ComboBox();
             this.label93 = new System.Windows.Forms.Label();
-            this.CHK_enablespeech = new System.Windows.Forms.CheckBox();
-            this.CHK_hudshow = new System.Windows.Forms.CheckBox();
+            this.CHK_enablespeech = new CdaCheckBox();
+            this.CHK_hudshow = new CdaCheckBox();
             this.label92 = new System.Windows.Forms.Label();
             this.CMB_videosources = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CHK_maprotation = new System.Windows.Forms.CheckBox();
+            this.CHK_maprotation = new CdaCheckBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.CHK_disttohomeflightdata = new System.Windows.Forms.CheckBox();
+            this.CHK_disttohomeflightdata = new CdaCheckBox();
             this.BUT_Joystick = new MissionPlanner.Controls.MyButton();
             this.BUT_videostop = new MissionPlanner.Controls.MyButton();
             this.BUT_videostart = new MissionPlanner.Controls.MyButton();
@@ -85,44 +92,44 @@
             this.label4 = new System.Windows.Forms.Label();
             this.CMB_theme = new System.Windows.Forms.ComboBox();
             this.BUT_themecustom = new MissionPlanner.Controls.MyButton();
-            this.CHK_speecharmdisarm = new System.Windows.Forms.CheckBox();
+            this.CHK_speecharmdisarm = new CdaCheckBox();
             this.BUT_Vario = new MissionPlanner.Controls.MyButton();
-            this.chk_analytics = new System.Windows.Forms.CheckBox();
-            this.CHK_beta = new System.Windows.Forms.CheckBox();
-            this.CHK_Password = new System.Windows.Forms.CheckBox();
-            this.CHK_speechlowspeed = new System.Windows.Forms.CheckBox();
-            this.CHK_showairports = new System.Windows.Forms.CheckBox();
-            this.chk_ADSB = new System.Windows.Forms.CheckBox();
-            this.chk_tfr = new System.Windows.Forms.CheckBox();
-            this.chk_temp = new System.Windows.Forms.CheckBox();
-            this.chk_norcreceiver = new System.Windows.Forms.CheckBox();
+            this.chk_analytics = new CdaCheckBox();
+            this.CHK_beta = new CdaCheckBox();
+            this.CHK_Password = new CdaCheckBox();
+            this.CHK_speechlowspeed = new CdaCheckBox();
+            this.CHK_showairports = new CdaCheckBox();
+            this.chk_ADSB = new CdaCheckBox();
+            this.chk_tfr = new CdaCheckBox();
+            this.chk_temp = new CdaCheckBox();
+            this.chk_norcreceiver = new CdaCheckBox();
             this.CMB_Layout = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.CHK_AutoParamCommit = new System.Windows.Forms.CheckBox();
-            this.chk_shownofly = new System.Windows.Forms.CheckBox();
+            this.CHK_AutoParamCommit = new CdaCheckBox();
+            this.chk_shownofly = new CdaCheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CMB_altunits = new System.Windows.Forms.ComboBox();
             this.num_gcsid = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            this.CHK_params_bg = new System.Windows.Forms.CheckBox();
-            this.chk_slowMachine = new System.Windows.Forms.CheckBox();
-            this.CHK_speechArmedOnly = new System.Windows.Forms.CheckBox();
+            this.CHK_params_bg = new CdaCheckBox();
+            this.chk_slowMachine = new CdaCheckBox();
+            this.CHK_speechArmedOnly = new CdaCheckBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.cmb_secondarydisplaystyle = new System.Windows.Forms.ComboBox();
-            this.chk_displaycog = new System.Windows.Forms.CheckBox();
+            this.chk_displaycog = new CdaCheckBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.chk_displayheading = new System.Windows.Forms.CheckBox();
-            this.chk_displaynavbearing = new System.Windows.Forms.CheckBox();
-            this.chk_displayradius = new System.Windows.Forms.CheckBox();
-            this.chk_displaytarget = new System.Windows.Forms.CheckBox();
+            this.chk_displayheading = new CdaCheckBox();
+            this.chk_displaynavbearing = new CdaCheckBox();
+            this.chk_displayradius = new CdaCheckBox();
+            this.chk_displaytarget = new CdaCheckBox();
             this.num_linelength = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.chk_displaytooltip = new System.Windows.Forms.CheckBox();
+            this.chk_displaytooltip = new CdaCheckBox();
             this.CMB_mapCache = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.BUT_mapCacheDir = new MissionPlanner.Controls.MyButton();
-            this.CHK_rtsresetesp32 = new System.Windows.Forms.CheckBox();
+            this.CHK_rtsresetesp32 = new CdaCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.NUM_tracklength)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_gcsid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_linelength)).BeginInit();
@@ -894,101 +901,9 @@
             // ConfigPlanner
             // 
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.CHK_rtsresetesp32);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.cmb_secondarydisplaystyle);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.CHK_speechArmedOnly);
-            this.Controls.Add(this.chk_slowMachine);
-            this.Controls.Add(this.CHK_params_bg);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.num_gcsid);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.CMB_altunits);
-            this.Controls.Add(this.chk_shownofly);
-            this.Controls.Add(this.CHK_AutoParamCommit);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.CMB_Layout);
-            this.Controls.Add(this.chk_norcreceiver);
-            this.Controls.Add(this.chk_temp);
-            this.Controls.Add(this.chk_tfr);
-            this.Controls.Add(this.chk_ADSB);
-            this.Controls.Add(this.CHK_showairports);
-            this.Controls.Add(this.CHK_speechlowspeed);
-            this.Controls.Add(this.chk_displaytarget);
-            this.Controls.Add(this.chk_displayradius);
-            this.Controls.Add(this.chk_displaynavbearing);
-            this.Controls.Add(this.chk_displayheading);
-            this.Controls.Add(this.chk_displaytooltip);
-            this.Controls.Add(this.chk_displaycog);
-            this.Controls.Add(this.CHK_Password);
-            this.Controls.Add(this.CHK_beta);
-            this.Controls.Add(this.chk_analytics);
-            this.Controls.Add(this.BUT_Vario);
-            this.Controls.Add(this.CHK_speecharmdisarm);
-            this.Controls.Add(this.BUT_themecustom);
-            this.Controls.Add(this.CMB_theme);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.BUT_logdirbrowse);
-            this.Controls.Add(this.txt_log_dir);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.CHK_disttohomeflightdata);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.CHK_maprotation);
-            this.Controls.Add(this.label33);
-            this.Controls.Add(this.CMB_ratesensors);
-            this.Controls.Add(this.label26);
-            this.Controls.Add(this.CMB_videoresolutions);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.CHK_GDIPlus);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.CHK_loadwponconnect);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.num_linelength);
-            this.Controls.Add(this.NUM_tracklength);
-            this.Controls.Add(this.CHK_speechaltwarning);
-            this.Controls.Add(this.label108);
-            this.Controls.Add(this.CHK_resetapmonconnect);
-            this.Controls.Add(this.CHK_mavdebug);
-            this.Controls.Add(this.label107);
-            this.Controls.Add(this.CMB_raterc);
-            this.Controls.Add(this.label104);
-            this.Controls.Add(this.label103);
-            this.Controls.Add(this.label102);
-            this.Controls.Add(this.label101);
-            this.Controls.Add(this.CMB_ratestatus);
-            this.Controls.Add(this.CMB_rateposition);
-            this.Controls.Add(this.CMB_rateattitude);
-            this.Controls.Add(this.label99);
-            this.Controls.Add(this.label98);
-            this.Controls.Add(this.label97);
-            this.Controls.Add(this.CMB_speedunits);
-            this.Controls.Add(this.CMB_distunits);
-            this.Controls.Add(this.label96);
-            this.Controls.Add(this.label95);
-            this.Controls.Add(this.CHK_speechbattery);
-            this.Controls.Add(this.CHK_speechcustom);
-            this.Controls.Add(this.CHK_speechmode);
-            this.Controls.Add(this.CHK_speechwaypoint);
-            this.Controls.Add(this.label94);
-            this.Controls.Add(this.CMB_osdcolor);
-            this.Controls.Add(this.CMB_severity);
-            this.Controls.Add(this.CMB_language);
-            this.Controls.Add(this.label93);
-            this.Controls.Add(this.CHK_enablespeech);
-            this.Controls.Add(this.CHK_hudshow);
-            this.Controls.Add(this.label92);
-            this.Controls.Add(this.CMB_videosources);
-            this.Controls.Add(this.BUT_Joystick);
-            this.Controls.Add(this.BUT_videostop);
-            this.Controls.Add(this.BUT_videostart);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.CMB_mapCache);
-            this.Controls.Add(this.BUT_mapCacheDir);
             this.Name = "ConfigPlanner";
+            this.DoubleBuffered = true;
+            this.BuildCdaLayout();
             this.Load += new System.EventHandler(this.ConfigPlanner_Load);
             ((System.ComponentModel.ISupportInitialize)(this.NUM_tracklength)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.num_gcsid)).EndInit();
@@ -1005,15 +920,15 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox CMB_videoresolutions;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckBox CHK_GDIPlus;
+        private CdaCheckBox CHK_GDIPlus;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.CheckBox CHK_loadwponconnect;
+        private CdaCheckBox CHK_loadwponconnect;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.NumericUpDown NUM_tracklength;
-        private System.Windows.Forms.CheckBox CHK_speechaltwarning;
+        private CdaCheckBox CHK_speechaltwarning;
         private System.Windows.Forms.Label label108;
-        private System.Windows.Forms.CheckBox CHK_resetapmonconnect;
-        private System.Windows.Forms.CheckBox CHK_mavdebug;
+        private CdaCheckBox CHK_resetapmonconnect;
+        private CdaCheckBox CHK_mavdebug;
         private System.Windows.Forms.Label label107;
         private System.Windows.Forms.ComboBox CMB_raterc;
         private System.Windows.Forms.Label label104;
@@ -1030,69 +945,392 @@
         private System.Windows.Forms.ComboBox CMB_distunits;
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.CheckBox CHK_speechbattery;
-        private System.Windows.Forms.CheckBox CHK_speechcustom;
-        private System.Windows.Forms.CheckBox CHK_speechmode;
-        private System.Windows.Forms.CheckBox CHK_speechwaypoint;
+        private CdaCheckBox CHK_speechbattery;
+        private CdaCheckBox CHK_speechcustom;
+        private CdaCheckBox CHK_speechmode;
+        private CdaCheckBox CHK_speechwaypoint;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.ComboBox CMB_osdcolor;
         private System.Windows.Forms.ComboBox CMB_severity;
         private System.Windows.Forms.ComboBox CMB_language;
         private System.Windows.Forms.Label label93;
-        private System.Windows.Forms.CheckBox CHK_enablespeech;
-        private System.Windows.Forms.CheckBox CHK_hudshow;
+        private CdaCheckBox CHK_enablespeech;
+        private CdaCheckBox CHK_hudshow;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.ComboBox CMB_videosources;
         private Controls.MyButton BUT_Joystick;
         private Controls.MyButton BUT_videostop;
         private Controls.MyButton BUT_videostart;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox CHK_maprotation;
+        private CdaCheckBox CHK_maprotation;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox CHK_disttohomeflightdata;
+        private CdaCheckBox CHK_disttohomeflightdata;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_log_dir;
         private Controls.MyButton BUT_logdirbrowse;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CMB_theme;
         private Controls.MyButton BUT_themecustom;
-        private System.Windows.Forms.CheckBox CHK_speecharmdisarm;
+        private CdaCheckBox CHK_speecharmdisarm;
         private Controls.MyButton BUT_Vario;
-        private System.Windows.Forms.CheckBox chk_analytics;
-        private System.Windows.Forms.CheckBox CHK_beta;
-        private System.Windows.Forms.CheckBox CHK_Password;
-        private System.Windows.Forms.CheckBox CHK_speechlowspeed;
-        private System.Windows.Forms.CheckBox CHK_showairports;
-        private System.Windows.Forms.CheckBox chk_ADSB;
-        private System.Windows.Forms.CheckBox chk_tfr;
-        private System.Windows.Forms.CheckBox chk_temp;
-        private System.Windows.Forms.CheckBox chk_norcreceiver;
+        private CdaCheckBox chk_analytics;
+        private CdaCheckBox CHK_beta;
+        private CdaCheckBox CHK_Password;
+        private CdaCheckBox CHK_speechlowspeed;
+        private CdaCheckBox CHK_showairports;
+        private CdaCheckBox chk_ADSB;
+        private CdaCheckBox chk_tfr;
+        private CdaCheckBox chk_temp;
+        private CdaCheckBox chk_norcreceiver;
         public System.Windows.Forms.ComboBox CMB_Layout;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.CheckBox CHK_AutoParamCommit;
-        private System.Windows.Forms.CheckBox chk_shownofly;
+        private CdaCheckBox CHK_AutoParamCommit;
+        private CdaCheckBox chk_shownofly;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox CMB_altunits;
         private System.Windows.Forms.NumericUpDown num_gcsid;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.CheckBox CHK_params_bg;
-        private System.Windows.Forms.CheckBox chk_slowMachine;
-        private System.Windows.Forms.CheckBox CHK_speechArmedOnly;
+        private CdaCheckBox CHK_params_bg;
+        private CdaCheckBox chk_slowMachine;
+        private CdaCheckBox CHK_speechArmedOnly;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.ComboBox cmb_secondarydisplaystyle;
-        private System.Windows.Forms.CheckBox chk_displaycog;
+        private CdaCheckBox chk_displaycog;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox chk_displayheading;
-        private System.Windows.Forms.CheckBox chk_displaynavbearing;
-        private System.Windows.Forms.CheckBox chk_displayradius;
-        private System.Windows.Forms.CheckBox chk_displaytarget;
+        private CdaCheckBox chk_displayheading;
+        private CdaCheckBox chk_displaynavbearing;
+        private CdaCheckBox chk_displayradius;
+        private CdaCheckBox chk_displaytarget;
         private System.Windows.Forms.NumericUpDown num_linelength;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckBox chk_displaytooltip;
+        private CdaCheckBox chk_displaytooltip;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.ComboBox CMB_mapCache;
         private Controls.MyButton BUT_mapCacheDir;
-        private System.Windows.Forms.CheckBox CHK_rtsresetesp32;
+        private CdaCheckBox CHK_rtsresetesp32;
+
+        // =====================================================================
+        //  Chennai Drone Academy layout – banner + rounded section cards
+        // =====================================================================
+        #region CDA layout
+
+        private const int RowH = 42;      // label + input rows
+        private const int CheckH = 32;    // one check-box line
+        private const int GridPad = 4;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                var cp = base.CreateParams;
+                if (!Program.MONO)
+                    cp.ExStyle |= 0x02000000;   // WS_EX_COMPOSITED: flicker/ghost-free child painting
+                return cp;
+            }
+        }
+
+        private readonly List<Control> cdaCards = new List<Control>();
+        private CardBuilder cdaSpeech;
+        private Control cdaSpeechGrid;
+        private CdaBanner cdaBanner;
+        private bool cdaPositioning;
+
+        private sealed class CardBuilder
+        {
+            public readonly CdaPanelCard Card;
+            private readonly List<Control> rows = new List<Control>();
+            private int height = 52 + 14;
+
+            public CardBuilder(string title)
+            {
+                Card = new CdaPanelCard { Title = title, Padding = new Padding(18, 52, 18, 14), Radius = 14 };
+            }
+
+            public void Add(Control row, int h)
+            {
+                row.Dock = DockStyle.Top;
+                row.Height = h;
+                rows.Add(row);
+                height += h;
+            }
+
+            public void Recalc()
+            {
+                int h = 52 + 14;
+                foreach (var r in rows) if (r.Visible) h += r.Height;
+                Card.Height = h;
+            }
+
+            public CdaPanelCard Done()
+            {
+                for (int i = rows.Count - 1; i >= 0; i--)   // last added docks first = top
+                    Card.Controls.Add(rows[i]);
+                Card.Height = height;
+                return Card;
+            }
+        }
+
+        private static int TextW(Control c)
+        {
+            return Math.Max(76, TextRenderer.MeasureText(c.Text, CdaTheme.Ui(8.75f, FontStyle.Bold)).Width + 36);
+        }
+
+        private static Control Field(Control inner)
+        {
+            inner.Font = CdaTheme.Ui(9f);
+            if (inner is TextBox) ((TextBox)inner).BorderStyle = BorderStyle.None;
+            if (inner is NumericUpDown) ((NumericUpDown)inner).BorderStyle = BorderStyle.None;
+            int ih = inner is TextBox ? 17 : 23;
+            var f = new CdaField(inner) { Margin = new Padding(0, 4, 0, 4) };
+            f.Padding = new Padding(10, Math.Max(2, (34 - ih) / 2), 6, 0);
+            // when the page hides the inner control (e.g. Layout), hide its rounded holder too
+            inner.VisibleChanged += (s, e) => { if (!inner.Visible && f.Visible) f.Visible = false; };
+            return f;
+        }
+
+        private static void PrepLabel(Label l, string tag = null)
+        {
+            l.AutoSize = false;
+            l.Dock = DockStyle.Fill;
+            l.Margin = new Padding(0);
+            l.TextAlign = ContentAlignment.MiddleLeft;
+            l.AutoEllipsis = true;
+            if (tag != null) l.Tag = tag;
+        }
+
+        private static void PrepCheck(Control c)
+        {
+            c.AutoSize = false;
+            c.Dock = DockStyle.Fill;
+            c.Margin = new Padding(0, 2, 6, 2);
+        }
+
+        /// <summary>[label][main (fixed width or fill)][trailing buttons...]</summary>
+        private static Control MakeRow(Control label, Control main, int mainWidth, params Control[] trailing)
+        {
+            int cols = 2 + (mainWidth > 0 ? 1 : 0) + trailing.Length;
+            var t = new CdaRowTable { ColumnCount = cols, RowCount = 1 };
+            t.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
+            t.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 132f));
+
+            int col = 0;
+            if (label != null)
+            {
+                if (label is Label) PrepLabel((Label)label);
+                t.Controls.Add(label, col, 0);
+            }
+            col++;
+
+            if (main is Label) PrepLabel((Label)main);
+            else if (main is CdaCheckBox) PrepCheck(main);
+            else main.Dock = DockStyle.Fill;
+
+            if (mainWidth > 0)
+            {
+                t.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, mainWidth));
+                t.Controls.Add(main, col++, 0);
+                t.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+                col++;
+            }
+            else
+            {
+                t.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+                t.Controls.Add(main, col++, 0);
+            }
+
+            if (main is Button) main.Margin = new Padding(0, 4, 0, 4);
+
+            foreach (var tr in trailing)
+            {
+                int w = tr is Button ? TextW(tr) + 10 : 120;
+                t.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, w));
+                tr.Dock = DockStyle.Fill;
+                tr.Margin = new Padding(10, 4, 0, 4);
+                t.Controls.Add(tr, col++, 0);
+            }
+            return t;
+        }
+
+        /// <summary>Grid of check boxes (cols columns).</summary>
+        private static Control MakeGrid(int cols, params Control[] items)
+        {
+            int rows = (items.Length + cols - 1) / cols;
+            var t = new CdaRowTable { ColumnCount = cols, RowCount = rows };
+            for (int c = 0; c < cols; c++) t.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / cols));
+            for (int r = 0; r < rows; r++) t.RowStyles.Add(new RowStyle(SizeType.Absolute, CheckH));
+            for (int i = 0; i < items.Length; i++)
+            {
+                if (items[i] == null) continue;
+                PrepCheck(items[i]);
+                t.Controls.Add(items[i], i % cols, i / cols);
+            }
+            t.Tag = rows * CheckH;
+            return t;
+        }
+
+        private static Control MakeTelemetry(params Control[][] pairs)  // {caption label, combo}
+        {
+            var t = new CdaRowTable { ColumnCount = pairs.Length, RowCount = 2 };
+            for (int c = 0; c < pairs.Length; c++) t.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f / pairs.Length));
+            t.RowStyles.Add(new RowStyle(SizeType.Absolute, 22f));
+            t.RowStyles.Add(new RowStyle(SizeType.Absolute, 44f));
+            for (int i = 0; i < pairs.Length; i++)
+            {
+                var cap = (Label)pairs[i][0];
+                PrepLabel(cap, "caption");
+                var fld = Field(pairs[i][1]);
+                fld.Dock = DockStyle.Fill;
+                fld.Margin = new Padding(0, 0, i == pairs.Length - 1 ? 0 : 10, 4);
+                t.Controls.Add(cap, i, 0);
+                t.Controls.Add(fld, i, 1);
+            }
+            return t;
+        }
+
+        private void BuildCdaLayout()
+        {
+            SuspendLayout();
+            AutoScroll = true;
+
+            cdaBanner = new CdaBanner
+            {
+                Title = "Planner Settings",
+                Subtitle = "Video, speech, units, telemetry and display preferences",
+                Tagline = "Fly Higher With Us",
+                Height = 92
+            };
+
+            // ---- Video & HUD -------------------------------------------------
+            var video = new CardBuilder("Video & HUD");
+            video.Add(MakeRow(label92, Field(CMB_videosources), 0, BUT_videostart, BUT_videostop), RowH);
+            video.Add(MakeRow(label26, Field(CMB_videoresolutions), 0), RowH);
+            video.Add(MakeRow(label94, Field(CMB_osdcolor), 0), RowH);
+            video.Add(MakeRow(label12, CHK_hudshow, 0), CheckH + 4);
+            video.Add(MakeRow(null, CHK_GDIPlus, 0), CheckH + 4);
+
+            // ---- Speech ------------------------------------------------------
+            var speech = new CardBuilder("Speech Alerts");
+            speech.Add(MakeRow(label95, CHK_enablespeech, 0), CheckH + 4);
+            speech.Add(MakeRow(null, Field(CMB_severity), 0), RowH);
+            speech.Add(MakeRow(null, label8, 0), 26);
+            label8.Tag = "note";
+            var speechGrid = MakeGrid(2, CHK_speechArmedOnly, CHK_speechwaypoint, CHK_speechaltwarning, CHK_speechbattery,
+                CHK_speechcustom, CHK_speechmode, CHK_speecharmdisarm, CHK_speechlowspeed);
+            speech.Add(speechGrid, (int)speechGrid.Tag + GridPad);
+            cdaSpeech = speech;
+            cdaSpeechGrid = speechGrid;
+
+            // ---- Units & Language -------------------------------------------
+            var units = new CardBuilder("Units & Language");
+            units.Add(MakeRow(label93, Field(CMB_language), 0), RowH);
+            units.Add(MakeRow(label97, Field(CMB_distunits), 0), RowH);
+            units.Add(MakeRow(label6, Field(CMB_altunits), 0), RowH);
+            units.Add(MakeRow(label98, Field(CMB_speedunits), 0), RowH);
+            label99.Tag = "note";
+            label99.Text = label99.Text.Trim();
+            units.Add(MakeRow(null, label99, 0), 46);
+            units.Add(MakeRow(label96, BUT_Joystick, TextW(BUT_Joystick) + 20), RowH);
+
+            // ---- Telemetry rates --------------------------------------------
+            var telem = new CardBuilder("Telemetry Rates");
+            telem.Add(MakeTelemetry(
+                new Control[] { label102, CMB_rateattitude },
+                new Control[] { label103, CMB_rateposition },
+                new Control[] { label104, CMB_ratestatus },
+                new Control[] { label107, CMB_raterc },
+                new Control[] { label33, CMB_ratesensors }), 70);
+
+            // ---- Connection & parameters ------------------------------------
+            var conn = new CardBuilder("Connection & Parameters");
+            conn.Add(MakeRow(label108, CHK_resetapmonconnect, 0), CheckH + 4);
+            conn.Add(MakeRow(null, CHK_rtsresetesp32, 0), CheckH + 4);
+            conn.Add(MakeRow(label7, Field(num_gcsid), 130), RowH);
+            var connGrid = MakeGrid(2, CHK_params_bg, CHK_AutoParamCommit, chk_norcreceiver, chk_slowMachine,
+                CHK_Password, chk_temp, CHK_mavdebug);
+            conn.Add(connGrid, (int)connGrid.Tag + GridPad);
+
+            // ---- Flight data & map ------------------------------------------
+            var map = new CardBuilder("Flight Data & Map");
+            map.Add(MakeRow(label23, Field(NUM_tracklength), 130), RowH);
+            map.Add(MakeRow(label2, CHK_disttohomeflightdata, 0), CheckH + 4);
+            map.Add(MakeRow(label24, CHK_loadwponconnect, 0), CheckH + 4);
+            map.Add(MakeRow(label1, CHK_maprotation, 0), CheckH + 4);
+            map.Add(MakeRow(label13, Field(CMB_mapCache), 0, BUT_mapCacheDir), RowH);
+            var mapGrid = MakeGrid(2, CHK_showairports, chk_ADSB, chk_tfr, chk_shownofly);
+            map.Add(mapGrid, (int)mapGrid.Tag + GridPad);
+
+            // ---- Aircraft icon ----------------------------------------------
+            var plane = new CardBuilder("Aircraft Icon");
+            var planeGrid = MakeGrid(2, chk_displaycog, chk_displayheading, chk_displaynavbearing,
+                chk_displayradius, chk_displaytarget, chk_displaytooltip);
+            plane.Add(planeGrid, (int)planeGrid.Tag + GridPad);
+            plane.Add(MakeRow(label11, Field(num_linelength), 130), RowH);
+            plane.Add(MakeRow(label9, Field(cmb_secondarydisplaystyle), 0), RowH);
+
+            // ---- Appearance & files -----------------------------------------
+            var look = new CardBuilder("Appearance & Files");
+            look.Add(MakeRow(label3, Field(txt_log_dir), 0, BUT_logdirbrowse), RowH);
+            look.Add(MakeRow(label4, Field(CMB_theme), 0, BUT_themecustom), RowH);
+            look.Add(MakeRow(label5, Field(CMB_Layout), 0), RowH);
+            look.Add(MakeRow(null, BUT_Vario, TextW(BUT_Vario) + 20), RowH);
+            var lookGrid = MakeGrid(2, chk_analytics, CHK_beta);
+            look.Add(lookGrid, (int)lookGrid.Tag + GridPad);
+
+            // masonry order (cards go into the shorter column)
+            cdaCards.Clear();
+            foreach (var cb in new[] { video, conn, speech, map, units, plane, telem, look })
+                cdaCards.Add(cb.Done());
+
+            this.Controls.Add(cdaBanner);
+            foreach (var c in cdaCards) this.Controls.Add(c);
+
+            SizeChanged += (s, e) => PositionCdaCards();
+            ResumeLayout(false);
+            PositionCdaCards();
+        }
+
+        /// <summary>Show/hide the speech options block and shrink the card when speech is off.</summary>
+        private void RefreshCdaSpeech()
+        {
+            if (cdaSpeech == null) return;
+            cdaSpeechGrid.Visible = CHK_speechArmedOnly.Visible;
+            cdaSpeech.Recalc();
+            PositionCdaCards();
+        }
+
+        /// <summary>Two-column masonry on wide windows, single column on narrow ones.</summary>
+        private void PositionCdaCards()
+        {
+            if (cdaPositioning || cdaBanner == null) return;
+            cdaPositioning = true;
+            try
+            {
+                SuspendLayout();
+                const int margin = 18, gap = 16;
+                int w = ClientSize.Width;
+                bool two = w >= 900;
+                int colW = two ? (w - margin * 2 - gap) / 2 : Math.Max(300, w - margin * 2);
+                var off = AutoScrollPosition;     // negative when scrolled
+
+                cdaBanner.SetBounds(margin + off.X, margin + off.Y, Math.Max(300, w - margin * 2), cdaBanner.Height);
+
+                int[] y = { margin + cdaBanner.Height + gap, margin + cdaBanner.Height + gap };
+                foreach (var card in cdaCards)
+                {
+                    int c = (!two || y[0] <= y[1]) ? 0 : 1;
+                    card.SetBounds(margin + c * (colW + gap) + off.X, y[c] + off.Y, colW, card.Height);
+                    y[c] += card.Height + gap;
+                }
+                AutoScrollMinSize = new Size(0, Math.Max(y[0], y[1]) - gap + margin);
+            }
+            finally
+            {
+                ResumeLayout(false);
+                cdaPositioning = false;
+            }
+        }
+
+        #endregion
     }
 }
