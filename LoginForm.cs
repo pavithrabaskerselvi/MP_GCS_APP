@@ -46,6 +46,43 @@ namespace MissionPlanner
             if (t.IsHandleCreated) SendMessage(t.Handle, 0x1501, (IntPtr)1, text);
         }
 
+        // full-page login background (the Chennai Drone Academy hero picture).
+        // Optional override: put login_bg.jpg (or .png) next to MissionPlanner.exe.
+        // Otherwise the picture built into LoginBackgroundData.cs is used.
+        public static Image LoadBackground()
+        {
+            foreach (var n in new[] { "login_bg.jpg", "login_bg.jpeg", "login_bg.png" })
+            {
+                try
+                {
+                    var p = Path.Combine(Application.StartupPath, n);
+                    if (File.Exists(p))
+                    {
+                        using (var img = Image.FromFile(p)) return new Bitmap(img);
+                    }
+                }
+                catch { }
+            }
+
+            try
+            {
+                var asm = System.Reflection.Assembly.GetExecutingAssembly();
+                foreach (var res in asm.GetManifestResourceNames())
+                {
+                    if (res.EndsWith("login_bg.jpg", StringComparison.OrdinalIgnoreCase) ||
+                        res.EndsWith("login_bg.png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        using (var st = asm.GetManifestResourceStream(res))
+                        using (var img = Image.FromStream(st)) return new Bitmap(img);
+                    }
+                }
+            }
+            catch { }
+
+            // always available: the picture compiled into LoginBackgroundData.cs
+            return LoginBackgroundData.Load();
+        }
+
         // optional hero image: put login_hero.jpg (or .png) next to MissionPlanner.exe
         public static Image LoadHero()
         {
@@ -200,6 +237,9 @@ namespace MissionPlanner
         protected CdaRoundPanel Card;
         Image hero;
         Rectangle heroRect = Rectangle.Empty;
+        Image bg;                       // full-page background picture
+        Bitmap bgCache;                 // background pre-scaled to the form size
+        Size bgCacheSize = Size.Empty;
 
         public CdaThemedForm(int cardHeight, bool showClose)
         {
@@ -215,8 +255,14 @@ namespace MissionPlanner
             int cardW = 400;
             int cx = Math.Min((int)(Width * 0.60), Width - cardW - 60);
 
-            hero = CdaTheme.LoadHero();
-            BuildHero(cx);
+            // The background picture already contains the headline, tagline and feature icons,
+            // so the coded hero text is only built when the picture is missing.
+            bg = CdaTheme.LoadBackground();
+            if (bg == null)
+            {
+                hero = CdaTheme.LoadHero();
+                BuildHero(cx);
+            }
 
             Card = new CdaRoundPanel
             {
@@ -245,7 +291,12 @@ namespace MissionPlanner
                 close.BringToFront();
             }
 
-            FormClosed += (s, e) => { if (hero != null) hero.Dispose(); };
+            FormClosed += (s, e) =>
+            {
+                if (hero != null) hero.Dispose();
+                if (bg != null) bg.Dispose();
+                if (bgCache != null) bgCache.Dispose();
+            };
         }
 
         protected Label MakeLabel(Control parent, string text, int x, int y, int w, int h,
@@ -374,8 +425,40 @@ namespace MissionPlanner
             return lnk;
         }
 
+        // scale the picture to "cover" the screen; the left edge stays anchored so the
+        // headline text is never cut off (extra width is cropped from the right).
+        void EnsureBgCache()
+        {
+            int W = ClientSize.Width, H = ClientSize.Height;
+            if (bg == null || W <= 0 || H <= 0) return;
+            if (bgCache != null && bgCacheSize.Width == W && bgCacheSize.Height == H) return;
+
+            if (bgCache != null) bgCache.Dispose();
+            bgCache = new Bitmap(W, H);
+            bgCacheSize = new Size(W, H);
+
+            using (var g = Graphics.FromImage(bgCache))
+            {
+                g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                float s = Math.Max((float)W / bg.Width, (float)H / bg.Height);
+                int w = (int)Math.Ceiling(bg.Width * s), h = (int)Math.Ceiling(bg.Height * s);
+                g.DrawImage(bg, 0, (H - h) / 2, w, h);
+            }
+        }
+
         protected override void OnPaintBackground(PaintEventArgs e)
         {
+            if (bg != null)
+            {
+                EnsureBgCache();
+                if (bgCache != null)
+                {
+                    e.Graphics.DrawImageUnscaled(bgCache, 0, 0);
+                    return;
+                }
+            }
+
             if (ClientRectangle.Width <= 0 || ClientRectangle.Height <= 0)
             {
                 base.OnPaintBackground(e);
@@ -388,6 +471,23 @@ namespace MissionPlanner
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+
+            // soft lavender shadow so the white card lifts off the photo
+            if (bg != null && Card != null)
+            {
+                var sg = e.Graphics;
+                sg.SmoothingMode = SmoothingMode.AntiAlias;
+                for (int i = 10; i >= 1; i--)
+                {
+                    var r = Card.Bounds;
+                    r.Inflate(i * 2, i * 2);
+                    r.Offset(0, 8);
+                    using (var p = CdaTheme.Round(r, 22 + i * 2))
+                    using (var b = new SolidBrush(Color.FromArgb(7, 40, 30, 110)))
+                        sg.FillPath(b, p);
+                }
+            }
+
             if (hero != null && !heroRect.IsEmpty)
             {
                 var g = e.Graphics;
