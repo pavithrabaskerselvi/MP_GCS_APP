@@ -334,7 +334,7 @@ namespace MissionPlanner.GCSViews
             this.hud1.alt = 0F;
             this.hud1.altunit = null;
             this.hud1.AOA = 0F;
-            this.hud1.BackColor = System.Drawing.Color.Black;
+            this.hud1.BackColor = System.Drawing.Color.FromArgb(243, 238, 255); // CDA purple theme
             this.hud1.batterycellcount = 4;
             this.hud1.batterylevel = 0F;
             this.hud1.batterylevel2 = 0F;
@@ -2756,7 +2756,7 @@ namespace MissionPlanner.GCSViews
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
-            this.label6.BackColor = System.Drawing.Color.Black;
+            this.label6.BackColor = System.Drawing.Color.FromArgb(107, 78, 255); // CDA purple theme
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Name = "label6";
             this.label6.Tag = "custom";
@@ -2800,12 +2800,12 @@ namespace MissionPlanner.GCSViews
             // 
             // gMapControl1
             // 
-            this.gMapControl1.BackColor = System.Drawing.Color.Black;
+            this.gMapControl1.BackColor = System.Drawing.Color.FromArgb(243, 238, 255); // CDA purple theme
             this.gMapControl1.Bearing = 0F;
             this.gMapControl1.CanDragMap = true;
             this.gMapControl1.ContextMenuStrip = this.contextMenuStripMap;
             resources.ApplyResources(this.gMapControl1, "gMapControl1");
-            this.gMapControl1.EmptyTileColor = System.Drawing.Color.Gray;
+            this.gMapControl1.EmptyTileColor = System.Drawing.Color.FromArgb(225, 216, 255); // CDA purple theme
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.HoldInvalidation = false;

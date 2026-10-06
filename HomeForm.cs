@@ -189,9 +189,230 @@ namespace MissionPlanner
     }
 
     // ---------------------------------------------------------------
+    //  HOME button inside the Mission Planner top menu bar.
+    //  Click -> main window hides, Home screen shows again.
+    // ---------------------------------------------------------------
+    public static class CdaHomeNav
+    {
+        public static bool Attached;
+        static System.Windows.Forms.Timer attachTimer;
+        static bool going;
+
+        // waits for the main window, then adds the HOME button once
+        public static void EnsureAttached()
+        {
+            if (Attached || attachTimer != null) return;
+
+            DateTime started = DateTime.Now;
+            attachTimer = new System.Windows.Forms.Timer { Interval = 700 };
+            attachTimer.Tick += (o, ev) =>
+            {
+                bool stop = false;
+                try
+                {
+                    var mp = MainV2.instance;
+                    if (mp != null && mp.IsHandleCreated && mp.Visible)
+                    {
+                        stop = TryAttach(mp);
+                        Attached = stop;
+                    }
+                }
+                catch { }
+
+                if (stop || (DateTime.Now - started).TotalSeconds > 120)
+                {
+                    attachTimer.Stop();
+                    attachTimer.Dispose();
+                    attachTimer = null;
+                }
+            };
+            attachTimer.Start();
+        }
+
+        static object GetMember(object o, string name)
+        {
+            var t = o.GetType();
+            var flags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
+            var f = t.GetField(name, flags);
+            if (f != null) return f.GetValue(o);
+            var p = t.GetProperty(name, flags);
+            if (p != null) return p.GetValue(o, null);
+            return null;
+        }
+
+        static Bitmap MakeIcon()
+        {
+            var bmp = new Bitmap(32, 32);
+            using (var g = Graphics.FromImage(bmp))
+            using (var pen = new Pen(Color.White, 2.4f))
+            {
+                pen.LineJoin = LineJoin.Round;
+                pen.StartCap = LineCap.Round;
+                pen.EndCap = LineCap.Round;
+                g.SmoothingMode = SmoothingMode.AntiAlias;
+                g.DrawLines(pen, new[] { new PointF(3, 16), new PointF(16, 4), new PointF(29, 16) });
+                g.DrawLines(pen, new[] { new PointF(7, 14), new PointF(7, 28), new PointF(25, 28), new PointF(25, 14) });
+                g.DrawRectangle(pen, 13f, 19f, 6f, 9f);
+            }
+            return bmp;
+        }
+
+        // copies the look of the HELP button and puts HOME right after it
+        static bool TryAttach(MainV2 mp)
+        {
+            object help = GetMember(mp, "MenuHelp");
+            var icon = MakeIcon();
+            EventHandler click = (o, ev) => GoHome();
+
+            var ctl = help as Control;
+            var item = help as ToolStripItem;
+
+            if (ctl != null && ctl.Parent != null)
+            {
+                var bb = ctl as ButtonBase;
+                var b = new Button
+                {
+                    Name = "cdaHomeButton",
+                    Text = "HOME",
+                    Size = ctl.Size,
+                    Font = ctl.Font,
+                    ForeColor = ctl.ForeColor,
+                    BackColor = ctl.BackColor,
+                    FlatStyle = FlatStyle.Flat,
+                    Image = icon,
+                    ImageAlign = bb != null ? bb.ImageAlign : ContentAlignment.TopCenter,
+                    TextAlign = bb != null ? bb.TextAlign : ContentAlignment.BottomCenter,
+                    TextImageRelation = bb != null ? bb.TextImageRelation : TextImageRelation.ImageAboveText,
+                    Cursor = Cursors.Hand,
+                    Margin = ctl.Margin,
+                    UseVisualStyleBackColor = false
+                };
+                b.FlatAppearance.BorderSize = 0;
+                b.FlatAppearance.MouseOverBackColor = Color.FromArgb(70, 70, 70);
+                b.Click += click;
+
+                var parent = ctl.Parent;
+                int idx = parent.Controls.GetChildIndex(ctl);
+                b.Anchor = ctl.Anchor;
+                b.Dock = ctl.Dock;
+                parent.Controls.Add(b);
+                if (ctl.Dock == DockStyle.Left)
+                {
+                    parent.Controls.SetChildIndex(b, idx);
+                }
+                else if (parent is FlowLayoutPanel)
+                {
+                    parent.Controls.SetChildIndex(b, idx + 1);
+                }
+                else
+                {
+                    b.Location = new Point(ctl.Right + 4, ctl.Top);
+                    b.BringToFront();
+                }
+                return true;
+            }
+
+            if (item != null && item.Owner != null)
+            {
+                var tb = new ToolStripButton("HOME", icon)
+                {
+                    Name = "cdaHomeButton",
+                    DisplayStyle = item.DisplayStyle,
+                    TextImageRelation = item.TextImageRelation,
+                    ImageScaling = item.ImageScaling,
+                    ImageAlign = item.ImageAlign,
+                    TextAlign = item.TextAlign,
+                    Font = item.Font,
+                    ForeColor = item.ForeColor,
+                    BackColor = item.BackColor,
+                    AutoSize = item.AutoSize,
+                    Margin = item.Margin,
+                    Padding = item.Padding
+                };
+                if (!item.AutoSize) tb.Size = item.Size;
+                tb.Click += click;
+                var owner = item.Owner;
+                owner.Items.Insert(owner.Items.IndexOf(item) + 1, tb);
+                return true;
+            }
+
+            // fallback: floating button in the empty part of the top bar
+            var fb = new Button
+            {
+                Name = "cdaHomeButton",
+                Text = "HOME",
+                Size = new Size(70, 60),
+                Location = new Point(340, 2),
+                Font = new Font("Segoe UI", 8.5f, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.FromArgb(38, 39, 40),
+                FlatStyle = FlatStyle.Flat,
+                Image = icon,
+                ImageAlign = ContentAlignment.TopCenter,
+                TextAlign = ContentAlignment.BottomCenter,
+                TextImageRelation = TextImageRelation.ImageAboveText,
+                Cursor = Cursors.Hand
+            };
+            fb.FlatAppearance.BorderSize = 0;
+            fb.Click += click;
+            mp.Controls.Add(fb);
+            fb.BringToFront();
+            return true;
+        }
+
+        // Hide Mission Planner, show the Home screen.
+        // OPEN / tile -> back to Mission Planner, LOGOUT -> login, X -> close the app.
+        public static void GoHome()
+        {
+            if (going) return;
+            var mp = MainV2.instance;
+            if (mp == null) return;
+
+            going = true;
+            try
+            {
+                mp.Hide();
+                while (true)
+                {
+                    DialogResult res;
+                    using (var home = new HomeForm()) res = home.ShowDialog();
+
+                    if (res == DialogResult.OK)
+                    {
+                        mp.Show();
+                        mp.Activate();
+                        return;
+                    }
+
+                    if (res == DialogResult.Retry)
+                    {
+                        AuthService.UserEmail = null;
+                        AuthService.IdToken = null;
+                        DialogResult lr;
+                        using (var login = new LoginForm()) lr = login.ShowDialog();
+                        if (lr == DialogResult.OK) continue;
+                    }
+
+                    // X on the home/login screen = exit the application
+                    mp.Show();
+                    mp.Close();
+                    return;
+                }
+            }
+            finally
+            {
+                going = false;
+            }
+        }
+    }
+
+    // ---------------------------------------------------------------
     //  Home screen shown after login.
     //  DialogResult: OK = open Ground Control Station, Retry = logout, Cancel = exit.
     //  If a tile is clicked, StartScreen holds the Mission Planner screen to jump to.
+    //
+    //  BACKGROUND: put  home_bg.jpg  in the same folder as MissionPlanner.exe
+    //  (also searched: Resources\ and images\ sub-folders).
     // ---------------------------------------------------------------
     public class HomeForm : Form
     {
@@ -211,6 +432,7 @@ namespace MissionPlanner
         public HomeForm()
         {
             StartScreen = null;
+            CdaHomeNav.EnsureAttached(); // adds a HOME button to the Mission Planner top menu
 
             Text = "CHENNAIDRONEACADEMY";
             FormBorderStyle = FormBorderStyle.None;
@@ -313,6 +535,7 @@ namespace MissionPlanner
 
             DateTime started = DateTime.Now;
             DateTime ready = DateTime.MinValue;
+            int delay = CdaHomeNav.Attached ? 300 : 2000;
             applyTimer = new System.Windows.Forms.Timer { Interval = 500 };
             applyTimer.Tick += (o, ev) =>
             {
@@ -324,7 +547,7 @@ namespace MissionPlanner
                     if (view != null)
                     {
                         if (ready == DateTime.MinValue) ready = DateTime.Now;
-                        if ((DateTime.Now - ready).TotalMilliseconds >= 2000)
+                        if ((DateTime.Now - ready).TotalMilliseconds >= delay)
                         {
                             var m = view.GetType().GetMethod("ShowScreen",
                                 BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
@@ -357,30 +580,50 @@ namespace MissionPlanner
             return null;
         }
 
+        // Looks for the image in the exe folder first, then a few common sub-folders.
+        // Returns a copy, so the file is never locked.
         static Image LoadImg(params string[] names)
         {
-            foreach (var n in names)
+            string[] folders =
             {
-                try
+                Application.StartupPath,
+                AppDomain.CurrentDomain.BaseDirectory,
+                Path.GetDirectoryName(Application.ExecutablePath),
+                Path.Combine(Application.StartupPath, "Resources"),
+                Path.Combine(Application.StartupPath, "images"),
+                Path.Combine(Application.StartupPath, "Images")
+            };
+
+            foreach (var folder in folders)
+            {
+                if (string.IsNullOrEmpty(folder)) continue;
+                foreach (var n in names)
                 {
-                    var p = Path.Combine(Application.StartupPath, n);
-                    if (File.Exists(p))
+                    try
                     {
-                        using (var img = Image.FromFile(p)) return new Bitmap(img);
+                        var p = Path.Combine(folder, n);
+                        if (File.Exists(p))
+                        {
+                            using (var img = Image.FromFile(p)) return new Bitmap(img);
+                        }
                     }
+                    catch { }
                 }
-                catch { }
             }
             return null;
         }
 
-        // purple sunset gradient; optional photo home_bg.jpg/png with purple tint on top
+        // Purple sunset gradient first; then home_bg.jpg (the Chennai Drone Academy
+        // sunset photo) is drawn on top, scaled to cover the full screen,
+        // with a light purple tint so the white text stays readable.
         void BuildBackground()
         {
             bg = new Bitmap(Width, Height);
             using (var g = Graphics.FromImage(bg))
             {
                 var rect = new Rectangle(0, 0, Width, Height);
+
+                // fallback gradient (used when the photo is missing)
                 using (var br = new LinearGradientBrush(rect, Color.FromArgb(52, 24, 120), Color.FromArgb(236, 168, 204), 90f))
                 {
                     var cb = new ColorBlend(3);
@@ -390,17 +633,23 @@ namespace MissionPlanner
                     g.FillRectangle(br, rect);
                 }
 
-                var img = LoadImg("home_bg.jpg", "home_bg.jpeg", "home_bg.png");
+                var img = LoadImg("home_bg.jpg", "home_bg.jpeg", "home_bg.png", "home_bg.jpg.jpg");
                 if (img != null)
                 {
                     using (img)
                     {
                         g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                        // "cover" fit: fill the screen, keep the aspect ratio,
+                        // anchored to the bottom so the team stays visible
                         float s = Math.Max((float)Width / img.Width, (float)Height / img.Height);
                         int w = (int)(img.Width * s), h = (int)(img.Height * s);
-                        g.DrawImage(img, (Width - w) / 2, (Height - h) / 2, w, h);
+                        g.DrawImage(img, (Width - w) / 2, Height - h, w, h);
                     }
-                    using (var ov = new LinearGradientBrush(rect, Color.FromArgb(175, 40, 16, 100), Color.FromArgb(40, 70, 30, 130), 90f))
+
+                    // light purple tint: darker on top (title area), lighter at the bottom (photo shows)
+                    using (var ov = new LinearGradientBrush(rect, Color.FromArgb(120, 40, 16, 100), Color.FromArgb(35, 70, 30, 130), 90f))
                         g.FillRectangle(ov, rect);
                 }
             }

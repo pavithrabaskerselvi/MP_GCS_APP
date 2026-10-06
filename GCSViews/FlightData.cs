@@ -410,11 +410,11 @@ namespace MissionPlanner.GCSViews
             MainV2.comPort.ParamListChanged += FlightData_ParentChanged;
 
             //HUD Theming, color setup
-            myhud.groundColor1 = ThemeManager.HudGroundTop;
-            myhud.groundColor2 = ThemeManager.HudGroundBot;
-            myhud.skyColor1 = ThemeManager.HudSkyTop;
-            myhud.skyColor2 = ThemeManager.HudSkyBot;
-            myhud.hudcolor = ThemeManager.HudText;
+            myhud.groundColor1 = Color.FromArgb(142, 124, 195); // CDA purple theme
+            myhud.groundColor2 = Color.FromArgb(94, 75, 154);
+            myhud.skyColor1 = Color.FromArgb(185, 168, 255);
+            myhud.skyColor2 = Color.FromArgb(230, 222, 255);
+            myhud.hudcolor = Color.White;
 
             hud1.displayicons = Settings.Instance.GetBoolean("HUD_showicons", false);
 

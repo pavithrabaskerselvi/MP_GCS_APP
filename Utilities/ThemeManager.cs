@@ -321,7 +321,7 @@ namespace MissionPlanner.Utilities
         public static Color getQvNumberColor()
         {
             //The mix color is set to the inverse of background color, so white background will get dark colors
-            Color mix = Color.FromArgb(ThemeManager.BGColor.ToArgb() ^ 0xffffff);
+            Color mix = Color.FromArgb(0xD9, 0xD8, 0xD7);
 
             Random random = new Random();
 
@@ -1077,7 +1077,7 @@ mc:Ignorable=""d""
                 else if (ctl.GetType() == typeof(QuickView))
                 {
                     //set default QuickView item color to mix with background
-                    Color mix = Color.FromArgb(ThemeManager.BGColor.ToArgb() ^ 0xffffff);
+                    Color mix = Color.FromArgb(0xD9, 0xD8, 0xD7);
 
                     Controls.QuickView but = (QuickView)ctl;
                     if (but.Name == "quickView6")

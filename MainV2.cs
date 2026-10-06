@@ -80,10 +80,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_flightdata_icon.png"))
-                        return Image.FromFile($"{running_directory}light_flightdata_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_flightdata_icon;
+                    return global::MissionPlanner.Properties.Resources.light_flightdata_icon;
+
                 }
             }
 
@@ -91,10 +89,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_flightplan_icon.png"))
-                        return Image.FromFile($"{running_directory}light_flightplan_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_flightplan_icon;
+                    
+                    return global::MissionPlanner.Properties.Resources.light_flightplan_icon;
                 }
             }
 
@@ -102,10 +98,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_initialsetup_icon.png"))
-                        return Image.FromFile($"{running_directory}light_initialsetup_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_initialsetup_icon;
+
+                    return global::MissionPlanner.Properties.Resources.light_initialsetup_icon;
                 }
             }
 
@@ -113,10 +107,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_tuningconfig_icon.png"))
-                        return Image.FromFile($"{running_directory}light_tuningconfig_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_tuningconfig_icon;
+                    
+                    return global::MissionPlanner.Properties.Resources.light_tuningconfig_icon;
                 }
             }
 
@@ -124,10 +116,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_simulation_icon.png"))
-                        return Image.FromFile($"{running_directory}light_simulation_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_simulation_icon;
+                    
+                    return global::MissionPlanner.Properties.Resources.light_simulation_icon;
                 }
             }
 
@@ -146,10 +136,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_help_icon.png"))
-                        return Image.FromFile($"{running_directory}light_help_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_help_icon;
+                    
+                      return global::MissionPlanner.Properties.Resources.light_help_icon;
                 }
             }
 
@@ -168,10 +156,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_connect_icon.png"))
-                        return Image.FromFile($"{running_directory}light_connect_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_connect_icon;
+                    
+                       return global::MissionPlanner.Properties.Resources.light_connect_icon;
                 }
             }
 
@@ -179,10 +165,8 @@ namespace MissionPlanner
             {
                 get
                 {
-                    if (File.Exists($"{running_directory}light_disconnect_icon.png"))
-                        return Image.FromFile($"{running_directory}light_disconnect_icon.png");
-                    else
-                        return global::MissionPlanner.Properties.Resources.light_disconnect_icon;
+                    
+                       return global::MissionPlanner.Properties.Resources.light_disconnect_icon;
                 }
             }
 
@@ -698,6 +682,7 @@ namespace MissionPlanner
             }
 
             InitializeComponent();
+            
 
             //Init Theme table and load BurntKermit as a default
             ThemeManager.thmColor = new ThemeColorTable(); //Init colortable
@@ -796,8 +781,8 @@ namespace MissionPlanner
 
             if (splash != null)
             {
-                this.Text = splash?.Text;
-                titlebar = splash?.Text;
+                titlebar = splash.Text.Replace("Mission Planner", "Chennai Drone Academy");
+                this.Text = titlebar;
             }
 
             if (!MONO) // windows only
@@ -1071,11 +1056,11 @@ namespace MissionPlanner
 
             if (Program.IconFile != null)
             {
-                this.Icon = Icon.FromHandle(((Bitmap) Program.IconFile).GetHicon());
+                this.Icon = Icon.FromHandle(((Bitmap)Program.IconFile).GetHicon());
             }
 
             MenuArduPilot.Image = new Bitmap(Properties.Resources._0d92fed790a3a70170e61a86db103f399a595c70,
-                (int) (200), 31);
+                (int)(383 * 31.0 / 60), 31);
             MenuArduPilot.Width = MenuArduPilot.Image.Width;
 
             if (Program.Logo2 != null)

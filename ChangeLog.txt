@@ -1,4 +1,4 @@
-﻿*Mission Planner 1.3.83 - Sept 10, 2024
+﻿Mission Planner 1.3.83 - Sept 10, 2024
 * FlightData : fix android/ios
 * NoMap: and NoProjection
 * GMapMarkerRect: add max int check
@@ -10,7 +10,7 @@
 * ODID: send 0/0 operator location
 if the operator GPS becomes unplugged we should tell the flight
 controller that we no longer have a position, so pre-arms can fail
-correctly
+correctly*
 * Skips takeoff pitch for QuadPlane
 Prevents unnecessary takeoff pitch input prompts for QuadPlane configurations where FW takeoff setup is not enabled.
 * Adds altitude unit to takeoff altitude prompt

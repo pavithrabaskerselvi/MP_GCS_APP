@@ -1196,4 +1196,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
+
+  <!-- CHENNAI DRONE ACADEMY: home screen background photo.
+       Put home_bg.jpg in this same folder (next to MissionPlanner.csproj).
+       It is copied to bin\Debug\net472\ (or Release) on every build. -->
+  <ItemGroup>
+    <Content Include="home_bg.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>
