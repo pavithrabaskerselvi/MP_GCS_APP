@@ -835,7 +835,9 @@ namespace MissionPlanner
             DoubleBuffered = true;
             KeyPreview = true;
             BackColor = Color.FromArgb(58, 28, 128);
+#if !NETSTANDARD2_0
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+#endif
 
             email = AuthService.UserEmail ?? "";
             logo = Program.IconFile;

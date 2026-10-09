@@ -6,7 +6,7 @@
 		<StartupObject />
 		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Authors>Michael Oborne</Authors>
+		<Authors>Michael Oborne</Authors>																																																																																																			
 		<Company>Michael Oborne</Company>
 		<AssemblyName>GDAL.NET</AssemblyName>
 		<RootNamespace>GDAL</RootNamespace>

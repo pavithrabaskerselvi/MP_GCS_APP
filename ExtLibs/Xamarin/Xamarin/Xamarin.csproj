@@ -54,6 +54,9 @@
     <Compile Include="..\..\..\Controls\paramcompare.Designer.cs" Link="GCSViews\paramcompare.Designer.cs" />
     <Compile Include="..\..\..\GCSViews\ConfigurationView\ConfigRawParams.cs" Link="GCSViews\ConfigurationView\ConfigRawParams.cs" />
     <Compile Include="..\..\..\GCSViews\ConfigurationView\ConfigRawParams.Designer.cs" Link="GCSViews\ConfigurationView\ConfigRawParams.Designer.cs" />
+    <Compile Include="..\..\..\GCSViews\SITLTheme.cs" Link="GCSViews\SITLTheme.cs" />
+    <Compile Include="..\..\..\GCSViews\ConfigurationView\ConfigPlannerTheme.cs" Link="GCSViews\ConfigurationView\ConfigPlannerTheme.cs" />
+    <Compile Include="..\..\..\GCSViews\ConfigurationView\ConfigRawParamsTheme.cs" Link="GCSViews\ConfigurationView\ConfigRawParamsTheme.cs" />
     <Compile Include="..\..\..\test\FirmwareSelection.xaml.cs" Link="Linked\FirmwareSelection.xaml.cs" />
     <None Include="..\..\..\Utilities\ExtensionsMP.cs" Link="GCSViews\ExtensionsMP.cs" />
     <Compile Include="..\..\Controls\IDynamicParameterControl.cs" Link="GCSViews\IDynamicParameterControl.cs" />

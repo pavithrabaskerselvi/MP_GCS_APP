@@ -870,7 +870,7 @@ namespace MissionPlanner.GCSViews
 
             // body: white to lavender, lavender outline
             using (var bb = new LinearGradientBrush(new RectangleF(-30, -16, 60, 32),
-                Color.FromArgb(A(alpha + 80), 255, 255, 255), Color.FromArgb(A(alpha + 50), 200, 183, 252), 90f))
+                Color.FromArgb(A(alpha + 80), 255, 255, 255), Color.FromArgb(A(alpha + 50), 200, 183, 252), LinearGradientMode.Vertical))
                 g.FillEllipse(bb, -30, -16, 60, 32);
             using (var outline = new Pen(Color.FromArgb(A(alpha + 40), 185, 170, 240), 1.5f))
                 g.DrawEllipse(outline, -30, -16, 60, 32);

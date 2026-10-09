@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37710.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin.Android", "Xamarin.Android.csproj", "{43643554-1B27-4E81-90E4-7CAAD8355DD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDALMPAndroid", "..\GDAL\GDALMPAndroid.csproj", "{6A3BA3A7-7D66-4292-90DB-05E6A765127A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GDALForAndroid", "..\GDALForAndroid\GDALForAndroid.csproj", "{E1D67C23-0CDD-4835-A1E2-4634C0DD4C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gstreamerAndroid", "..\gstreamerAndroid\gstreamerAndroid.csproj", "{E1D67C23-0CDD-4835-A1E2-4634C03D4C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Xamarin", "..\Xamarin\Xamarin.csproj", "{6DA725DF-520A-351B-9572-E1640530B356}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UsbSerialForAndroid", "..\..\UsbSerialForAndroid\UsbSerialForAndroid.csproj", "{B57854C8-5C63-4D79-96ED-ACD31815CB91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionPlannerLib", "..\..\..\MissionPlannerLib.csproj", "{997E62A1-F3E0-3252-FAFD-1509984966C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43643554-1B27-4E81-90E4-7CAAD8355DD3}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{6A3BA3A7-7D66-4292-90DB-05E6A765127A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A3BA3A7-7D66-4292-90DB-05E6A765127A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A3BA3A7-7D66-4292-90DB-05E6A765127A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A3BA3A7-7D66-4292-90DB-05E6A765127A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C0DD4C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C0DD4C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C0DD4C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C0DD4C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C03D4C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C03D4C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C03D4C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1D67C23-0CDD-4835-A1E2-4634C03D4C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DA725DF-520A-351B-9572-E1640530B356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DA725DF-520A-351B-9572-E1640530B356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DA725DF-520A-351B-9572-E1640530B356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DA725DF-520A-351B-9572-E1640530B356}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B57854C8-5C63-4D79-96ED-ACD31815CB91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B57854C8-5C63-4D79-96ED-ACD31815CB91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B57854C8-5C63-4D79-96ED-ACD31815CB91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B57854C8-5C63-4D79-96ED-ACD31815CB91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{997E62A1-F3E0-3252-FAFD-1509984966C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{997E62A1-F3E0-3252-FAFD-1509984966C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{997E62A1-F3E0-3252-FAFD-1509984966C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{997E62A1-F3E0-3252-FAFD-1509984966C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A681DD27-A0F5-4BB3-8E45-9D2FC3157711}
+	EndGlobalSection
+EndGlobal

@@ -250,7 +250,9 @@ namespace MissionPlanner
             TopMost = true;
             DoubleBuffered = true;
             BackColor = CdaTheme.Bg1;
+#if !NETSTANDARD2_0
             try { Icon = Icon.ExtractAssociatedIcon(Application.ExecutablePath); } catch { }
+#endif
 
             int cardW = 400;
             int cx = Math.Min((int)(Width * 0.60), Width - cardW - 60);
