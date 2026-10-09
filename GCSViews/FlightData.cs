@@ -237,6 +237,7 @@ namespace MissionPlanner.GCSViews
             log.Info("Ctor Start");
 
             InitializeComponent();
+            InitCdaLayout();
 
             log.Info("Components Done");
 

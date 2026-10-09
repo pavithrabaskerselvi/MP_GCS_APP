@@ -2522,26 +2522,33 @@ namespace MissionPlanner.Controls
 
                     // extra text data
 
+                    {
+                        var asW = calcsize(HUDT.AS + _airspeed.ToString("0.0") + speedunit, fontsize, (SolidBrush)Brushes.White).Width;
+                        var gsW = calcsize(HUDT.GS + _groundspeed.ToString("0.0") + speedunit, fontsize, (SolidBrush)Brushes.White).Width;
+                        DrawCdaPanel(2, scrollbg.Bottom + 2, Math.Max(asW, gsW) + 14, fontsize * 2 + 22, 8,
+                            Color.FromArgb(120, 70, 45, 140), Color.FromArgb(150, 255, 255, 255));
+                    }
+
                     if (_lowairspeed)
                     {
                         drawstring(HUDT.AS + _airspeed.ToString("0.0") + speedunit, font, fontsize,
-                            (SolidBrush) Brushes.Red, 1, scrollbg.Bottom + 5);
+                            (SolidBrush) Brushes.Red, 8, scrollbg.Bottom + 5);
                     }
                     else
                     {
-                        drawstring(HUDT.AS + _airspeed.ToString("0.0") + speedunit, font, fontsize, _whiteBrush, 1,
+                        drawstring(HUDT.AS + _airspeed.ToString("0.0") + speedunit, font, fontsize, _whiteBrush, 8,
                             scrollbg.Bottom + 5);
                     }
 
                     if (_lowgroundspeed)
                     {
                         drawstring(HUDT.GS + _groundspeed.ToString("0.0") + speedunit, font, fontsize,
-                            (SolidBrush) Brushes.Red, 1, scrollbg.Bottom + fontsize + 2 + 10);
+                            (SolidBrush) Brushes.Red, 8, scrollbg.Bottom + fontsize + 2 + 10);
                     }
                     else
                     {
                         drawstring(HUDT.GS + _groundspeed.ToString("0.0") + speedunit, font, fontsize, _whiteBrush,
-                            1, scrollbg.Bottom + fontsize + 2 + 10);
+                            8, scrollbg.Bottom + fontsize + 2 + 10);
                     }
                 }
 
@@ -2702,14 +2709,20 @@ namespace MissionPlanner.Controls
                     graphicsObject.ResetTransform();
 
                     // mode and wp dist and wp
+                    var modeW = calcsize(_mode, fontsize, (SolidBrush)Brushes.White).Width;
+                    int modeX = scrollbg.Left - 30;
+                    if (modeX + modeW + 10 > this.Width)
+                        modeX = this.Width - modeW - 10;   // keep the whole word inside the HUD
+                    DrawCdaPanel(modeX - 6, scrollbg.Bottom + 2, modeW + 14, fontsize + 12, 8,
+                        Color.FromArgb(120, 70, 45, 140), Color.FromArgb(150, 255, 255, 255));
                     if (_modechanged.AddSeconds(2) > datetime)
                     {
-                        drawstring(_mode, font, fontsize, _redBrush, scrollbg.Left - 30,
+                        drawstring(_mode, font, fontsize, _redBrush, modeX,
                             scrollbg.Bottom + 5);
                     }
                     else
                     {
-                        drawstring(_mode, font, fontsize, _whiteBrush, scrollbg.Left - 30,
+                        drawstring(_mode, font, fontsize, _whiteBrush, modeX,
                             scrollbg.Bottom + 5);
                     }
 
@@ -3056,10 +3069,13 @@ namespace MissionPlanner.Controls
                     //if ((armedtimer.AddSeconds(8) > DateTime.Now))
                     {
 
-                        var size = calcsize(HUDT.DISARMED, fontsize + 10, (SolidBrush)Brushes.Red);
-
-                        drawstring(HUDT.DISARMED, font, fontsize + 10, (SolidBrush) Brushes.Red, size.Width/ -2/* - 85*/,
-                            halfheight / -3);
+                        var dfs = fontsize + 4;
+                        var size = calcsize(HUDT.DISARMED, dfs, (SolidBrush)Brushes.White);
+                        float dpx = dfs;                    // horizontal padding
+                        float dty = halfheight / -3;        // text top
+                        DrawCdaPanel(size.Width / -2f - dpx, dty - 6, size.Width + dpx * 2, dfs + 14, (dfs + 14) / 2f,
+                            Color.FromArgb(225, 226, 64, 110), Color.FromArgb(200, 255, 255, 255));
+                        drawstring(HUDT.DISARMED, font, dfs, (SolidBrush)Brushes.White, size.Width / -2, dty);
                         statuslast = status;
                     }
                 }
@@ -3067,9 +3083,13 @@ namespace MissionPlanner.Controls
                 {
                     if ((armedtimer.AddSeconds(8) > DateTime.Now))
                     {
-                        var size = calcsize(HUDT.ARMED, fontsize + 20, (SolidBrush)Brushes.Red);
-                        drawstring(HUDT.ARMED, font, fontsize + 20, (SolidBrush) Brushes.Red, size.Width / -2/* - 70*/,
-                            halfheight / -3);
+                        var afs = fontsize + 4;
+                        var size = calcsize(HUDT.ARMED, afs, (SolidBrush)Brushes.White);
+                        float apx = afs;
+                        float aty = halfheight / -3;
+                        DrawCdaPanel(size.Width / -2f - apx, aty - 6, size.Width + apx * 2, afs + 14, (afs + 14) / 2f,
+                            Color.FromArgb(225, 40, 170, 100), Color.FromArgb(200, 255, 255, 255));
+                        drawstring(HUDT.ARMED, font, afs, (SolidBrush)Brushes.White, size.Width / -2, aty);
                         statuslast = status;
                     }
                 }
@@ -3363,6 +3383,49 @@ namespace MissionPlanner.Controls
                 return calcfontsize(text, font, fontsize - 1, brush, targetwidth);
 
             return fontsize;
+        }
+
+        // ---- CDA restyle helpers: simple rounded panels (work in both GDI and OpenGL mode) ----
+        private static Point[] CdaRoundRect(float x, float y, float w, float h, float r)
+        {
+            r = Math.Max(1f, Math.Min(r, Math.Min(w, h) / 2f));
+            var pts = new List<Point>();
+            const int seg = 6;
+            float[] cx = { x + r, x + w - r, x + w - r, x + r };
+            float[] cy = { y + r, y + r, y + h - r, y + h - r };
+            float[] start = { 180f, 270f, 0f, 90f };
+            for (int c = 0; c < 4; c++)
+            {
+                for (int i = 0; i <= seg; i++)
+                {
+                    double a = (start[c] + 90.0 * i / seg) * Math.PI / 180.0;
+                    pts.Add(new Point((int)Math.Round(cx[c] + r * Math.Cos(a)),
+                        (int)Math.Round(cy[c] + r * Math.Sin(a))));
+                }
+            }
+
+            return pts.ToArray();
+        }
+
+        // rounded filled panel with a thin border. Convex shape, so the fan fill is correct.
+        private void DrawCdaPanel(float x, float y, float w, float h, float radius, Color fill, Color border)
+        {
+            try
+            {
+                var pts = CdaRoundRect(x, y, w, h, radius);
+                using (var b = new SolidBrush(fill))
+                {
+                    graphicsObject.FillPolygon(b, pts);
+                }
+
+                using (var p = new Pen(border, 1))
+                {
+                    graphicsObject.DrawPolygon(p, pts);
+                }
+            }
+            catch
+            {
+            }
         }
 
         Size calcsize(string text, float fontsize, SolidBrush brush)
