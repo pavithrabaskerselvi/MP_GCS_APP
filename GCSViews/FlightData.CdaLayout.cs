@@ -18,6 +18,7 @@ namespace MissionPlanner.GCSViews
         private bool _cdaStructureDone;
         private bool _cdaDistancesApplied;
         private Button _cdaDrawerBtn;
+        private Button _cdaAirspaceBtn;
 
         // fraction of the Flight Data height used by the bottom drawer (HUD + tabs)
         private const double CdaBottomFraction = 0.36;
@@ -63,6 +64,7 @@ namespace MissionPlanner.GCSViews
             }
 
             CreateCdaDrawerButton();
+            CreateCdaAirspaceButton();
 
             // Splitter distances need real sizes, so do it at runtime.
             Load += (s, e) => BeginInvoke((Action)(() =>
@@ -95,6 +97,38 @@ namespace MissionPlanner.GCSViews
             panel1.Controls.Add(_cdaDrawerBtn);
             _cdaDrawerBtn.Location = new Point(Math.Max(0, panel1.Width - _cdaDrawerBtn.Width - 20), 0);
             _cdaDrawerBtn.BringToFront();
+        }
+
+
+        private void CreateCdaAirspaceButton()
+        {
+            _cdaAirspaceBtn = new Button
+            {
+                Text = "AIRSPACE",
+                Size = new Size(110, 22),
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.FromArgb(107, 78, 255),
+                ForeColor = Color.White,
+                Cursor = Cursors.Hand,
+                TabStop = false,
+                Anchor = AnchorStyles.Top | AnchorStyles.Left,
+                Location = new Point(450, 0)
+            };
+            _cdaAirspaceBtn.FlatAppearance.BorderSize = 0;
+            _cdaAirspaceBtn.Click += (s, e) =>
+            {
+                AirspaceLayer.Toggle(gMapControl1);
+                bool on = AirspaceLayer.IsOn(gMapControl1);
+                _cdaAirspaceBtn.Text = on ? "AIRSPACE \u2713" : "AIRSPACE";
+                if (on)
+                {
+                    gMapControl1.Position = new GMap.NET.PointLatLng(21.0, 79.0);
+                    gMapControl1.Zoom = 5;
+                }
+            };
+
+            panel1.Controls.Add(_cdaAirspaceBtn);
+            _cdaAirspaceBtn.BringToFront();
         }
 
         // hidden = true  -> map takes the full screen

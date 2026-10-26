@@ -238,6 +238,7 @@ namespace MissionPlanner.GCSViews
 
             InitializeComponent();
             InitCdaLayout();
+            InitCdaCompass();   
 
             log.Info("Components Done");
 

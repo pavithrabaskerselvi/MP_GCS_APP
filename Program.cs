@@ -121,6 +121,32 @@ namespace MissionPlanner
             return string.Concat(filename.Split(Path.GetInvalidFileNameChars()));
         }
 
+        // ===== CDA: helper that builds a fresh splash window =====
+        private static Splash CreateSplash(BackdropForm backdrop, string title, bool closeBackdropWithSplash)
+        {
+            var s = new MissionPlanner.Splash();
+
+            if (closeBackdropWithSplash)
+            {
+                // when the final splash is closed by the main window, close the backdrop too
+                s.FormClosed += (a, b) =>
+                {
+                    try
+                    {
+                        if (backdrop != null && !backdrop.IsDisposed)
+                            backdrop.Close();
+                    }
+                    catch { }
+                };
+            }
+
+            if (IconFile != null)
+                s.Icon = Icon.FromHandle(((Bitmap)IconFile).GetHicon());
+
+            s.Text = title;
+            return s;
+        }
+
         [MethodImpl(MethodImplOptions.NoInlining)]
         public static void Start(string[] args)
         {
@@ -232,7 +258,7 @@ namespace MissionPlanner
                 IconFile = MissionPlanner.Properties.Resources.mpdesktop.ToBitmap();
             }
 
-            if (File.Exists(Settings.GetRunningDirectory() + "splashbg.png")) // 600*375
+            if (File.Exists(Settings.GetRunningDirectory() + "splashbg.png"))
                 SplashBG = new Bitmap(Settings.GetRunningDirectory() + "splashbg.png");
 
             try
@@ -270,29 +296,17 @@ namespace MissionPlanner
             backdrop.Refresh();
             Application.DoEvents();
 
-            Splash = new MissionPlanner.Splash();
-            // when splash is closed by the main window, close the backdrop too
-            Splash.FormClosed += (s, ev) => { try { backdrop.Close(); } catch { } };
-            if (SplashBG != null)
-            {
-                Splash.BackgroundImage = SplashBG;
-                Splash.pictureBox1.Visible = false;
-            }
-
-            Console.WriteLine("IconFile");
-            if (IconFile != null)
-                Splash.Icon = Icon.FromHandle(((Bitmap)IconFile).GetHicon());
-
             string strVersion = File.Exists("version.txt")
                 ? File.ReadAllText("version.txt")
                 : System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            Splash.Text = name + " " + Application.ProductVersion + " build " + strVersion;
-            Console.WriteLine("Splash.Show()");
-            Splash.Show(backdrop);
+            string splashTitle = name + " " + Application.ProductVersion + " build " + strVersion;
 
-            Console.WriteLine("Debugger.IsAttached " + Debugger.IsAttached);
-            if (Debugger.IsAttached)
-                Splash.TopMost = false;
+            // first splash (shown for 3 sec). Backdrop is NOT tied to this one.
+            Console.WriteLine("IconFile");
+            Splash = CreateSplash(backdrop, splashTitle, false);
+            Console.WriteLine("Splash.Show()");
+            Splash.Show();
+            Splash.BringToFront();
 
             Console.WriteLine("Application.DoEvents");
             Application.DoEvents();
@@ -343,8 +357,27 @@ namespace MissionPlanner
                 }
             }
 
-            // 3) show splash again as loading screen until main window opens
+            // 3) show a FRESH splash as loading screen until the main window opens
+            if (backdrop.IsDisposed)
+            {
+                backdrop = new BackdropForm();
+                backdrop.Show();
+                backdrop.Refresh();
+            }
+
+            try
+            {
+                if (Splash != null && !Splash.IsDisposed)
+                {
+                    Splash.Close();
+                    Splash.Dispose();
+                }
+            }
+            catch { }
+
+            Splash = CreateSplash(backdrop, splashTitle, true);
             Splash.Show();
+            Splash.BringToFront();
             Splash.Activate();
             Splash.Refresh();
             Application.DoEvents();
