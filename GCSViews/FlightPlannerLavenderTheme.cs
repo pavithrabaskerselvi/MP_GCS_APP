@@ -145,19 +145,19 @@ namespace MissionPlanner.GCSViews
 
                     case CheckBox ck:
                         ck.ForeColor = TextDark;
-                        ck.BackColor = Color.Transparent;
+                        ck.BackColor = LavenderSkin.IsAndroid ? LavenderSkin.Solid(ck) : Color.Transparent;
                         break;
 
                     case LinkLabel ll:
                         ll.LinkColor = AccentDark;
                         ll.ActiveLinkColor = Accent;
                         ll.VisitedLinkColor = AccentLight;
-                        ll.BackColor = Color.Transparent;
+                        ll.BackColor = LavenderSkin.IsAndroid ? LavenderSkin.Solid(ll) : Color.Transparent;
                         break;
 
                     case Label lb:
                         lb.ForeColor = TextDark;
-                        lb.BackColor = Color.Transparent;
+                        lb.BackColor = LavenderSkin.IsAndroid ? LavenderSkin.Solid(lb) : Color.Transparent;
                         break;
 
                     case Splitter sp:
@@ -202,7 +202,7 @@ namespace MissionPlanner.GCSViews
             b.ColorMouseOver = AccentDark;
             b.ColorMouseDown = Color.FromArgb(0x48, 0x32, 0xA8);
             b.ColorNotEnabled = Color.FromArgb(0xC9, 0xC1, 0xE6);
-            b.BackColor = Color.Transparent;
+            b.BackColor = LavenderSkin.IsAndroid ? LavenderSkin.Solid(b) : Color.Transparent;
 
             RoundCorners(b, 8);
             b.Invalidate();
@@ -210,6 +210,7 @@ namespace MissionPlanner.GCSViews
 
         private static void RoundCorners(Control c, int radius)
         {
+            if (LavenderSkin.IsAndroid) return;
             ApplyRegion(c, radius);
             if (rounded.Add(c))
             {

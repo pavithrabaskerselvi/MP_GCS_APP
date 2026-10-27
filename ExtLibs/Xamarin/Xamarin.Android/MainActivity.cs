@@ -160,6 +160,8 @@ namespace Xamarin.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             Current = this;
+            System.Drawing.ResourceConverterRegistration.Register();
+            System.Drawing.ResourceFontRegistration.Register();
 
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             AppDomain.CurrentDomain.FirstChanceException += CurrentDomain_FirstChanceException;

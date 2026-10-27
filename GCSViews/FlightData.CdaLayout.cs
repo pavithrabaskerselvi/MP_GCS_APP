@@ -195,5 +195,89 @@ namespace MissionPlanner.GCSViews
             {
             }
         }
+
+        // ---- Android / Mono: TableLayoutPanel.LayoutSettings cannot be set from resources ----
+        // Tries the normal ApplyResources first (laptop = unchanged). If it throws, applies every
+        // other property from the resx by hand and builds the row / column styles from text.
+        private static void ApplyTableResources(System.ComponentModel.ComponentResourceManager resources,
+            TableLayoutPanel panel, string name, string columns, string rows)
+        {
+            try
+            {
+                resources.ApplyResources(panel, name);
+                return;
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                var rs = resources.GetResourceSet(System.Globalization.CultureInfo.InvariantCulture, true, true);
+                if (rs != null)
+                {
+                    string prefix = name + ".";
+                    foreach (System.Collections.DictionaryEntry e in rs)
+                    {
+                        var key = e.Key as string;
+                        if (key == null || !key.StartsWith(prefix)) continue;
+                        string prop = key.Substring(prefix.Length);
+                        if (prop == "LayoutSettings") continue;
+                        try
+                        {
+                            var pi = panel.GetType().GetProperty(prop,
+                                System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance);
+                            if (pi != null && pi.CanWrite && e.Value != null)
+                                pi.SetValue(panel, e.Value, null);
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+            }
+            catch
+            {
+            }
+
+            try
+            {
+                panel.ColumnStyles.Clear();
+                foreach (var st in ParseTableStyles(columns, true)) panel.ColumnStyles.Add((ColumnStyle) st);
+                panel.ColumnCount = Math.Max(1, panel.ColumnStyles.Count);
+
+                panel.RowStyles.Clear();
+                foreach (var st in ParseTableStyles(rows, false)) panel.RowStyles.Add((RowStyle) st);
+                panel.RowCount = Math.Max(1, panel.RowStyles.Count);
+            }
+            catch
+            {
+            }
+        }
+
+        // "Percent,50,Percent,50" -> styles
+        private static System.Collections.Generic.List<TableLayoutStyle> ParseTableStyles(string text, bool column)
+        {
+            var list = new System.Collections.Generic.List<TableLayoutStyle>();
+            var parts = text.Split(',');
+            for (int i = 0; i + 1 < parts.Length; i += 2)
+            {
+                SizeType type;
+                switch (parts[i])
+                {
+                    case "Absolute": type = SizeType.Absolute; break;
+                    case "AutoSize": type = SizeType.AutoSize; break;
+                    default: type = SizeType.Percent; break;
+                }
+
+                float v;
+                if (!float.TryParse(parts[i + 1], System.Globalization.NumberStyles.Float,
+                        System.Globalization.CultureInfo.InvariantCulture, out v)) v = 0;
+
+                if (column) list.Add(new ColumnStyle(type, v));
+                else list.Add(new RowStyle(type, v));
+            }
+            return list;
+        }
     }
 }

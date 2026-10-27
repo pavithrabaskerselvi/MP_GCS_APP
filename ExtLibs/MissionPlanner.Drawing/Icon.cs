@@ -6,6 +6,7 @@ using SkiaSharp;
 namespace System.Drawing
 { 
     [Serializable]
+    [System.ComponentModel.TypeConverter(typeof(System.Drawing.ResourceIconConverter))]
     public class Icon : Bitmap, ISerializable, ICloneable, IDisposable
     {
         private byte[] iconData;

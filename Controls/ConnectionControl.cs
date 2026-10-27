@@ -7,13 +7,32 @@ namespace MissionPlanner.Controls
 {
     public partial class ConnectionControl : UserControl
     {
+        // true only when running on the Android WinForms layer
+        private static readonly bool IsAndroid = Type.GetType("Android.OS.Build, Mono.Android") != null;
+
         public ConnectionControl()
         {
             InitializeComponent();
+
+            // Android: the BackgroundImage / transparent-parent painting copies the main menu strip
+            // into this control (ghost "DATA" "PLAN" next to the baud box). Use a plain black fill instead.
+            if (IsAndroid)
+                this.BackgroundImage = null;
+
             this.linkLabel1.Click += (sender, e) =>
             {
                 ShowLinkStats?.Invoke(this, EventArgs.Empty);
             };
+        }
+
+        protected override void OnPaintBackground(PaintEventArgs e)
+        {
+            if (IsAndroid)
+            {
+                e.Graphics.Clear(Color.Black);
+                return;
+            }
+            base.OnPaintBackground(e);
         }
 
         public event EventHandler ShowLinkStats;

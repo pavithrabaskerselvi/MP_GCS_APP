@@ -1,0 +1,46 @@
+10-12 16:27:39.016 V/mono-stdout(18797): [Base Thread] FATAL MissionPlanner.MainV2 37MB - System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.NotSupportedException: LayoutSettings value cannot be set directly.
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.Windows.Forms.TableLayoutPanel.set_LayoutSettings (System.Windows.Forms.TableLayoutSettings value) [0x00051] in <a4df76f67f024af0a57e712196579b4e>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <65ee9686e7104ac1bf9d2aea72d18981>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):    --- End of inner exception stack trace ---
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00086] in <65ee9686e7104ac1bf9d2aea72d18981>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.Reflection.RuntimePropertyInfo.SetValue (System.Object obj, System.Object value, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] index, System.Globalization.CultureInfo culture) [0x0005d] in <65ee9686e7104ac1bf9d2aea72d18981>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.Reflection.PropertyInfo.SetValue (System.Object obj, System.Object value, System.Object[] index) [0x00000] in <65ee9686e7104ac1bf9d2aea72d18981>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName, System.Globalization.CultureInfo culture) [0x0025b] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName) [0x00000] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at MissionPlanner.GCSViews.FlightData.InitializeComponent () [0x0212a] in <887310f05b3b4ec7924c6f737dbfbe97>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at MissionPlanner.GCSViews.FlightData..ctor () [0x0047e] in <887310f05b3b4ec7924c6f737dbfbe97>:0 
+10-12 16:27:39.016 V/mono-stdout(18797):   at (wrapper remoting-invoke-with-check) MissionPlanner.GCSViews.FlightData..ctor()
+10-12 16:27:39.016 V/mono-stdout(18797):   at MissionPlanner.MainV2..ctor () [0x00764] in <887310f05b3b4ec7924c6f737dbfbe97>:0 
+
+10-12 16:27:39.016 V/mono-stdout(18797): CustomMessageBox.Show
+10-12 16:27:39.017 V/mono-stdout(18797): CustomMessageBox thread calling Base Thread
+10-12 16:27:39.017 V/mono-stdout(18797): CustomMessageBox thread running Base Thread
+10-12 16:27:39.059 V/mono-stdout(18797): FromHwnd
+10-12 16:27:39.082 V/mono-stdout(18797): FocusIn name  type MissionPlanner.Controls.MyButton nw 95
+10-12 16:27:39.224 E/ANDR-PERF-REQUEST( 1581): Qindx 146 is  not supported
+10-12 16:27:39.224 E/ANDR-PERF-REQUEST( 1581): invalid request
+10-12 16:27:39.225 E/vendor.qti.hardware.perf-hal-service( 1581): invalid request, no optimizations performed
+10-12 16:27:39.236 D/RefreshRateSelector( 1646): Touch Boost
+10-12 16:27:39.236 D/MI-SF   ( 1646): mIsSupportAutomodeForMaxFpsSetting is 0(0), getCurrentBrightness() = 0(880), mIsKeepAutoMode 0
+10-12 16:27:39.236 D/RefreshRateSelector( 1646): fixedMode_group: 0, isFindModeGroup 0
+10-12 16:27:39.236 D/RefreshRateSelector( 1646): find max refresh rate:60, mode Group:0
+10-12 16:27:39.236 D/MI-SF   ( 1646): mIsSupportAutomodeForMaxFpsSetting is 0(0), getCurrentBrightness() = 0(880), mIsKeepAutoMode 0
+10-12 16:27:39.236 D/RefreshRateSelector( 1646): fixedMode_group: 0, isFindModeGroup 0
+10-12 16:27:39.236 D/RefreshRateSelector( 1646): find max refresh rate:60, mode Group:0
+10-12 16:27:39.449 D/AlarmManager( 2515): mBroadcastRefCount -> 1
+10-12 16:27:39.459 D/AlarmManager( 2515): mBroadcastRefCount -> 0
+10-12 16:27:39.459 D/AlarmManager( 2515): mPendingIntent -> null
+10-12 16:27:39.464 D/CompatibilityChangeReporter( 2515): Compat change id reported: 271850009; UID 10380; state: ENABLED
+10-12 16:27:39.468 D/ActivityManager( 2515): call mServicesByInstanceName.put, ComponentName: ComponentInfo{com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService}, ServiceRecord: ServiceRecord{140be40 u0 com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService}com.android.server.am.ActiveServices.bindServiceLocked:3874 com.android.server.am.ActivityManagerService.bindServiceInstance:14211 com.android.server.am.ActivityManagerService.bindServiceInstance:14168 android.app.ContextImpl.bindServiceCommon:2138 android.app.ContextImpl.bindServiceAsUser:2058 com.android.server.job.JobServiceContext.executeRunnableJob:455 com.android.server.job.JobConcurrencyManager.startJobLocked:1534 com.android.server.job.JobConcurrencyManager.carryOutAssignmentChangesLocked:1190 com.android.server.job.JobConcurrencyManager.assignJobsToContextsInternalLocked:807 com.android.server.job.JobConcurrencyManager.assignJobsToContextsLocked:771 com.android.server.job.JobSchedulerService.maybeRunPendingJobsLocked:3862 com.android.server.job.JobSchedulerService$JobHandler.handleMessage:3324 android.os.Handler.dispatchMessage:106 android.os.Looper.loopOnce:222 android.os.Looper.loop:314 android.os.HandlerThread.run:67 
+10-12 16:27:39.473 D/CompatibilityChangeReporter( 2515): Compat change id reported: 135634846; UID 10380; state: DISABLED
+10-12 16:27:39.474 D/CompatibilityChangeReporter( 2515): Compat change id reported: 177438394; UID 10380; state: DISABLED
+10-12 16:27:39.474 D/CompatibilityChangeReporter( 2515): Compat change id reported: 135772972; UID 10380; state: DISABLED
+10-12 16:27:39.474 D/CompatibilityChangeReporter( 2515): Compat change id reported: 135754954; UID 10380; state: ENABLED
+10-12 16:27:39.476 D/CompatibilityChangeReporter( 2515): Compat change id reported: 143937733; UID 10380; state: ENABLED
+10-12 16:27:39.476 I/whetstone.activity( 2515): Power Event callback listener is empty for resId=256
+10-12 16:27:39.477 D/BatteryStatsManagerStub( 2515): notifyEvent for resId=256 used 0ms
+10-12 16:27:39.488 I/whetstone.activity( 2515): Power Event callback listener is empty for resId=256
+10-12 16:27:39.488 D/BatteryStatsManagerStub( 2515): notifyEvent for resId=256 used 1ms
+10-12 16:27:39.503 D/Zygote  ( 1475): Forked child process 23414
+10-12 16:27:39.508 I/ActivityManager( 2515): Start proc 23414:com.whatsapp/u0a380 for service {com.whatsapp/androidx.work.impl.background.systemjob.SystemJobService} caller=android

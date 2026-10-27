@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -14,6 +14,7 @@ using SkiaSharp;
 namespace System.Drawing
 {
     [Serializable]
+    [System.ComponentModel.TypeConverter(typeof(System.Drawing.ResourceBitmapConverter))]
     public class Bitmap : Image, ISerializable, ICloneable, IDisposable
     {
         private ColorPalette _palette = null;

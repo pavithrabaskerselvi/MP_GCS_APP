@@ -185,8 +185,32 @@ namespace MissionPlanner
                         g.DrawPath(pen, path);
                 }
             }
-            TextRenderer.DrawText(g, Text, Font, ClientRectangle, Color.White,
-                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
+            // TextRenderer's alignment flags are ignored on the Android WinForms layer (text
+            // ended up in the top-left corner), so centre by hand. The "->" arrow glyph is
+            // not in the Android font either (it showed as a box), so it is drawn as lines.
+            string label = Text ?? "";
+            bool arrow = false;
+            int ai = label.IndexOf('\u2192');
+            if (ai >= 0) { label = label.Substring(0, ai).TrimEnd(); arrow = true; }
+
+            g.TextRenderingHint = TextRenderingHint.AntiAlias;
+            var tfmt = StringFormat.GenericTypographic;
+            var sz = g.MeasureString(label, Font, 4000, tfmt);
+            float aw = arrow ? 30f : 0f;
+            float tx = Math.Max(4f, (Width - (sz.Width + aw)) / 2f);
+            float ty = Math.Max(0f, (Height - sz.Height) / 2f);
+            using (var tb = new SolidBrush(Color.White))
+                g.DrawString(label, Font, tb, tx, ty, tfmt);
+            if (arrow)
+            {
+                float ax = tx + sz.Width + 14f, ay = Height / 2f;
+                using (var ap = new Pen(Color.White, 2.2f))
+                {
+                    g.DrawLine(ap, ax, ay, ax + 16f, ay);
+                    g.DrawLine(ap, ax + 10f, ay - 6f, ax + 16f, ay);
+                    g.DrawLine(ap, ax + 10f, ay + 6f, ax + 16f, ay);
+                }
+            }
         }
     }
 
@@ -1028,7 +1052,7 @@ namespace MissionPlanner
                     g.FillRectangle(br, rect);
                 }
 
-                var img = LoadImg("home_bg.jpg", "home_bg.jpeg", "home_bg.png", "home_bg.jpg.jpg");
+                var img = LoadImg("home_bg.jpg", "home_bg.jpeg", "home_bg.png", "home_bg.jpg.jpg") ?? HomeBgData.Load();
                 if (img != null)
                 {
                     using (img)
@@ -1040,7 +1064,14 @@ namespace MissionPlanner
                         // anchored to the bottom so the team stays visible
                         float s = Math.Max((float)Width / img.Width, (float)Height / img.Height);
                         int w = (int)(img.Width * s), h = (int)(img.Height * s);
-                        g.DrawImage(img, (Width - w) / 2, Height - h, w, h);
+#if NETSTANDARD2_0
+                        // phones are much wider than the 16:9 photo, so a lot gets cropped; keep the drone
+                        // at the top and the team at the bottom both partly visible (crop 30% top / 70% bottom)
+                        int py = -(int)((h - Height) * 0.30f);
+#else
+                        int py = Height - h;
+#endif
+                        g.DrawImage(img, (Width - w) / 2, py, w, h);
                     }
 
                     // lighter purple tint: drone + photo stay clearly visible
@@ -1112,10 +1143,13 @@ namespace MissionPlanner
                 float textRight = Width - 40;
                 float uy = Height - 80; // bottom right corner
 
-                g.DrawString(email, fe, sh, new RectangleF(textRight - 399, uy + 1, 400, 20), far);
-                g.DrawString(email, fe, white, new RectangleF(textRight - 400, uy, 400, 20), far);
-                g.DrawString(sub, fs, sh, new RectangleF(textRight - 399, uy + 20, 400, 18), far);
-                g.DrawString(sub, fs, lav, new RectangleF(textRight - 400, uy + 19, 400, 18), far);
+                // right-align by measuring (StringAlignment.Far is ignored on Android)
+                float ew = g.MeasureString(email, fe, 4000, tf).Width;
+                float sw = g.MeasureString(sub, fs, 4000, tf).Width;
+                g.DrawString(email, fe, sh, textRight - ew + 1, uy + 1, tf);
+                g.DrawString(email, fe, white, textRight - ew, uy, tf);
+                g.DrawString(sub, fs, sh, textRight - sw + 1, uy + 20, tf);
+                g.DrawString(sub, fs, lav, textRight - sw, uy + 19, tf);
 
                 float ax = textRight - blockW - 46;
                 var av = new RectangleF(ax, uy + 4, 34, 34);

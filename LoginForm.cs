@@ -39,11 +39,12 @@ namespace MissionPlanner
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, string lParam);
 
+        static bool _cueUnsupported; static void SafeCue(IntPtr h, string text) { if (_cueUnsupported) return; try { SendMessage(h, 0x1501, (IntPtr)1, text); } catch (DllNotFoundException) { _cueUnsupported = true; } catch (EntryPointNotFoundException) { _cueUnsupported = true; } catch (Exception) { } }
         // placeholder text inside a TextBox
         public static void Cue(TextBox t, string text)
         {
-            t.HandleCreated += (s, e) => SendMessage(t.Handle, 0x1501, (IntPtr)1, text);
-            if (t.IsHandleCreated) SendMessage(t.Handle, 0x1501, (IntPtr)1, text);
+            t.HandleCreated += (s, e) => SafeCue(t.Handle, text);
+            if (t.IsHandleCreated) SafeCue(t.Handle, text);
         }
 
         // full-page login background (the Chennai Drone Academy hero picture).
@@ -81,6 +82,38 @@ namespace MissionPlanner
 
             // always available: the picture compiled into LoginBackgroundData.cs
             return LoginBackgroundData.Load();
+        }
+
+        // logo for the card header: logo.png / cda_logo.png next to the exe, or an embedded resource
+        public static Image LoadLogo()
+        {
+            foreach (var n in new[] { "cda_logo.png", "logo.png", "cda_logo.jpg" })
+            {
+                try
+                {
+                    var p = Path.Combine(Application.StartupPath, n);
+                    if (File.Exists(p))
+                    {
+                        using (var img = Image.FromFile(p)) return new Bitmap(img);
+                    }
+                }
+                catch { }
+            }
+            try
+            {
+                var asm = System.Reflection.Assembly.GetExecutingAssembly();
+                foreach (var res in asm.GetManifestResourceNames())
+                {
+                    if (res.EndsWith("cda_logo.png", StringComparison.OrdinalIgnoreCase) ||
+                        res.EndsWith(".logo.png", StringComparison.OrdinalIgnoreCase))
+                    {
+                        using (var st = asm.GetManifestResourceStream(res))
+                        using (var img = Image.FromStream(st)) return new Bitmap(img);
+                    }
+                }
+            }
+            catch { }
+            return LoginLogoData.Load();
         }
 
         // optional hero image: put login_hero.jpg (or .png) next to MissionPlanner.exe
@@ -161,9 +194,14 @@ namespace MissionPlanner
             using (var path = CdaTheme.Round(new Rectangle(0, 0, Width - 1, Height - 1), Radius))
             using (var b = new SolidBrush(c))
                 e.Graphics.FillPath(b, path);
-            TextRenderer.DrawText(e.Graphics, Text, Font, ClientRectangle,
-                Enabled ? TextColor : Color.White,
-                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
+            // Centre by hand: TextRenderer's alignment flags are ignored on the Android WinForms layer,
+            // which drew the text at the top-left corner and clipped the first letter.
+            e.Graphics.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            var sz = e.Graphics.MeasureString(Text, Font);
+            float tx = Math.Max(2f, (Width - sz.Width) / 2f);
+            float ty = Math.Max(0f, (Height - sz.Height) / 2f);
+            using (var tb = new SolidBrush(Enabled ? TextColor : Color.White))
+                e.Graphics.DrawString(Text, Font, tb, tx, ty);
         }
     }
 
@@ -235,6 +273,9 @@ namespace MissionPlanner
     public class CdaThemedForm : Form
     {
         protected CdaRoundPanel Card;
+        protected Control Host;         // helpers add their controls here (Card by default)
+        protected float VS = 1f;        // vertical scale so the card fits short phone screens
+        protected int Y(int v) { return (int)Math.Round(v * VS); }
         Image hero;
         Rectangle heroRect = Rectangle.Empty;
         Image bg;                       // full-page background picture
@@ -248,6 +289,11 @@ namespace MissionPlanner
             StartPosition = FormStartPosition.Manual;
             Bounds = Screen.PrimaryScreen.Bounds;
             TopMost = true;
+
+            // phones are much shorter than a desktop: shrink the card layout to fit the screen height
+            int screenH = Screen.PrimaryScreen.Bounds.Height;
+            VS = Math.Max(0.6f, Math.Min(1f, (screenH - 24f) / cardHeight));
+            cardHeight = (int)Math.Round(cardHeight * VS);
             DoubleBuffered = true;
             BackColor = CdaTheme.Bg1;
 #if !NETSTANDARD2_0
@@ -275,6 +321,7 @@ namespace MissionPlanner
             };
             Card.Location = new Point(cx, Math.Max(20, (Height - cardHeight) / 2));
             Controls.Add(Card);
+            Host = Card;
 
             if (showClose)
             {
@@ -357,24 +404,26 @@ namespace MissionPlanner
         // logo + title block at the top of the card
         protected void AddHeader()
         {
-            if (Icon != null)
+            Image logo = CdaTheme.LoadLogo();
+            if (logo == null && Icon != null)
             {
-                try
-                {
-                    var pb = new PictureBox
-                    {
-                        Image = Icon.ToBitmap(),
-                        SizeMode = PictureBoxSizeMode.Zoom,
-                        BackColor = Color.Transparent,
-                        Bounds = new Rectangle(176, 20, 48, 48)
-                    };
-                    Card.Controls.Add(pb);
-                }
-                catch { }
+                try { logo = Icon.ToBitmap(); } catch { }
             }
-            MakeLabel(Card, "CHENNAI DRONE ACADEMY", 0, 74, 400, 26, 12f, FontStyle.Bold,
+            if (logo != null)
+            {
+                int ls = Math.Max(32, Y(48));
+                var pb = new PictureBox
+                {
+                    Image = logo,
+                    SizeMode = PictureBoxSizeMode.Zoom,
+                    BackColor = Color.Transparent,
+                    Bounds = new Rectangle((400 - ls) / 2, Y(20), ls, ls)
+                };
+                Host.Controls.Add(pb);
+            }
+            MakeLabel(Host, "CHENNAI DRONE ACADEMY", 0, Y(74), 400, Y(26), 12f, FontStyle.Bold,
                 CdaTheme.TextDark, ContentAlignment.MiddleCenter);
-            MakeLabel(Card, "Ground Control Station", 0, 100, 400, 22, 9.5f, FontStyle.Regular,
+            MakeLabel(Host, "Ground Control Station", 0, Y(100), 400, Y(22), 9.5f, FontStyle.Regular,
                 CdaTheme.TextMuted, ContentAlignment.MiddleCenter);
         }
 
@@ -385,10 +434,10 @@ namespace MissionPlanner
             {
                 Radius = 22,
                 Fill = CdaTheme.TabBg,
-                Bounds = new Rectangle(30, 134, 340, 44)
+                Bounds = new Rectangle(30, Y(134), 340, Y(44))
             };
-            var a = new CdaRoundButton { Text = "Login", Radius = 18, Bounds = new Rectangle(4, 4, 166, 36) };
-            var b = new CdaRoundButton { Text = "Register", Radius = 18, Bounds = new Rectangle(170, 4, 166, 36) };
+            var a = new CdaRoundButton { Text = "Login", Radius = 18, Bounds = new Rectangle(4, 4, 166, Y(36)) };
+            var b = new CdaRoundButton { Text = "Register", Radius = 18, Bounds = new Rectangle(170, 4, 166, Y(36)) };
             var other = loginActive ? b : a;
             other.Fill = CdaTheme.TabBg;
             other.HoverFill = CdaTheme.TabHover;
@@ -396,34 +445,66 @@ namespace MissionPlanner
             other.Click += (s, e) => otherClick();
             tabs.Controls.Add(a);
             tabs.Controls.Add(b);
-            Card.Controls.Add(tabs);
+            Host.Controls.Add(tabs);
         }
 
         protected CdaInputBox AddField(string label, string cue, bool password, int y)
         {
-            MakeLabel(Card, label, 30, y, 340, 20, 9.5f, FontStyle.Bold,
+            MakeLabel(Host, label, 30, Y(y), 340, 20, 9.5f, FontStyle.Bold,
                 CdaTheme.TextDark, ContentAlignment.MiddleLeft);
-            var ib = new CdaInputBox(cue, password) { Bounds = new Rectangle(30, y + 22, 340, 44) };
-            Card.Controls.Add(ib);
+            var ib = new CdaInputBox(cue, password) { Bounds = new Rectangle(30, Y(y) + 22, 340, Math.Max(36, Y(44))) };
+            Host.Controls.Add(ib);
             return ib;
         }
 
-        protected LinkLabel AddFooterLink(string text, int linkStart, int linkLen, int y, Action click)
+        // "Don't have an account? Register" - built from two plain Labels because LinkLabel
+        // is clipped to half its height on the Android WinForms layer.
+        protected Control AddFooterLink(string text, int linkStart, int linkLen, int y, Action click)
         {
-            var lnk = new LinkLabel
+            string pre = text.Substring(0, linkStart).TrimEnd();
+            string link = text.Substring(linkStart, linkLen);
+            string post = text.Substring(linkStart + linkLen);
+            var fMuted = new Font("Segoe UI", 9.5f);
+            var fLink = new Font("Segoe UI", 9.5f, FontStyle.Bold);
+
+            float w1, w2, w3 = 0;
+            try
             {
-                Text = text,
-                LinkArea = new LinkArea(linkStart, linkLen),
-                LinkColor = CdaTheme.Primary,
-                ActiveLinkColor = CdaTheme.PrimaryDark,
-                LinkBehavior = LinkBehavior.NeverUnderline,
-                ForeColor = CdaTheme.TextMuted,
-                BackColor = Color.Transparent,
-                TextAlign = ContentAlignment.MiddleCenter,
-                Bounds = new Rectangle(30, y, 340, 24)
+                using (var g = Card.CreateGraphics())
+                {
+                    w1 = g.MeasureString(pre, fMuted).Width;
+                    w2 = g.MeasureString(link, fLink).Width;
+                    if (post.Length > 0) w3 = g.MeasureString(post, fMuted).Width;
+                }
+            }
+            catch
+            {
+                w1 = pre.Length * 7.5f; w2 = link.Length * 8f; w3 = post.Length * 7.5f;
+            }
+
+            int gap = 5, h = 26;
+            int total = (int)(w1 + gap + w2 + (post.Length > 0 ? gap + w3 : 0));
+            int x = Math.Max(0, (400 - total) / 2);
+            int yy = Y(y);
+
+            Func<string, Font, Color, int, int, Label> mk = (t, f, c, lx, lw) =>
+            {
+                var l = new Label
+                {
+                    Text = t, Font = f, ForeColor = c, BackColor = Color.White,
+                    AutoSize = false, TextAlign = ContentAlignment.MiddleLeft,
+                    Bounds = new Rectangle(lx, yy, lw, h)
+                };
+                Host.Controls.Add(l);
+                return l;
             };
-            lnk.LinkClicked += (s, e) => click();
-            Card.Controls.Add(lnk);
+
+            mk(pre, fMuted, CdaTheme.TextMuted, x, (int)w1 + 4);
+            var lnk = mk(link, fLink, CdaTheme.Primary, x + (int)w1 + gap, (int)w2 + 6);
+            lnk.Cursor = Cursors.Hand;
+            lnk.Click += (s2, e2) => click();
+            if (post.Length > 0)
+                mk(post, fMuted, CdaTheme.TextMuted, x + (int)w1 + gap + (int)w2 + gap, (int)w3 + 4);
             return lnk;
         }
 
@@ -513,29 +594,84 @@ namespace MissionPlanner
     // ---------------------------------------------------------------
     public class LoginForm : CdaThemedForm
     {
+        // Login and Register are two pages inside the same card. A second full-screen form
+        // (ShowDialog) never appeared on the Android WinForms layer, so everything lives here.
+        const int LoginH = 520, RegH = 600;
+        CdaRoundPanel pageLogin, pageReg;
         CdaInputBox txtEmail, txtPass;
-        CdaRoundButton btnLogin;
-        Label lblMsg;
+        CdaInputBox regName, regEmail, regPass, regConfirm;
+        CdaRoundButton btnLogin, btnRegister;
+        Label lblMsg, lblRegMsg;
 
-        public LoginForm() : base(520, true)
+        public string RegisteredName { get; private set; }
+
+        CdaRoundPanel NewPage()
         {
+            var p = new CdaRoundPanel { Radius = 22, Fill = Color.White, Stroke = Color.Transparent };
+            Card.Controls.Add(p);
+            return p;
+        }
+
+        public LoginForm() : base(RegH, true)
+        {
+            // ---------- login page ----------
+            pageLogin = NewPage();
+            Host = pageLogin;
             AddHeader();
-            AddTabs(true, OpenRegister);
+            AddTabs(true, () => SetMode(true));
 
             txtEmail = AddField("Email Address", "you@example.com", false, 196);
             txtPass = AddField("Password", "Enter your password", true, 276);
 
-            lblMsg = MakeLabel(Card, "", 30, 350, 340, 36, 9.5f, FontStyle.Regular,
+            lblMsg = MakeLabel(Host, "", 30, Y(350), 340, Y(36), 9.5f, FontStyle.Regular,
                 CdaTheme.Error, ContentAlignment.MiddleCenter);
 
-            btnLogin = new CdaRoundButton { Text = "Login", Bounds = new Rectangle(30, 396, 340, 46) };
+            btnLogin = new CdaRoundButton { Text = "Login", Bounds = new Rectangle(30, Y(396), 340, Math.Max(36, Y(46))) };
             btnLogin.Click += DoLogin;
-            Card.Controls.Add(btnLogin);
-            AcceptButton = btnLogin;
+            Host.Controls.Add(btnLogin);
 
-            AddFooterLink("Don't have an account? Register", 23, 8, 462, OpenRegister);
+            AddFooterLink("Don't have an account? Register", 23, 8, 462, () => SetMode(true));
+
+            // ---------- register page ----------
+            pageReg = NewPage();
+            Host = pageReg;
+            AddHeader();
+            AddTabs(false, () => SetMode(false));
+
+            regName = AddField("Full Name", "Enter your name", false, 184);
+            regEmail = AddField("Email Address", "you@example.com", false, 258);
+            regPass = AddField("Password (min 6 characters)", "Create a password", true, 332);
+            regConfirm = AddField("Confirm Password", "Re-enter your password", true, 406);
+
+            lblRegMsg = MakeLabel(Host, "", 30, Y(474), 340, Y(26), 9.5f, FontStyle.Regular,
+                CdaTheme.Error, ContentAlignment.MiddleCenter);
+
+            btnRegister = new CdaRoundButton { Text = "Register", Bounds = new Rectangle(30, Y(504), 340, Math.Max(36, Y(46))) };
+            btnRegister.Click += DoRegister;
+            Host.Controls.Add(btnRegister);
+
+            AddFooterLink("Already have an account? Login", 25, 5, 560, () => SetMode(false));
+
+            Host = Card;
+            SetMode(false);
 
             Shown += (s, e) => { Activate(); txtEmail.Inner.Focus(); };
+        }
+
+        void SetMode(bool register)
+        {
+            int h = Y(register ? RegH : LoginH);
+            Card.Height = h;
+            Card.Top = Math.Max(12, (Height - h) / 2);
+            pageLogin.Bounds = new Rectangle(0, 0, 400, h);
+            pageReg.Bounds = new Rectangle(0, 0, 400, h);
+            pageLogin.Visible = !register;
+            pageReg.Visible = register;
+            AcceptButton = register ? btnRegister : btnLogin;
+            lblMsg.Text = "";
+            lblRegMsg.Text = "";
+            Invalidate();
+            try { (register ? regName : txtEmail).Inner.Focus(); } catch { }
         }
 
         async void DoLogin(object sender, EventArgs e)
@@ -565,17 +701,40 @@ namespace MissionPlanner
             }
         }
 
-        void OpenRegister()
+        async void DoRegister(object sender, EventArgs e)
         {
-            using (var reg = new RegisterForm())
+            lblRegMsg.ForeColor = CdaTheme.Error;
+            lblRegMsg.Text = "";
+            string name = regName.Value.Trim();
+            string email = regEmail.Value.Trim();
+
+            if (name == "") { lblRegMsg.Text = "Enter your name"; return; }
+            if (email == "" || email.IndexOf('@') < 1) { lblRegMsg.Text = "Enter a valid email"; return; }
+            if (regPass.Value.Length < 6) { lblRegMsg.Text = "Password must be at least 6 characters"; return; }
+            if (regPass.Value != regConfirm.Value) { lblRegMsg.Text = "Passwords do not match"; return; }
+
+            btnRegister.Enabled = false;
+            btnRegister.Text = "Please wait...";
+            var err = await AuthService.SignUp(email, regPass.Value);
+            btnRegister.Enabled = true;
+            btnRegister.Text = "Register";
+
+            if (err == null)
             {
-                if (reg.ShowDialog(this) == DialogResult.OK)
-                {
-                    txtEmail.Value = reg.Email;
-                    txtPass.Value = "";
-                    lblMsg.ForeColor = CdaTheme.Ok;
-                    lblMsg.Text = "Account created. Please login.";
-                }
+                RegisteredName = name;
+                AuthService.UserEmail = null;
+                AuthService.IdToken = null;
+
+                txtEmail.Value = email;
+                txtPass.Value = "";
+                regName.Value = ""; regEmail.Value = ""; regPass.Value = ""; regConfirm.Value = "";
+                SetMode(false);
+                lblMsg.ForeColor = CdaTheme.Ok;
+                lblMsg.Text = "Account created. Please login.";
+            }
+            else
+            {
+                lblRegMsg.Text = err;
             }
         }
     }

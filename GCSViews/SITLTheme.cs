@@ -57,9 +57,20 @@ namespace MissionPlanner.GCSViews
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, string lParam);
 
+        // Android has no user32.dll: after the first failure the call is skipped for good
+        private static bool _noUser32;
+
+        private static void SafeSetCueMessage(IntPtr handle, string cue)
+        {
+            if (_noUser32 || handle == IntPtr.Zero) return;
+            try { SendMessage(handle, 0x1501 /* EM_SETCUEBANNER */, (IntPtr)1, cue); }
+            catch (DllNotFoundException) { _noUser32 = true; }
+            catch (EntryPointNotFoundException) { _noUser32 = true; }
+        }
+
         public static void SetCue(TextBox t, string cue)
         {
-            EventHandler apply = (s, e) => SendMessage(t.Handle, 0x1501, (IntPtr)1, cue);
+            EventHandler apply = (s, e) => SafeSetCueMessage(t.Handle, cue);
             if (t.IsHandleCreated) apply(null, null);
             t.HandleCreated += apply;
         }
@@ -244,33 +255,35 @@ namespace MissionPlanner.GCSViews
             base.OnPaint(e);
         }
 
-        // soft hills + pines along the bottom, like the banner in the design
+        // soft hills + pines along the bottom, like the banner in the design.
+        // Drawn inside the card (inset from the rounded corners) so no clipping is needed:
+        // the Android WinForms layer does not implement SetClip(GraphicsPath) / Save / Restore.
         private void DrawScenery(Graphics g, Rectangle r)
         {
-            var state = g.Save();
-            using (var clip = CdaTheme.Round(r, Radius))
-                g.SetClip(clip, CombineMode.Intersect);
             int h = r.Height;
+            int inset = Math.Max(Radius, 8);
+            int left = r.X + inset, right = r.Right - inset, w = right - left;
+            int bottom = r.Bottom - 2;
+
             using (var br = new SolidBrush(Color.FromArgb(70, 150, 124, 250)))
             {
                 var pts = new[]
                 {
-                    new Point(0, r.Bottom), new Point(0, r.Bottom - h / 3), new Point(r.Width / 8, r.Bottom - h / 2),
-                    new Point(r.Width / 4, r.Bottom - h / 4), new Point(r.Width * 3 / 4, r.Bottom - h / 4),
-                    new Point(r.Width * 7 / 8, r.Bottom - h / 2), new Point(r.Width, r.Bottom - h / 3), new Point(r.Width, r.Bottom)
+                    new Point(left, bottom), new Point(left, bottom - h / 3), new Point(left + w / 8, bottom - h / 2),
+                    new Point(left + w / 4, bottom - h / 4), new Point(left + w * 3 / 4, bottom - h / 4),
+                    new Point(left + w * 7 / 8, bottom - h / 2), new Point(right, bottom - h / 3), new Point(right, bottom)
                 };
                 g.FillPolygon(br, pts);
             }
             using (var br = new SolidBrush(Color.FromArgb(90, 108, 77, 246)))
             {
-                foreach (var x in new[] { 18, 34, 50, r.Width - 60, r.Width - 44, r.Width - 28 })
+                foreach (var x in new[] { left + 4, left + 20, left + 36, right - 60, right - 44, right - 28 })
                 {
                     int baseY = r.Bottom - 6;
                     g.FillPolygon(br, new[] { new Point(x, baseY), new Point(x + 8, baseY - 26), new Point(x + 16, baseY) });
                     g.FillPolygon(br, new[] { new Point(x + 2, baseY - 12), new Point(x + 8, baseY - 36), new Point(x + 14, baseY - 12) });
                 }
             }
-            g.Restore(state);
         }
     }
 

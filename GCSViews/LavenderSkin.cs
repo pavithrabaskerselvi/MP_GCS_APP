@@ -19,6 +19,28 @@ namespace MissionPlanner.GCSViews
     /// </summary>
     public static class LavenderSkin
     {
+        // ---------- Android (Mono WinForms) ----------
+        // Region clipping and transparent back colours are not implemented there.
+        public static readonly bool IsAndroid = DetectAndroid();
+
+        private static bool DetectAndroid()
+        {
+            try { return Type.GetType("Android.App.Application, Mono.Android") != null; }
+            catch { return false; }
+        }
+
+        // nearest opaque parent colour (used instead of Color.Transparent on Android)
+        public static Color Solid(Control c)
+        {
+            try
+            {
+                for (var p = c == null ? null : c.Parent; p != null; p = p.Parent)
+                    if (p.BackColor.A == 255) return p.BackColor;
+            }
+            catch { }
+            return PageBg;
+        }
+
         // ---------- Options ----------
         public static bool ChangeFonts = true;          // false if a label gets clipped
         public static bool EnableBackdrop = true;       // false = static background, no animation
@@ -344,7 +366,12 @@ namespace MissionPlanner.GCSViews
 
         private static void Back(Control c, Color col)
         {
-            try { if (c.BackColor != col) c.BackColor = col; } catch { }
+            try
+            {
+                if (IsAndroid && col == Color.Transparent) col = Solid(c);
+                if (c.BackColor != col) c.BackColor = col;
+            }
+            catch { }
         }
 
         private static void Fore(Control c, Color col)
@@ -484,6 +511,7 @@ namespace MissionPlanner.GCSViews
 
         private static void RoundCorners(Control c, int radius)
         {
+            if (IsAndroid) return;
             if (rounded.Add(c))
             {
                 ApplyRegion(c, radius);

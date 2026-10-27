@@ -164,26 +164,30 @@ namespace MissionPlanner.GCSViews
                 using (var br = new LinearGradientBrush(rect, CdaTheme.PrimaryDark, CdaTheme.PrimaryLight, 20f))
                     g.FillPath(br, path);
 
-                var state = g.Save();
-                g.SetClip(path, CombineMode.Intersect);
+                // Decorations are drawn fully inside the banner, so no clipping is needed.
+                // (The Android WinForms layer does not implement SetClip(GraphicsPath) / Save / Restore.)
+                int w = rect.Width, h = rect.Height;
 
                 // soft decorative circles
                 using (var br = new SolidBrush(Color.FromArgb(28, 255, 255, 255)))
                 {
-                    g.FillEllipse(br, Width - 210, -70, 260, 260);
-                    g.FillEllipse(br, Width - 330, 20, 150, 150);
+                    int d = Math.Max(40, h - 24);
+                    g.FillEllipse(br, w - d - 24, 12, d, d);
+                    int d2 = Math.Max(30, d / 2);
+                    g.FillEllipse(br, w - d - d2 - 40, h - d2 - 14, d2, d2);
                 }
-                // hills along the bottom-right
+
+                // hills along the bottom-right, kept 16px from the rounded corner
                 using (var br = new SolidBrush(Color.FromArgb(40, 255, 255, 255)))
                 {
-                    int bx = Math.Max(0, Width - 420), by = Height;
+                    int right = w - 16;
+                    int bx = Math.Max(16, right - 400), by = h - 1;
                     g.FillPolygon(br, new[]
                     {
                         new Point(bx, by), new Point(bx + 90, by - 34), new Point(bx + 150, by - 18),
-                        new Point(bx + 250, by - 50), new Point(bx + 340, by - 20), new Point(Width, by - 40), new Point(Width, by)
+                        new Point(bx + 250, by - 50), new Point(bx + 330, by - 20), new Point(right, by - 36), new Point(right, by)
                     });
                 }
-                g.Restore(state);
             }
 
             // icon badge

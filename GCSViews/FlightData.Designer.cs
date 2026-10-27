@@ -621,7 +621,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableLayoutPanelQuick
             // 
-            resources.ApplyResources(this.tableLayoutPanelQuick, "tableLayoutPanelQuick");
+            ApplyTableResources(resources, this.tableLayoutPanelQuick, "tableLayoutPanelQuick", "Percent,50,Percent,50", "Percent,33.33333,Percent,33.33333,Percent,33.33333");
             this.tableLayoutPanelQuick.Controls.Add(this.quickView6, 1, 2);
             this.tableLayoutPanelQuick.Controls.Add(this.quickView5, 0, 2);
             this.tableLayoutPanelQuick.Controls.Add(this.quickView4, 1, 1);
@@ -742,7 +742,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableLayoutPanel1
             // 
-            resources.ApplyResources(this.tableLayoutPanel1, "tableLayoutPanel1");
+            ApplyTableResources(resources, this.tableLayoutPanel1, "tableLayoutPanel1", "Percent,20,Percent,20,Percent,20,Percent,20,Percent,20", "Percent,20,Percent,20,Percent,20,Percent,20,Percent,20");
             this.tableLayoutPanel1.Controls.Add(this.BUT_SendMSG, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.BUT_abortland, 4, 4);
             this.tableLayoutPanel1.Controls.Add(this.modifyandSetLoiterRad, 4, 2);
@@ -2198,7 +2198,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableLayoutPaneltlogs
             // 
-            resources.ApplyResources(this.tableLayoutPaneltlogs, "tableLayoutPaneltlogs");
+            ApplyTableResources(resources, this.tableLayoutPaneltlogs, "tableLayoutPaneltlogs", "Absolute,91,AutoSize,0,Absolute,36", "Absolute,33,Absolute,33,Absolute,55");
             this.tableLayoutPaneltlogs.Controls.Add(this.panel2, 1, 2);
             this.tableLayoutPaneltlogs.Controls.Add(this.BUT_loadtelem, 0, 0);
             this.tableLayoutPaneltlogs.Controls.Add(this.lbl_playbackspeed, 2, 2);
@@ -2377,7 +2377,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableLayoutPanel2
             // 
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            ApplyTableResources(resources, this.tableLayoutPanel2, "tableLayoutPanel2", "Percent,33.33333,Percent,33.33333,Percent,33.33333", "Percent,33.33333,Percent,33.33333,Percent,33.33333");
             this.tableLayoutPanel2.Controls.Add(this.BUT_DFMavlink, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.BUT_georefimage, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.BUT_logbrowse, 1, 0);
@@ -2467,7 +2467,7 @@ namespace MissionPlanner.GCSViews
             // 
             // tableMap
             // 
-            resources.ApplyResources(this.tableMap, "tableMap");
+            ApplyTableResources(resources, this.tableMap, "tableMap", "Percent,100", "Percent,100,Absolute,25");
             this.tableMap.Controls.Add(this.splitContainer1, 0, 0);
             this.tableMap.Controls.Add(this.panel1, 0, 1);
             this.tableMap.Name = "tableMap";

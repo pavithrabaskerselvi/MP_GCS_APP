@@ -1,0 +1,533 @@
+10-10 11:55:16.043 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.056 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.056 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.057 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.057 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.058 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.058 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.059 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.059 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.059 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.059 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.060 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.060 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.060 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.065 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.065 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout: log4net:ERROR Exception while reading ConfigurationSettings. Check your .config file is well formed XML.
+10-10 11:55:16.093 20624 20624 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at System.Configuration.ConfigurationManager.get_AppSettings () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:16.093 20624 20624 V mono-stdout:   at log4net.Util.SystemInfo.GetAppSetting (System.String key) [0x00000] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:16.497 20624 20624 V mono-stdout: pi.ApplicationInfo.DataDir /data/user/0/com.michaeloborne.MissionPlanner
+10-10 11:55:16.497 20624 20624 V mono-stdout: pi.ApplicationInfo.NativeLibraryDir /data/app/~~RAeQ3UdnoRmB-b3CsrsFSw==/com.michaeloborne.MissionPlanner-h17E-quHL6N5wZ32NJuWrA==/lib/arm64
+10-10 11:55:16.498 20624 20624 V mono-stdout: pi.ApplicationInfo.DeviceProtectedDataDir /data/user_de/0/com.michaeloborne.MissionPlanner
+10-10 11:55:16.499 20624 20624 V mono-stdout: android.intent.action.MAIN
+10-10 11:55:16.501 20624 20624 V mono-stdout: android.util.ArraySet@e9e3465d
+10-10 11:55:16.501 20624 20624 V mono-stdout: 
+10-10 11:55:16.502 20624 20624 V mono-stdout: 
+10-10 11:55:16.502 20624 20624 V mono-stdout: 
+10-10 11:55:16.826 20624 20624 V mono-stdout: ScaledScreenSize {Width=748.5 Height=360}
+10-10 11:55:16.826 20624 20624 V mono-stdout: PixelScreenSize {Width=1497 Height=720}
+10-10 11:55:16.826 20624 20624 V mono-stdout: Final Size {Width=1122.75 Height=540}
+10-10 11:55:17.664 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 29MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:17.741 20624 20876 V mono-stdout: If your error is about Microsoft.DirectX.DirectInput, please install the latest directx redist from here http://www.microsoft.com/en-us/download/details.aspx?id=35 
+10-10 11:55:17.741 20624 20876 V mono-stdout: 
+10-10 11:55:17.741 20624 20876 V mono-stdout: 
+10-10 11:55:17.741 20624 20876 V mono-stdout: Debug under mono    MONO_LOG_LEVEL=debug mono MissionPlanner.exe
+10-10 11:55:17.741 20624 20876 V mono-stdout: To fix any filename case issues under mono use    export MONO_IOMAP=drive:case
+10-10 11:55:17.741 20624 20876 V mono-stdout: for pinvoke      MONO_LOG_LEVEL=debug MONO_LOG_MASK=dll mono MissionPlanner.exe
+10-10 11:55:17.741 20624 20876 V mono-stdout: watch -n 1 ls -l /proc/$(pidof mono)/fd
+10-10 11:55:17.741 20624 20876 V mono-stdout: watch -n 1 lsof -p $(pidof mono)
+10-10 11:55:17.741 20624 20876 V mono-stdout: Data Dir /storage/emulated/0/Android/data/com.michaeloborne.MissionPlanner/files/Mission Planner/
+10-10 11:55:17.743 20624 20876 V mono-stdout: Log Dir /storage/emulated/0/Android/data/com.michaeloborne.MissionPlanner/files/Mission Planner/logs
+10-10 11:55:17.743 20624 20876 V mono-stdout: Running Dir /storage/emulated/0/Android/data/com.michaeloborne.MissionPlanner/files/Mission Planner/
+10-10 11:55:17.743 20624 20876 V mono-stdout: User Data Dir /storage/emulated/0/Android/data/com.michaeloborne.MissionPlanner/files/Mission Planner/
+10-10 11:55:17.744 20624 20876 V mono-stdout: PlacesRecentDocuments Dir 
+10-10 11:55:17.746 20624 20876 V mono-stdout: PlacesDesktop Dir /data/user/0/com.michaeloborne.MissionPlanner/files/Desktop
+10-10 11:55:17.747 20624 20876 V mono-stdout: PlacesPersonal Dir /data/user/0/com.michaeloborne.MissionPlanner/files
+10-10 11:55:17.747 20624 20876 V mono-stdout: PlacesMyComputer Dir 
+10-10 11:55:17.766 20624 20876 V mono-stdout: log4net:ERROR Failed to parse config file. Is the <configSections> specified as: <section name="log4net" type="log4net.Config.Log4NetConfigurationSectionHandler,log4net, Version=2.0.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a" />
+10-10 11:55:17.767 20624 20876 V mono-stdout: System.Configuration.ConfigurationErrorsException: Configuration system failed to initialize ---> System.PlatformNotSupportedException: Operation is not supported on this platform.
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigPaths..ctor (System.String exePath, System.Boolean includeUserConfig) [0x00050] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigPaths.GetPaths (System.String exePath, System.Boolean includeUserConfig) [0x00018] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_ConfigPaths () [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigurationHost.GetStreamName (System.String configPath) [0x00070] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigurationHost.get_IsAppConfigHttp () [0x00000] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.Internal.DelegatingConfigHost.get_IsAppConfigHttp () [0x00006] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ClientConfigurationSystem..ctor () [0x00051] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:   at System.Configuration.ConfigurationManager.EnsureConfigurationSystem () [0x00024] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.767 20624 20876 V mono-stdout:    --- End of inner exception stack trace ---
+10-10 11:55:17.768 20624 20876 V mono-stdout:   at System.Configuration.ConfigurationManager.PrepareConfigSystem () [0x0001a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.768 20624 20876 V mono-stdout:   at System.Configuration.ConfigurationManager.GetSection (System.String sectionName) [0x0000a] in <5e0b1a6ce5ab4b58b237e0340576d796>:0 
+10-10 11:55:17.768 20624 20876 V mono-stdout:   at log4net.Config.XmlConfigurator.InternalConfigure (log4net.Repository.ILoggerRepository repository) [0x00052] in <20541644e1c640ba81674c554950971c>:0 
+10-10 11:55:17.775 20624 20876 V mono-stdout: [7] INFO  MissionPlanner.Program 29MB - ******************* Logging Configured *******************
+10-10 11:55:17.801 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 29MB - Loaded: System.Memory, Version=4.0.99.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51 from System.Memory.dll
+10-10 11:55:18.291 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:18.322 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:18.337 20624 20876 V mono-stdout: FocusIn name  type MissionPlanner.BackdropForm nw 2
+10-10 11:55:18.362 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.380 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:18.430 20624 20876 V mono-stdout: Splash .ctor
+10-10 11:55:18.430 20624 20876 V mono-stdout: IconFile
+10-10 11:55:18.432 20624 20876 V mono-stdout: Splash.Show()
+10-10 11:55:18.434 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:18.437 20624 20876 V mono-stdout: FocusIn name Splash type MissionPlanner.Splash nw 3
+10-10 11:55:18.437 20624 20876 V mono-stdout: Debugger.IsAttached False
+10-10 11:55:18.437 20624 20876 V mono-stdout: Application.DoEvents
+10-10 11:55:18.437 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.440 20624 20876 V mono-stdout: Application.DoEvents
+10-10 11:55:18.440 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.443 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.474 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.504 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.535 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.566 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.596 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.627 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.657 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.688 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.719 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.750 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.780 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.810 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.841 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.871 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.902 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.932 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.962 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:18.993 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.023 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.053 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.084 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.115 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.146 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.176 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.206 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.237 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.267 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.298 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.328 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.359 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.389 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.419 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.450 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.481 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.512 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.542 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.573 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.605 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.636 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.667 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.698 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.729 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.760 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.791 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.821 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.852 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.883 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.914 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.945 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:19.975 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.006 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.036 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.067 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.097 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.128 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.158 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.189 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.219 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.250 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.280 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.312 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.342 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.373 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.403 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.434 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.466 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.497 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.527 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.558 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.589 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.619 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.650 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.681 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.712 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.743 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.774 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.805 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.836 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.867 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.897 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.928 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.959 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:20.990 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.021 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.052 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.083 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.113 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.144 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.174 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.205 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.235 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.266 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.296 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.327 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.357 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.387 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.418 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:21.454 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.570 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.576 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.606 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.606 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.608 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.610 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.610 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.610 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.620 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.621 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.621 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:21.626 20624 20876 V mono-stdout: FocusIn name  type System.Windows.Forms.TextBox nw 15
+10-10 11:55:23.194 20624 20624 V mono-stdout: [1] DEBUG MissionPlanner.Program 32MB - Loaded: System.Numerics, Version=2.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 from System.Numerics.dll
+10-10 11:55:23.237 20624 20624 V mono-stdout: [1] DEBUG MissionPlanner.Program 32MB - Loaded: System.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=b77a5c561934e089 from System.Data.dll
+10-10 11:55:23.318 20624 20624 V mono-stdout: [1] DEBUG MissionPlanner.Program 32MB - Loaded: Anonymously Hosted DynamicMethods Assembly, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+10-10 11:55:23.375 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":1,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1123.56262,"LengthSquared":1262393.0,"X":1067.0,"Y":352.0},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:23.384 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":3,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1123.56262,"LengthSquared":1262393.0,"X":1067.0,"Y":352.0},"InContact":false,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:23.399 20624 20876 V mono-stdout: Posted message:WM_MOUSE_ENTER for 0xf
+10-10 11:55:23.399 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0xf
+10-10 11:55:23.401 20624 20876 V mono-stdout: Posted message:WM_LBUTTONDOWN for 0xf
+10-10 11:55:23.406 20624 20876 V mono-stdout: Posted message:WM_LBUTTONUP for 0xf
+10-10 11:55:24.739 20624 20624 V mono-stdout: TextChanged   s
+10-10 11:55:25.315 20624 20624 V mono-stdout: TextChanged  s sr
+10-10 11:55:25.858 20624 20624 V mono-stdout: TextChanged  sr sri
+10-10 11:55:29.079 20624 20624 V mono-stdout: TextChanged  sri sri@
+10-10 11:55:31.025 20624 20624 V mono-stdout: TextChanged  sri@ sri@g
+10-10 11:55:31.575 20624 20624 V mono-stdout: TextChanged  sri@g sri@gm
+10-10 11:55:32.623 20624 20624 V mono-stdout: TextChanged  sri@gm sri@gma
+10-10 11:55:33.262 20624 20624 V mono-stdout: TextChanged  sri@gma sri@gmai
+10-10 11:55:33.709 20624 20624 V mono-stdout: TextChanged  sri@gmai sri@gmail
+10-10 11:55:34.221 20624 20624 V mono-stdout: TextChanged  sri@gmail sri@gmail.
+10-10 11:55:34.858 20624 20624 V mono-stdout: TextChanged  sri@gmail. sri@gmail.c
+10-10 11:55:35.426 20624 20624 V mono-stdout: TextChanged  sri@gmail.c sri@gmail.co
+10-10 11:55:35.759 20624 20624 V mono-stdout: TextChanged  sri@gmail.co sri@gmail.com
+10-10 11:55:36.776 20624 20624 V mono-stdout: _inputView_Unfocused
+10-10 11:55:36.802 20624 20624 V mono-stdout: _inputView_Completed
+10-10 11:55:36.822 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:36.827 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:37.994 20624 20624 V mono-stdout: _inputView_Unfocused
+10-10 11:55:38.000 20624 20624 V mono-stdout: _inputView_Completed
+10-10 11:55:39.153 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":1,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1197.74792,"LengthSquared":1434600.0,"X":1110.0,"Y":450.0},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:39.175 20624 20876 V mono-stdout: Posted message:WM_MOUSELEAVE for 0xf
+10-10 11:55:39.176 20624 20876 V mono-stdout: Posted message:WM_MOUSE_ENTER for 0x12
+10-10 11:55:39.176 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0x12
+10-10 11:55:39.176 20624 20876 V mono-stdout: Posted message:WM_LBUTTONDOWN for 0x12
+10-10 11:55:39.189 20624 20876 V mono-stdout: FocusIn name  type System.Windows.Forms.TextBox nw 18
+10-10 11:55:39.211 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":2,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1199.15735,"LengthSquared":1437978.38,"X":1110.0,"Y":453.738281},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:39.225 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0x12
+10-10 11:55:39.226 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":2,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1202.4646,"LengthSquared":1445921.0,"X":1111.0,"Y":460.0},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:39.228 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":3,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1202.4646,"LengthSquared":1445921.0,"X":1111.0,"Y":460.0},"InContact":false,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:39.257 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0x12
+10-10 11:55:39.258 20624 20876 V mono-stdout: Posted message:WM_LBUTTONUP for 0x12
+10-10 11:55:40.732 20624 20624 V mono-stdout: TextChanged   1
+10-10 11:55:41.056 20624 20624 V mono-stdout: TextChanged  1 12
+10-10 11:55:41.406 20624 20624 V mono-stdout: TextChanged  12 123
+10-10 11:55:41.756 20624 20624 V mono-stdout: TextChanged  123 1234
+10-10 11:55:42.155 20624 20624 V mono-stdout: TextChanged  1234 12345
+10-10 11:55:42.559 20624 20624 V mono-stdout: TextChanged  12345 123456
+10-10 11:55:42.991 20624 20624 V mono-stdout: TextChanged  123456 1234567
+10-10 11:55:43.286 20624 20624 V mono-stdout: TextChanged  1234567 12345678
+10-10 11:55:44.156 20624 20624 V mono-stdout: _inputView_Unfocused
+10-10 11:55:44.160 20624 20624 V mono-stdout: _inputView_Completed
+10-10 11:55:44.174 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:44.175 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:44.987 20624 20624 V mono-stdout: _inputView_Unfocused
+10-10 11:55:44.995 20624 20624 V mono-stdout: _inputView_Completed
+10-10 11:55:45.758 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":1,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1382.19568,"LengthSquared":1910465.0,"X":1256.0,"Y":577.0},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:45.768 20624 20876 V mono-stdout: Posted message:WM_MOUSELEAVE for 0x12
+10-10 11:55:45.768 20624 20876 V mono-stdout: Posted message:WM_MOUSE_ENTER for 0x15
+10-10 11:55:45.769 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0x15
+10-10 11:55:45.770 20624 20876 V mono-stdout: Posted message:WM_LBUTTONDOWN for 0x15
+10-10 11:55:45.770 20624 20876 V mono-stdout: FocusIn name  type MissionPlanner.CdaRoundButton nw 21
+10-10 11:55:45.836 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":3,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":1382.19568,"LengthSquared":1910465.0,"X":1256.0,"Y":577.0},"InContact":false,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:45.865 20624 20876 V mono-stdout: Posted message:WM_LBUTTONUP for 0x15
+10-10 11:55:47.061 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.061 20624 20876 V mono-stdout: Checking control:0x4
+10-10 11:55:47.061 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.061 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.061 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.061 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.061 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.061 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x5
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x6
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.062 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.062 20624 20876 V mono-stdout: Checking control:0x7
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.063 20624 20876 V mono-stdout: Checking control:0x8
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.063 20624 20876 V mono-stdout: Checking control:0x9
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.063 20624 20876 V mono-stdout: Checking control:0xa
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.063 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.063 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.063 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.064 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0xb
+10-10 11:55:47.064 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0xc
+10-10 11:55:47.064 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0xd
+10-10 11:55:47.064 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0xe
+10-10 11:55:47.064 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.064 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.065 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.065 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.065 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.065 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.065 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.065 20624 20876 V mono-stdout: Checking control:0xf
+10-10 11:55:47.065 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.065 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.065 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.066 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x10
+10-10 11:55:47.066 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x11
+10-10 11:55:47.066 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.066 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.066 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.066 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.067 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.067 20624 20876 V mono-stdout: Checking control:0x12
+10-10 11:55:47.067 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.067 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.067 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.067 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:47.067 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.067 20624 20876 V mono-stdout: Checking control:0x13
+10-10 11:55:47.067 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.067 20624 20876 V mono-stdout: Checking control:0x14
+10-10 11:55:47.068 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.068 20624 20876 V mono-stdout: Checking control:0x15
+10-10 11:55:47.068 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:47.068 20624 20876 V mono-stdout: Checking control:0x16
+10-10 11:55:47.076 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:47.090 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:47.091 20624 20876 V mono-stdout: FocusIn name  type MissionPlanner.CdaTile nw 25
+10-10 11:55:49.724 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":1,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":812.8007,"LengthSquared":660645.0,"X":591.0,"Y":558.0},"InContact":true,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:49.751 20624 20876 V mono-stdout: Posted message:WM_MOUSE_ENTER for 0x1f
+10-10 11:55:49.752 20624 20876 V mono-stdout: Posted message:WM_MOUSEMOVE for 0x1f
+10-10 11:55:49.752 20624 20876 V mono-stdout: Posted message:WM_LBUTTONDOWN for 0x1f
+10-10 11:55:49.752 20624 20876 V mono-stdout: FocusIn name  type MissionPlanner.CdaPillButton nw 31
+10-10 11:55:49.819 20624 20624 V mono-stdout: {"Handled":false,"Id":0,"ActionType":3,"DeviceType":0,"MouseButton":1,"Location":{"IsEmpty":false,"Length":812.8007,"LengthSquared":660645.0,"X":591.0,"Y":558.0},"InContact":false,"WheelDelta":0,"Pressure":1.0}
+10-10 11:55:49.846 20624 20876 V mono-stdout: Posted message:WM_LBUTTONUP for 0x1f
+10-10 11:55:49.854 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.854 20624 20876 V mono-stdout: Checking control:0x17
+10-10 11:55:49.854 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.854 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:49.854 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.854 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:49.855 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.855 20624 20876 V mono-stdout: Checking control:0x0
+10-10 11:55:49.855 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.855 20624 20876 V mono-stdout: Checking control:0x18
+10-10 11:55:49.855 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.855 20624 20876 V mono-stdout: Checking control:0x19
+10-10 11:55:49.855 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.855 20624 20876 V mono-stdout: Checking control:0x1a
+10-10 11:55:49.856 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.856 20624 20876 V mono-stdout: Checking control:0x1b
+10-10 11:55:49.856 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.856 20624 20876 V mono-stdout: Checking control:0x1c
+10-10 11:55:49.856 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.856 20624 20876 V mono-stdout: Checking control:0x1d
+10-10 11:55:49.856 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.856 20624 20876 V mono-stdout: Checking control:0x1e
+10-10 11:55:49.857 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.857 20624 20876 V mono-stdout: Checking control:0x1f
+10-10 11:55:49.857 20624 20876 V mono-stdout: XplatUIMine.AccumulateDestroyedHandles
+10-10 11:55:49.857 20624 20876 V mono-stdout: Checking control:0x20
+10-10 11:55:49.859 20624 20876 V mono-stdout: FocusIn name Splash type MissionPlanner.Splash nw 3
+10-10 11:55:49.862 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:49.905 20624 20876 V mono-stdout: Setup GMaps 1
+10-10 11:55:49.918 20624 20876 V mono-stdout: Setup GMaps 2
+10-10 11:55:49.920 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.921 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.922 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.923 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.924 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.924 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.925 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.926 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.927 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.928 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.929 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.930 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.930 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.931 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.932 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.933 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.934 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.935 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.936 20624 20876 V mono-stdout: [7] DEBUG MissionPlanner.Program 32MB - TypeResolve Failed: Xamarin.Android.Net.AndroidClientHandler from 
+10-10 11:55:49.992 20624 20876 V mono-stdout: [7] INFO  MissionPlanner.Program 32MB - {"Model":"2411DRN47I","Manufacturer":"Xiaomi","Name":"Redmi 14C 5G","VersionString":"14","Version":{"Major":14,"Minor":0,"Build":-1,"Revision":-1,"MajorRevision":-1,"MinorRevision":-1},"Platform":{},"Idiom":{},"DeviceType":1}
+10-10 11:55:49.992 20624 20876 V mono-stdout: Setup GoogleMapProvider API
+10-10 11:55:49.992 20624 20876 V mono-stdout: Setup Tracking.productName
+10-10 11:55:49.995 20624 20876 V mono-stdout: Setup Tracking.primaryScreenBitsPerPixel
+10-10 11:55:49.995 20624 20876 V mono-stdout: Setup Settings.Instance.UserAgent
+10-10 11:55:49.995 20624 20876 V mono-stdout: Setup check gdal dir
+10-10 11:55:49.995 20624 20876 V mono-stdout: Setup proxy
+10-10 11:55:50.004 20624 20876 V mono-stdout: Setup proxy
+10-10 11:55:50.004 20624 20876 V mono-stdout: Setup CleanupFiles
+10-10 11:55:50.018 20624 20876 V mono-stdout: [7] INFO  MissionPlanner.Program 32MB - 64bit os True, 64bit process True, OS Arch Arm64, OS Desc Unix 5.10.226.12, FW Desc Mono 6.12.0 (2020-02/d9a6e8710b3)
+10-10 11:55:50.019 20624 20876 V mono-stdout: [7] INFO  MissionPlanner.Program 32MB - Runtime Version v4.0.30319
+10-10 11:55:50.019 20624 20876 V mono-stdout: Application.Run(new MainV2())
+10-10 11:55:50.058 20624 20876 V mono-stdout: FromHwnd
+10-10 11:55:50.058 20624 20876 V mono-stdout: [Base Thread] INFO  MissionPlanner.MainV2 32MB - Mainv2 ctor
+10-10 11:55:50.058 20624 20876 V mono-stdout: [Base Thread] INFO  MissionPlanner.MainV2 32MB - Loading config
+10-10 11:55:50.060 20624 20876 V mono-stdout: [Base Thread] INFO  MissionPlanner.MAVLinkInterface 32MB - Subscribed .ctor at offset 0 in file:line:column <filename unknown>:0:0 adsb_UpdatePlanePosition MainV2 System.EventHandler`1[MissionPlanner.Utilities.adsb+PointLatLngAltHdg]
+10-10 11:55:50.061 20624 20876 V mono-stdout: [Base Thread] INFO  MissionPlanner.MAVLinkInterface 32MB - Subscribed .ctor at offset 0 in file:line:column <filename unknown>:0:0 <.ctor>b__106_0 MainV2 System.EventHandler`1[System.ValueTuple`2[System.String,MAVLink+MAV_COLLISION_THREAT_LEVEL]]
+10-10 11:55:50.064 20624 20876 V mono-stdout: XplatUIMine.DoEvents
+10-10 11:55:50.171 20624 20876 V mono-stdout: [Base Thread] FATAL MissionPlanner.Program 32MB - Fatal app exception
+10-10 11:55:50.171 20624 20876 V mono-stdout: System.NotSupportedException: TypeConverter cannot convert from System.String.
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.GetConvertFromException (System.Object value) [0x0003e] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFrom (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, System.Object value) [0x00011] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFromString (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, System.String text) [0x00000] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFromInvariantString (System.String text) [0x00007] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.DeserializeObject (System.Int32 typeIndex) [0x0015a] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader._LoadObjectV2 (System.Int32 pos, System.Resources.ResourceTypeCode& typeCode) [0x0033f] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.LoadObjectV2 (System.Int32 pos, System.Resources.ResourceTypeCode& typeCode) [0x00000] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.LoadObject (System.Int32 pos) [0x00011] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader+ResourceEnumerator.get_Entry () [0x000c4] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader+ResourceEnumerator.get_Current () [0x00000] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x0006c] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x00024] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x00024] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName, System.Globalization.CultureInfo culture) [0x00039] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName) [0x00000] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at MissionPlanner.MainV2.InitializeComponent () [0x0011e] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at MissionPlanner.MainV2..ctor () [0x0028e] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at (wrapper remoting-invoke-with-check) MissionPlanner.MainV2..ctor()
+10-10 11:55:50.171 20624 20876 V mono-stdout:   at MissionPlanner.Program.Start (System.String[] args) [0x00e77] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout: System.NotSupportedException: TypeConverter cannot convert from System.String.
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.GetConvertFromException (System.Object value) [0x0003e] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFrom (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, System.Object value) [0x00011] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFromString (System.ComponentModel.ITypeDescriptorContext context, System.Globalization.CultureInfo culture, System.String text) [0x00000] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.TypeConverter.ConvertFromInvariantString (System.String text) [0x00007] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.DeserializeObject (System.Int32 typeIndex) [0x0015a] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader._LoadObjectV2 (System.Int32 pos, System.Resources.ResourceTypeCode& typeCode) [0x0033f] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.LoadObjectV2 (System.Int32 pos, System.Resources.ResourceTypeCode& typeCode) [0x00000] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader.LoadObject (System.Int32 pos) [0x00011] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader+ResourceEnumerator.get_Entry () [0x000c4] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.Resources.Extensions.DeserializingResourceReader+ResourceEnumerator.get_Current () [0x00000] in <9e0c46f8e5bb4f40ae8cf4d8c19695f2>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x0006c] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x00024] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.FillResources (System.Globalization.CultureInfo culture, System.Resources.ResourceSet& resourceSet) [0x00024] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName, System.Globalization.CultureInfo culture) [0x00039] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at System.ComponentModel.ComponentResourceManager.ApplyResources (System.Object value, System.String objectName) [0x00000] in <71e78ea04782456a9a4e3e211cdabfc0>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at MissionPlanner.MainV2.InitializeComponent () [0x0011e] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at MissionPlanner.MainV2..ctor () [0x0028e] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at (wrapper remoting-invoke-with-check) MissionPlanner.MainV2..ctor()
+10-10 11:55:50.172 20624 20876 V mono-stdout:   at MissionPlanner.Program.Start (System.String[] args) [0x00e77] in <b4b859f8a1af49d78fa0a95074a02dcb>:0 
+10-10 11:55:50.172 20624 20876 V mono-stdout: 
+10-10 11:55:50.172 20624 20876 V mono-stdout: Press any key to exit!
